@@ -2,7 +2,7 @@ List of Minutes for group XX:
 
 !! Below is an example - replace with details of actual minutes
 
-1. 13_09_31_weekly.txt
-2. …..
-3. Meeting 3.txt
+1. 01_11_13_Meeting 3.txt
+2. 01_11_13_Meeting 4.txt
+3. 01_11_13_Meeting 5.txt
 
