@@ -3,9 +3,9 @@
 
 import os
 
-minutes_list = ["List of minutes for Group 10", "---------------------------"]
+minutes_list = ["List of minutes for Group 10\n", "---------------------------\n"]
 minutes_number = 0
-for filename in os.listdir("./Minutes"):
+for filename in sorted(os.listdir("./Minutes")):
     if os.path.isdir(filename):
         continue
 
