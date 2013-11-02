@@ -10,7 +10,7 @@ for filename in sorted(os.listdir("./Minutes")):
         continue
 
     minutes_number += 1
-    line = ("  * [Meeting {0}]({1})\n".format(minutes_number, filename))
+    line = ("  * [Meeting {0}](Minutes/{1})\n".format(minutes_number, filename))
     minutes_list.append(line)
 
 with open("minute_list.md", 'w') as f:
