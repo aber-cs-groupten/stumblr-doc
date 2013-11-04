@@ -1,0 +1,151 @@
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Modified by:
+% Charles Newey (http://assemblyco.de)
+%----------------------------------------
+
+% Declare document
+\documentclass{article}
+
+% Packages
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Custom colours
+\usepackage{graphicx} % Images
+\usepackage{tabularx} % Tables
+\usepackage{listings} % Code highlighting/insertion
+\usepackage[colorlinks]{hyperref} % For URLs
+\usepackage{inconsolata} % Can also use {courier}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{Charles Callum Newey} % Top left header
+\chead{CS22120: Group Project} % Top center head
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\renewcommand{\refname}{} % Removes bibliography title
+
+% Java colours from: http://texblog.org/2011/06/11/latex-syntax-highlighting-examples/
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75} % javadoc
+
+\lstset{language=Java,
+basicstyle=\ttfamily,
+keywordstyle=\color{javapurple}\bfseries,
+stringstyle=\color{javared},
+commentstyle=\color{javagreen},
+morecomment=[s][\color{javadocblue}]{/**}{*/},
+numbers=left,
+numberstyle=\tiny\color{black},
+stepnumber=5,
+numbersep=10pt,
+tabsize=4,
+showspaces=false,
+showstringspaces=false}
+
+% Title page
+\title{
+\vspace{2in}
+\textmd{\textbf{CS22120: Group Project}}\\
+\normalsize\vspace{0.1in}\small{Due}\\
+\vspace{0.1in}\large{\textit{Some Date in 2014}}
+\vspace{3in}
+}
+
+\author{\textbf{Charles Callum Newey (ccn4)}}
+\date{}
+
+% Make title page, ToC and other introductory elements
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+% Begin the actual document
+% Design
+\begin{section}{Design}
+	\begin{subsection}{Data Structure Design}
+		\bf{Sample text}
+	\end{subsection}
+	
+	\begin{subsection}{Class Overview}
+		\begin{figure}[h!]
+			\caption{A picture of a cat.}
+			\begin{center}
+				\includegraphics[width=0.5\columnwidth]{images/lolcat.jpg}
+			\end{center}
+		\end{figure}
+	\end{subsection}
+\end{section}
+
+\begin{section}{Algorithm Design}
+	\begin{subsection}{Main algorithm}
+		Lorem ipsum
+	\end{subsection}
+\end{section}
+
+% Testing
+\begin{section}{Testing}
+	\begin{subsection}{Test Table}		
+		\begin{tabularx}{\linewidth}{| p{4.2cm} | X | X | X |}
+			\hline
+			{\bf Method Tested} & {\bf Data Tested} & {\bf Expected Output} & {\bf Pass} \\
+			\hline
+			Cell.populate() & Standard & {1, 2, 3, 4, 5, 6, 7, 8, 9} & Yes \\
+			\hline
+		\end{tabularx}
+	\end{subsection}
+\end{section}
+
+% Include Java code
+\newpage
+\begin{section}{Java Code}
+	\begin{subsection}{Code inclusion}
+		\lstinputlisting[language=Java]{code/sample.java}
+	\end{subsection}
+\end{section}
+\newpage
+
+% References
+\nocite{LaTeXTemplate}
+
+% Format bibliography/refs
+\newpage
+\begin{section}{References}
+	\bibliographystyle{acm}
+	\bibliography{References}
+\end{section}
+\end{document}
+%									Useful bits and pieces
+%\begin{section}{section_name}										% Start section
+%\end{section}														% End section
+%\begin{center} \end{center}											% Center stuff
+%\includegraphics[width=0.75\columnwidth]{example_figure}				% Insert image
+%\pseudocode{filename}{caption}										% Insert highlighted code snippet
+%\clearpage															% Clear page after section
+%\url{http://www.google.com/}										% Include URL
+%\nocite{citationName}												% Cite to bibliography but not text
+%\cite{citationName}													% Include reference
