@@ -125,7 +125,7 @@ This document will show we have managed to simplify these into a set of manageab
 		\end{subsection}
 	
 		\begin{subsection}{Scope}
-			This document should take into account the specifications of the project. This document includes an overview of our proposed systems - which will encompass our choice of platforms, some high-level architectures and a description of prospective users. The document also contains; a use case diagram giving an overview of how the app and the web systems will interact, mock-ups and a description of the UI design and how both applications will interact with the user, a Gantt chart which displays the start and end dates for the main milestones of the project, and a risk analysis for the project.
+			This document should take into account the specifications of the project. This document includes an overview of our proposed systems - which will encompass our choice of platforms, some high-level architectures and a description of prospective users. The document also contains; a use case diagram giving an overview of how the app and the web systems will interact, mock-ups and descriptions of the UI design and how both applications will interact with the user, a Gantt chart which displays the start and end dates for the main milestones, and a risk analysis for the project.
 		\end{subsection}
 		
 		\begin{subsection}{Objectives}
@@ -171,6 +171,13 @@ This document will show we have managed to simplify these into a set of manageab
 		\begin{subsection}{Core Website Functionality}
 			\bf{Sample text}
 		\end{subsection}
+	\end{section}
+	
+	\newpage
+	\begin{section}{GANTT CHART}
+		\begin{center}
+		\includegraphics[height=0.69\columnwidth, angle=90]{images/GanttChart/Gantt_Chart.jpg}
+		\end{center}
 	\end{section}
 	
 	\newpage
@@ -237,7 +244,124 @@ This document will show we have managed to simplify these into a set of manageab
 				\hline
 			\end{tabularx}
 		\end{subsection}
+	\end{section}
 	
+	\begin{section}{USE CASES}
+		\begin{subsection}{Overview of Use Cases}
+			\begin{subsubsection}{Core Functionality}
+				The "core functionality" sections represent the highest priority features for the project, and will be the bare minimum functionality that the project will contain.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Extended Functionality}
+				The "extended functionality" sections represent the lower priority features, that will be implemented within the project if time permits.			
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Android - Core Functionality}
+			\begin{subsubsection}{Create Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.55\columnwidth]{images/UseCase/Android/Core/CreateRoute.png}
+					\end{center}
+					\caption{A user wants to create a new walk. The user will progress from the main screen to the "create route" screen, and fill in the route title, a short description (a tagline), and a long description. From there, the user can progress to recording the route.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{Record Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.75\columnwidth]{images/UseCase/Android/Core/RecordRoute.png}
+					\end{center}
+					\caption{At each location (or waypoint) that the user chooses, they will retrieve their phone and enter the name and a description for the location. A photo can also be chosen from the gallery or taken using the camera - and then added to the waypoint. From this screen, the user can choose to complete the recording session, or cancel it entirely. The Android device will automate the task of fetching GPS coordinates and attaching a timestamp to each entry.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{Complete Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.7\columnwidth]{images/UseCase/Android/Core/CompleteRoute.png}
+					\end{center}
+					\caption{After the user has entered all of the locations that they wish to add and elected to complete the recording, they will be presented with several choices. They can upload the changes to the server (this will be handled by the Android system), saving the walk for later, discarding the walk entirely, or amending the recording - in case a mistake was made. The Android system will also be able to cache the recording for later upload (in the case of no signal, or other upload errors). The user will also be able to create a new route from this screen.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{System}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.55\columnwidth]{images/UseCase/Android/Core/System.png}
+					\end{center}
+					\caption{The user will be able to view or change their default settings and create a route from this screen. The application will also be able to handle context switching (i.e. switching to another app) and the application will be able to handle exits safely.}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Android - Extended Functionality}
+			\begin{subsubsection}{Create Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/CompleteRoute_Extended.png}
+					\end{center}
+					\caption{The user will be able to 'tag' their walk(s) with keywords to aid searching on the website. The user will be able to create a Facebook event (through a Facebook app), and invite friends to such an event. Another function available would be to generate a QR code to the Facebook event URL, to help the user share the event effectively.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Record Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/RecordRoute_Extended.png}
+					\end{center}
+					\caption{The user will be able to add a 'top tip' for every location; for example, a favourite drink or best place to sit. The user will also be able to choose 'rules' for each location for the followers of the walk - so as to allow the participants of the walk to play a game, or complete a challenge.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{Complete Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/CompleteRoute_Extended.png}
+					\end{center}
+					\caption{The user will be able to choose to share the create event on Facebook using a Facebook app, as well as sharing the QR code generated earlier.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\begin{subsubsection}{System}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/System_Extended.png}
+					\end{center}
+					\caption{The user will be able to integrate the application with their Facebook account (using a Facebook app and OAuth authentication).}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Website - Core Functionality}
+			\begin{subsubsection}{System}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.75\columnwidth]{images/UseCase/Website/Core/Website.png}
+					\end{center}
+					\caption{When the page loads, the user will be prompted with a list of walks to load. This will be achieved by the webpage querying the database - the database will provide the information and display it to the user in the browser. The user will be able to open a walk using the web interface, and this will request the walk's information from the database and cause the browser to display the information for each walk on a map. Upon the user clicking a waypoint on the map, the information for each waypoint will be fetched from the database and displayed onscreen.}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Website - Extended Functionality}
+			\begin{subsubsection}{System}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.75\columnwidth]{images/UseCase/Website/Extended/Website.png}
+					\end{center}
+					\caption{The user will be able to search for walks within the browser, which will search through the database and display the matching walks. The user will also be able to share walks on Facebook using a Facebook app.}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
 	\end{section}
 
 	% Include references here (edit the References.bib file)
