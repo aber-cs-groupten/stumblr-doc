@@ -143,24 +143,61 @@ This document will show we have managed to simplify these into a set of manageab
 
 	\newpage
 	\begin{section}{SYSTEM OVERVIEW}
-		\begin{subsection}{Platforms and High Level Architecture}
-			\bf{Sample text}
-		\end{subsection}
-		
-		\begin{subsection}{Target Users}
-			\bf{Sample text}
+		\begin{subsection}{Introduction}
+			Our proposed system is an application that will allow the user to create guided tour, with waypoints that include photographs and descriptions. We will implement the ability to record new routes via an Android interface and view previously recorded routes via a web interface.
 		\end{subsection}
 		
 		\begin{subsection}{Client and Server Structure}
-			\bf{Sample text}
-			Include stuff about protocol, yada yada
+			The server will use a MySQL database as backend and a PHP/HTML/JavaScript frontend, and the project will use Java as an Android 
+		\end{subsection}
+	\end{section}
+	
+	\begin{section}{Platforms and High Level Architecture}
+		\begin{subsection}{Mobile Architecture}
+			\begin{subsubsection}{Operating System}
+				It is stated in the specification set by the client that the system is to be designed for Android mobile phones.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Location Derivation}
+				The user's location will primarily be derived over GPS, but also may be derived from WiFi and Cell network, using Google's Location API, a functionality which is present within Android.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Connectivity}
+				The application will need to use several aspects of a mobile phone's connectivity - for a start, when the user is creating a walk, each waypoint will need to be marked with GPS coordinates. Then a further functional requirement specifies that the application must be able to upload each route in an HTTP POST to a remote server. This obviously requires the utilisation of internet connectivity - the application will support uploading over both WiFi (or 802.11 Wireless LAN) and over the mobile network. \\
+				
+				Being able to upload over WiFi and the mobile network introduces problems with the upload of the "route package" - uploading over the mobile network will take considerably longer than over WiFi, not to mention increasing the impact on the user's battery life. Because of this the system will be designed to alter the size and quality of each image within the route package, based on connection type. If the mobile network is being used (rather than WiFi), then the images will be "shrunk" in size and the JPEG compression will be slightly increased to compensate for the connection difference. \\
+				
+				The problem of connection instability must also be addressed. The application must be robust enough to reliably deliver a finished route over HTTP - a problem when using a mobile network or WiFi. The application will be able to handle connection outages and instability, and subsequently resume or retry transmission when a stable connection is restored.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Usage of Other Hardware}
+				The application must be able to attach photos for each waypoint along the route. These photos will be accessible either through the device's camera, or through the device's gallery. This means that some Android API calls must be used to be able to access the camera functionality and the device's filesystem.
+			\end{subsubsection}
+		\end{subsection}
+		
+		\begin{subsection}{Web Architecture}
+			\begin{subsubsection}{Server-Side Scripting}
+				PHP is the chosen server-side scripting language. It is sufficiently fast and light enough to serve our needs, and has a reputation for stability. PHP is also excellent for HTML page generation, MySQL database integration, and page updating via asynchronous technologies like AJAX.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Client-Side Scripting}
+				For more dynamic areas of the web interface, and client-side access to some of the APIs provided by Google, we will be using Javascript. As part of the extended functionality there may also be AJAX implemented in the web interface, which will help the user retrieve walks from a search function.
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Database}
+				MySQL is a popular and widely used database platform which will be used to store the data from each route. This will be used as a backend for both the Android application's upload function, and the web interface.
+			\end{subsubsection}			
+			
+			\begin{subsubsection}{APIs}
+				A large part of the web interface's codebase will revolve around generating a map with the Google Maps API. The API will allow us to dynamically generate a map containing the waypoints for each route.
+			\end{subsubsection}
 		\end{subsection}
 	\end{section}
 	
 	\newpage
 	\begin{section}{GANTT CHART}
 		\begin{center}
-		\includegraphics[height=0.69\columnwidth, angle=90]{images/GanttChart/Gantt_Chart.jpg}
+		\includegraphics[height=0.69\columnwidth, angle=90]{../Diagrams/GanttChart/GanttChart.jpg}
 		\end{center}
 	\end{section}
 	
@@ -246,7 +283,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Create Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.55\columnwidth]{images/UseCase/Android/Core/CreateRoute.png}
+						\includegraphics[height=0.55\columnwidth]{../Diagrams/UseCase/Android/Core/CreateRoute.png}
 					\end{center}
 					\caption{A user wants to create a new walk. The user will progress from the main screen to the "create route" screen, and fill in the route title, a short description (a tagline), and a long description. From there, the user can progress to recording the route.}
 				\end{figure}
@@ -256,7 +293,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Record Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.75\columnwidth]{images/UseCase/Android/Core/RecordRoute.png}
+						\includegraphics[height=0.75\columnwidth]{../Diagrams/UseCase/Android/Core/RecordRoute.png}
 					\end{center}
 					\caption{At each location (or waypoint) that the user chooses, they will retrieve their phone and enter the name and a description for the location. A photo can also be chosen from the gallery or taken using the camera - and then added to the waypoint. From this screen, the user can choose to complete the recording session, or cancel it entirely. The Android device will automate the task of fetching GPS coordinates and attaching a timestamp to each entry.}
 				\end{figure}
@@ -266,7 +303,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Complete Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.7\columnwidth]{images/UseCase/Android/Core/CompleteRoute.png}
+						\includegraphics[height=0.7\columnwidth]{../Diagrams/UseCase/Android/Core/CompleteRoute.png}
 					\end{center}
 					\caption{After the user has entered all of the locations that they wish to add and elected to complete the recording, they will be presented with several choices. They can upload the changes to the server (this will be handled by the Android system), saving the walk for later, discarding the walk entirely, or amending the recording - in case a mistake was made. The Android system will also be able to cache the recording for later upload (in the case of no signal, or other upload errors). The user will also be able to create a new route from this screen.}
 				\end{figure}
@@ -276,7 +313,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{System}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.55\columnwidth]{images/UseCase/Android/Core/System.png}
+						\includegraphics[height=0.55\columnwidth]{../Diagrams/UseCase/Android/Core/System.png}
 					\end{center}
 					\caption{The user will be able to view or change their default settings and create a route from this screen. The application will also be able to handle context switching (i.e. switching to another app) and the application will be able to handle exits safely.}
 				\end{figure}
@@ -288,7 +325,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Create Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/CreateRoute_Extended.png}
+						\includegraphics[height=0.55\columnwidth]{../Diagrams/UseCase/Android/Extended/CreateRoute_Extended.png}
 					\end{center}
 					\caption{The user will be able to 'tag' their walk(s) with keywords to aid searching on the website. The user will be able to create a Facebook event (through a Facebook app), and invite friends to such an event. Another function available would be to generate a QR code to the Facebook event URL, to help the user share the event effectively.}
 				\end{figure}
@@ -297,7 +334,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Record Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/RecordRoute_Extended.png}
+						\includegraphics[height=0.3\columnwidth]{../Diagrams/UseCase/Android/Extended/RecordRoute_Extended.png}
 					\end{center}
 					\caption{The user will be able to add a 'top tip' for every location; for example, a favourite drink or best place to sit. The user will also be able to choose 'rules' for each location for the followers of the walk - so as to allow the participants of the walk to play a game, or complete a challenge.}
 				\end{figure}
@@ -307,7 +344,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Complete Route}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/CompleteRoute_Extended.png}
+						\includegraphics[height=0.3\columnwidth]{../Diagrams/UseCase/Android/Extended/CompleteRoute_Extended.png}
 					\end{center}
 					\caption{The user will be able to choose to share the create event on Facebook using a Facebook app, as well as sharing the QR code generated earlier.}
 				\end{figure}
@@ -316,7 +353,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{System}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.3\columnwidth]{images/UseCase/Android/Extended/System_Extended.png}
+						\includegraphics[height=0.3\columnwidth]{../Diagrams/UseCase/Android/Extended/System_Extended.png}
 					\end{center}
 					\caption{The user will be able to integrate the application with their Facebook account (using a Facebook app and OAuth authentication).}
 				\end{figure}
@@ -328,7 +365,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{System}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.75\columnwidth]{images/UseCase/Website/Core/Website.png}
+						\includegraphics[height=0.75\columnwidth]{../Diagrams/UseCase/Website/Core/Website.png}
 					\end{center}
 					\caption{When the page loads, the user will be prompted with a list of walks to load. This will be achieved by the webpage querying the database - the database will provide the information and display it to the user in the browser. The user will be able to open a walk using the web interface, and this will request the walk's information from the database and cause the browser to display the information for each walk on a map. Upon the user clicking a waypoint on the map, the information for each waypoint will be fetched from the database and displayed onscreen.}
 				\end{figure}
@@ -340,9 +377,63 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{System}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.75\columnwidth]{images/UseCase/Website/Extended/Website.png}
+						\includegraphics[height=0.75\columnwidth]{../Diagrams/UseCase/Website/Extended/Website.png}
 					\end{center}
 					\caption{The user will be able to search for walks within the browser, which will search through the database and display the matching walks. The user will also be able to share walks on Facebook using a Facebook app.}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
+	\end{section}
+	
+	\clearpage
+	\begin{section}{USER INTERFACE DESIGNS}
+		\begin{subsection}{Android Interface Designs}
+			\begin{subsubsection}{Main Screen}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/homeScreen.png}
+					\end{center}
+					\caption{Description from Ashley TBC}
+				\end{figure}
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Create Route Screen}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/routeContent.png}
+					\end{center}
+					\caption{Description from Ashley TBC}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{Location Information}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/locationInfo.png}
+					\end{center}
+					\caption{Description from Ashley TBC}
+				\end{figure}
+			\end{subsubsection}
+			
+			\begin{subsubsection}{Route Information}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/routeInfo.png}
+					\end{center}
+					\caption{Description from Ashley TBC}
+				\end{figure}
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Web Interface Designs}
+			\begin{subsubsection}{Main Web Interface}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.55\columnwidth]{../Diagrams/WebUserInterface/WebUI.png}
+					\end{center}
+					\caption{Description from Stephen TBC}
 				\end{figure}
 			\end{subsubsection}
 		\end{subsection}
