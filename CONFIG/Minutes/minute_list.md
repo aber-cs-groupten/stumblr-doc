@@ -1,7 +1,8 @@
 List of minutes for Group 10
 ---------------------------
-  * [Meeting 1](Minutes/Meeting 1)
-  * [Meeting 2](Minutes/Meeting 2)
-  * [Meeting 3](Minutes/Meeting 3)
-  * [Meeting 4](Minutes/Meeting 4)
-  * [Meeting 5](Minutes/Meeting 5)
+  * [Meeting 1](Minutes/2013-10-11_minutes)
+  * [Meeting 2](Minutes/2013-10-18_minutes)
+  * [Meeting 3](Minutes/2013-10-25_minutes)
+  * [Meeting 4](Minutes/2013-10-29_minutes)
+  * [Meeting 5](Minutes/2013-11-01_minutes)
+  * [Meeting 6](Minutes/2013-11-05_minutes)
