@@ -411,21 +411,32 @@ This document will show we have managed to simplify these into a set of manageab
 	\clearpage
 	\begin{section}{USER INTERFACE DESIGNS}
 		\begin{subsection}{Android Interface Designs}
-			\begin{subsubsection}{Main Screen}
+			\begin{subsubsection}{Home}
 				\begin{figure}[h!]
 					\begin{center}
 						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/homeScreen.png}
 					\end{center}
-					\caption{Description from Ashley TBC}
+					\caption{The home screen is the first screen that the user will be able to see when the app is loaded. There are three buttons on this page the first two will, when clicked, take the user to the Route Info or Unfinished Route screen. The last button on this screen will close the application.}
 				\end{figure}
 			\end{subsubsection}
 			
-			\begin{subsubsection}{Create Route Screen}
+			\clearpage
+			\begin{subsubsection}{Create Route}
+				\begin{figure}[h!]
+					\begin{center}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/routeInfo.png}
+					\end{center}
+					\caption{When the user wants to create a new route this is the next screen that they will encounter. The three text boxes will allow the user to enter the route's identifier (title) as well as descriptive information about the route. At the bottom of the screen is the next button that will allow the user to progress the the Route Content screen.}
+				\end{figure}
+			\end{subsubsection}
+			
+			\clearpage
+			\begin{subsubsection}{Add Waypoint}
 				\begin{figure}[h!]
 					\begin{center}
 						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/routeContent.png}
 					\end{center}
-					\caption{Description from Ashley TBC}
+					\caption{On this screen the user can add locations of interest to the route by clicking on the Add Location button, this action will also take the user to the Location Info screen. After a location has been added it will appear in the list of locations underneath the Add Location button. When the user is finished adding locations to the route they can click on the Save Route button, at ths point they will be prompted as to weather they wish to upload to the server or save the route locally for editing later.}
 				\end{figure}
 			\end{subsubsection}
 			
@@ -435,16 +446,16 @@ This document will show we have managed to simplify these into a set of manageab
 					\begin{center}
 						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/locationInfo.png}
 					\end{center}
-					\caption{Description from Ashley TBC}
+					\caption{The name and description can be entered into text boxes on this screen. Also images of the location can be added using the Add Image button. Images that have been added will be displayed below the Add Image button, and below the image placeholder is the Save button that will return the user to the Route Content screen.}
 				\end{figure}
 			\end{subsubsection}
 			
-			\begin{subsubsection}{Route Information}
+			\begin{subsubsection}{Unfinished Routes}
 				\begin{figure}[h!]
 					\begin{center}
-						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/routeInfo.png}
+						\includegraphics[height=0.45\columnwidth]{../Diagrams/AndroidUserInterface/source/unfinishedRoutes.png}
 					\end{center}
-					\caption{Description from Ashley TBC}
+					\caption{This screen will list the routes that have been saved locally but not uploaded to the sever. When an item in the list is clicked on the user will be taken to the Route Info page for that item so that they can edit it's content.}
 				\end{figure}
 			\end{subsubsection}
 		\end{subsection}
