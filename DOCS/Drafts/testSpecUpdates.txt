@@ -1,0 +1,18 @@
+6
+Sending corrupt data (solution, md5-hash)
+continue uploading when app is minimised
+Internet drops out mid-upload
+
+7
+Continue from where left off (on every screen, maybe 3/4 tests)
+
+8
+Test changing walk
+Test changing waypoints
+Open waypoint with/without photo
+Opening/requesting route that doesn't exist
+
+9
+Sanatize inputs
+Test MD5-hash
+Test confirmation message
