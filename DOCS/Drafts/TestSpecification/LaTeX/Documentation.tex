@@ -1,0 +1,788 @@
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Modified by:
+% Charles Newey (http://assemblyco.de)
+%----------------------------------------
+
+% Declare document
+\documentclass{article}
+
+% Packages
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Images
+\usepackage{tabularx} % Tables
+\usepackage[colorlinks]{hyperref} % For URLs
+\usepackage[T1]{fontenc} % Support symbols like < and >
+\usepackage{lmodern} % Format symbols properly
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1} % Line spacing
+
+% Other setup
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\renewcommand{\refname}{} % Removes bibliography title
+
+% Set up constants
+\newcommand{\address}{
+\small{
+	\begin{tabular}{ l}
+		Department of Computer Science, \\
+		Llandinam Building, \\
+		Aberystwyth University, \\
+		Aberystwyth, \\
+		Ceredigion, \\
+		SY23 3DB \\
+	\end{tabular}
+	}
+}
+
+% Set up the header and footer
+\lhead{\doctitle}										% Top left header
+\chead{\version}											% Top center head
+\rhead{\firstxmark \status}								% Top right header
+\lfoot{\lastxmark \qanumber}								% Bottom left footer
+\cfoot{Aberystwyth University/Computer Science}			% Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}}	% Bottom right footer
+
+% Set up title page
+\title{
+	\vspace{1.2in}
+	\textmd{\textbf{\doctitle}} \\
+	\vspace{0.1in}\large{\textit{\today}} \\
+	\vspace{0.4in}
+	{\bf{\qanumber}} \\ \vspace{0.4in} % QA document number
+	\version \\
+	\status \\
+	\vspace{0.4in}
+}
+
+\author{\authors}
+\date{}
+
+%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
+\newcommand{\version}{Version: 1.0}
+\newcommand{\status}{Status: Draft}
+\newcommand{\qanumber}{SE.10.D\_Insert\_Number\_Here}
+\newcommand{\doctitle}{Group 10 INSERT DOC NAME}
+
+\newcommand{\authors}{ % Include a table for authors
+	\begin{tabular}{| l | l |}
+		\hline
+		\bf{Contributor Name} & \bf{Role} \\
+		\hline
+		Daniel Clark & Project Lead \\
+		\hline
+		Mark Lewis & QA Manager \\
+		\hline
+		Charles Newey & Deputy Project Lead \& Android Developer \\
+		\hline
+		Martin Ferris & Android Developer \\
+		\hline
+		Ashley Iles & Android Developer \\
+		\hline
+		Kenny Packer & Android Developer \\
+		\hline
+		Stephen McFarlane & Deputy QA \& Web Developer \\
+		\hline
+		Kieran Palmer & Web Developer \\
+		\hline
+	\end{tabular}
+	% Don't edit this
+	\\ \\ \\ \\ \\ \\
+	\address \vline
+	\hspace{0.15in} \copyright Copyright Group 10, 2013
+	% Don't edit this
+}
+
+% Make title page, ToC and other introductory elements
+\begin{document}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+
+	% Begin the actual document
+	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
+	\begin{section}{INTRODUCTION}
+		\begin{subsection}{Purpose of This Document}
+			Purposey stuff.
+		\end{subsection}
+				
+		\begin{subsection}{Scope}
+			Scopey stuff.
+		\end{subsection}
+		
+		\begin{subsection}{Objectives}
+			\begin{itemize}
+				\item{a}
+				\item{b}
+				\item{c}
+			\end{itemize}
+		\end{subsection}
+	\end{section}
+	
+	\newpage
+	\begin{section}{TEST TABLE}
+		\begin{subsection}{Ongoing Tasks}
+			\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{2.5cm} | X | X |}
+				\hline
+				\bf{Test} & \bf{Req} & \bf{Context} & \bf{Input} & \bf{Output} & \bf{Pass Criteria} \\
+				\hline
+1
+&
+FR 1
+&
+On startup the user will be given the choice to create a new walking tour.
+&
+Start app.
+&
+"Create new walking tour" will be displayed.
+&
+App should start up correctly and the correct UI should be displayed.
+\\
+\hline
+
+2
+&
+FR 1
+&
+When tour is created, user should be prompted for basic tour details.
+&
+Select create new walking tour.
+&
+Details regarding tour and GPS recording should start.
+&
+App will prompt for details and GPS device will be enabled.
+\\
+\hline 
+
+3
+&
+FR 1
+&
+After recording starts, options for cancelling recording, saving the tour to server, adding locations (inc text and photos) should be displayed.
+&
+Start recording.
+&
+Options should be displayed.
+&
+Options for cancelling recording, saving the tour to server, adding locations (inc text and photos) are displayed.
+\\
+\hline
+
+4
+&
+FR 1
+&
+GPS connectivity lost after recording has started.
+&
+Turn off GPS and location services during route recording.
+&
+Recording should pause.
+&
+Recording will pause at last known location and error an message should be displayed.
+\\
+\hline
+
+5
+&
+FR 2
+&
+User enter a single word name for route, e.g "Aberystwyth". Name will appear on database.
+&
+Enter "Aberystwyth" as route name.
+&
+Route title is Aberystwyth and is displayed on database.
+&
+Route title matches input and is displayed on database.
+\\
+\hline
+
+
+6
+&
+FR 2
+&
+Enter short description of walk/route with up to 100 characters.
+&
+Enter 100 characters for short description.
+&
+Description will be added and entered into database.
+&
+No error messages displayed and description appears on database.
+\\
+\hline
+
+7
+&
+FR 2
+&
+Enter short description of walk/route with more than 100 characters
+&
+Enter 101 characters for short description.
+&
+Error message will be displayed and user will be asked to enter less characters.
+&
+Correct error message is displayed and user is promoted to try again with less characters.
+\\
+\hline
+
+8
+&
+FR 2
+&
+Enter long description of walk/route up to 1000 characters.
+&
+Enter 1000 characters for long description.
+&
+Description will be added and entered into databased.
+&
+No error messages displayed and description appears on database.
+\\
+\hline
+
+9
+&
+FR 2
+&
+Enter long description of walk/route with more than 1000 characters.
+&
+Enter 1001 characters for short description.
+&
+Error message will be displayed and user will be asked to enter fewer characters.
+&
+Correct error message is displayed and user is promoted to try again with fewer characters.
+\\
+\hline
+\end{tabularx}
+
+\newpage
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
+				\hline
+10
+&
+FR 3
+&
+Add location to the tour with map coordinates (latitude and longitude).
+&
+While route is recording, select "add location".
+&
+Location should be added to the database with latitude and longitude.
+&
+Location should be added to the database with latitude and longitude.
+\\
+\hline
+
+11
+&
+FR 3
+&
+Add location to the tour with map coordinates (latitude and longitude).
+&
+Turn GPS off. While route is recording, select "add location".
+&
+Error message will be displayed and user will be told that they cannot get a GPS lock.
+&
+Error message will be displayed and user will be told that they cannot get a GPS lock.
+\\
+\hline
+
+12
+&
+FR 3
+&
+Add name for location.
+&
+When add location has been selected, add a name; e.g "Test location".
+&
+"Test location" should be set to the location's title at coordinates.
+&
+"Test location" should be set to the location's title at coordinates and stored correctly at set location in database.
+\\
+\hline
+
+14
+&
+FR 3
+&
+Add description for location.
+&
+Add description, e.g popular beverages and event nights.
+&
+Add valid location description, e.g. "Magic Mondays".
+&
+Location description added to location on database.
+\\
+\hline
+
+15
+&
+FR 3 
+&
+Add a timestamp for location.
+&
+User selects "add location".
+&
+Timestamp automatically added.
+&
+Timestamp should be added to location showing when it was added onto the database.
+\\
+\hline
+
+16
+&
+FR 4
+&
+Adding photos to the walks
+&
+User should be able to add one or more photos, captured from camera or from the device's photo library to be shown when that location is reached during the walk. User selects add photo to location while route is recording.
+&
+Photo is added to location user is then requested to enter name and description for location.
+&
+Photo added to database. Photo is set to location and timestamp added. Prompt to enter name and description for location is then displayed.
+\\
+\hline
+
+17
+&
+FR 4
+&
+After photo is taken, give  location of photo a name
+&
+Add name of location to photo. e.g "Harry's Bar".
+&
+Location for photo set to "Harry's Bar"
+&
+Photo location name in database set to name entered by user.
+\\
+\hline
+
+18
+&
+FR 4
+&
+After photo is taken and input is prompted, add description of location in photo.
+&
+Add description, e.g "Most popular pub on route".
+&
+Input criteria e.g "Most popular pub on route" added to photo location.
+&
+Description added to photo location in database.
+\\
+\hline
+
+19
+&
+FR 5
+&
+Cancelling walk - stop recording and don't save.
+&
+Without any added locations, select stop recording button, and then "Don't save".
+&
+Route is stopped and deleted. 
+&
+No information stored on database. User returned to main menu.
+\\
+\hline
+
+20
+&
+FR 5
+&
+Cancelling walk - stop recording and don't save where locations of interest have been added.
+&
+Select stop recording and don't save.
+&
+Route is stopped. Warning displayed that if the route is cancelled all saved locations will be deleted. Proceed.
+&
+All information stored on this route is removed from the database.
+\\
+\hline
+
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
+				\hline
+21
+&
+FR 6
+&
+Test that tour has been sent to the server correctly.
+&
+Standard data you would expect to see; Location name, title, long and short descriptions, a list of GPS coordinates for the walk from start to end, with a time stamp for a location, list of locations with associated information, photos with associated information.
+&
+Message to confirm that the data has been sent.
+&
+A new tour should now be saved in the database containing all the entered details.
+\\
+\hline
+
+22
+&
+FR6
+&
+Test sending the tour with incomplete data. Rather than entering all the required data for a tour only submit a title.
+&
+The title of a tour.
+&
+Error message to warn the user about incomplete data.
+&
+Error message should appear and nothing new should be saved in the database.
+\\
+\hline
+
+23
+&
+FR6
+&
+Test sending the tour with no internet access. (WiFi/Mobile)
+&
+Data for a standard tour.
+&
+Error message should warn the user that the tour can not be submitted at this point.
+&
+Error message should appear and no data sent. The current tour should be cached so it can be sent at a later time.
+\\
+\hline
+
+24
+&
+FR6
+&
+Test sending corrupt data.
+&
+Create a corrupt file and try sending it to the server. (Purposely send mismatching MD5)
+&
+Error message should be displayed.
+&
+Error message displayed, use of md5-hash to check for corruption.
+\\
+\hline
+
+25
+&
+FR6 
+&
+Sending to the server whilst app is closed.
+&
+Tour data sent and app immediately closed.
+&
+Notification bar showing the upload progress.
+&
+Notification bar should show the progress of the upload as well as a confirmation message.
+\\
+\hline
+
+26
+&
+FR6
+&
+Test sending to server when internet drops out.
+&
+Tour data sent and internet connection disabled.
+&
+Error message displayed.
+&
+Error message display and tour data cached, to be uploaded when connection established.
+\\
+\hline
+
+27
+&
+FR 7
+&
+Test to check that the app can save a full tour when the app is shut down at the  Unfinished Route screen.
+&
+Add data about the tour up until the screen for submitting to the server, then close the app.
+&
+App should close without delay.
+&
+When the app is re-opened it should have saved details about a full that is ready to be submitted to the server.
+\\
+\hline
+
+28
+&
+FR7
+&
+Test to check the app saves data at the Create Route screen.
+&
+Add title, short and long description about a tour then close the app.
+&
+No output.
+&
+When app is re-opened it will display the details entered about the tour.
+\\
+\hline
+
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
+				\hline
+
+29
+&
+FR7
+&
+Test to check that the app saves data when closed at the Add Waypoint screen.
+&
+Waypoints added to tour and app closed.
+&
+No output.
+&
+When the app is re-opened it will display the incomplete tour with the waypoints.
+\\
+\hline
+
+30
+&
+FR7
+&
+Test to check that the app saves data when closed at the Location Information screen.
+&
+Details about a Location added and app closed.
+&
+No output.
+&
+When the app is re-opened it will display the details about the location.
+\\
+\hline
+
+31
+&
+FR7
+&
+Test to check that when the app is closed a partial walk can be saved.
+&
+Add data about just one location then close the app.
+&
+x
+&
+When the app is re-opened the user should be able to continue the tour from where they quit.
+\\
+\hline
+
+32
+&
+FR 8
+&
+Test viewing a saved tour's location on the Walking Tour Display.
+&
+Selected tour from the saved tours list.
+&
+The WTD should display the current tour on the map.
+&
+The tour should display with the right co-ordinations and also with flags/markers to click on for images and descriptions.
+\\
+\hline
+
+33
+&
+FR8
+&
+Test viewing details of locations for a tour.
+&
+Selecting a tour from the saved list, then clicking a location in that tour to reveal it's details.
+&
+When a location is clicked a pop-up should appear with its details and image.
+&
+The locations details and image are correctly displayed in the WTD.
+\\
+\hline
+
+34
+&
+FR8
+&
+Test switching between saved tours.
+&
+Switch from one tour to the other on the WTD.
+&
+The new tour should be displayed on the map.
+&
+Waypoints and location change on the map.
+\\
+\hline
+
+35
+&
+FR8
+&
+Test switching between waypoints.
+&
+Click between one waypoint to another.
+&
+The information for the new location should be displayed.
+&
+The information on the old location should have disappeared and the new locations information should be displayed.
+\\
+\hline
+
+36
+&
+FR8
+&
+Test opening a waypoint without an image.
+&
+Click on a location that doesn't have an image.
+&
+The information of the location is displayed.
+&
+The location's information is displayed without an image.
+\\
+\hline
+
+37
+&
+FR8
+&
+Test opening a waypoint with an image.
+&
+Click on a location that has an associated image.
+&
+The information of the location is displayed.
+&
+The location's information is displayed and contains an image.
+\\
+\hline
+
+38
+&
+FR8
+&
+Test requesting to view a tour that doesn't exist.
+&
+Clicking on a tour that doesn't exist.
+&
+Webpage should display  an error message.
+&
+The webpage displays an appropriate error message.
+\\
+\hline
+
+39
+&
+FR9
+&
+Test to confirm that the data has been successfully saved on the server.
+&
+Details about a tour sent to the server.
+&
+A confirmation message. 
+&
+The tour should now appear as a saved tour in the database.
+\\
+\hline
+
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
+				\hline
+
+40
+&
+FR9
+&
+Test that an error is caught when data cannot be saved  on the server.
+&
+Details about a tour sent whilst the server isn't working.
+&
+An error message.
+&
+An error message should appear telling the user that the tour cannot be sent and the tour should be cached.
+\\
+\hline
+
+41
+&
+FR9
+&
+Testing that inputs are sanitised.
+&
+Sending strings containing special characters.
+&
+An error message.
+&
+An error message should tell the user that they have used illegal characters.
+\\
+\hline
+
+42
+&
+FR9
+&
+Testing a working MD5-hash.
+&
+Details of a tour sent to the server.
+&
+A confirmation message.
+&
+The data shouldn't be corrupt so data should successfully save in the database. The details of the new tour will also be displayed in the database.
+\\
+\hline
+
+43
+&
+FR9
+&
+Testing a non working MD5-hash.
+&
+Send the same file twice to the database to be saved.
+&
+An error message.
+&
+An error message should tell the user that the data cannot be saved.
+\\
+\hline
+
+			\end{tabularx}
+		\end{subsection}
+	\end{section}
+	
+	% Include references here (edit the References.bib file)
+	\nocite{LaTeXTemplate}
+
+	% Format bibliography/refs
+	\newpage
+	\begin{section}{REFERENCES}
+		\bibliographystyle{acm}
+		\bibliography{References}
+	\end{section}
+	
+	\vspace{1cm}
+	\begin{section}{VERSION HISTORY}
+		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
+			\hline
+			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
+			\hline
+			CCN & 07/11/2013 & 1.0 & Created template \\
+			\hline
+		\end{tabularx}
+	\end{section}
+\end{document}
+
+%									Useful bits and pieces
+%\begin{section}{section_name}								% Start section
+%\end{section}												% End section
+%\begin{center} \end{center}								% Center stuff
+%\includegraphics[width=0.75\columnwidth]{example_figure}	% Insert image
+%\pseudocode{filename}{caption}								% Insert highlighted code snippet
+%\clearpage													% Clear page after section
+%\url{http://www.google.com/} 								% Include URL
+%\nocite{citationName}										% Cite to bibliography (but not to text)
+%\cite{citationName}										% Include reference
