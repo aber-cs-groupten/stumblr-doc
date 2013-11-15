@@ -120,26 +120,45 @@
 	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
-			Purposey stuff.
+			The purpose of this document is to provide a plan for the implementation of thoughrough tests on all required functionalities, as per the customers specifications. This document will show we have managed to expand on each functional requirement to make a suitable list of conditions, to test how well our software meets each requirement.
 		\end{subsection}
 				
 		\begin{subsection}{Scope}
-			Scopey stuff.
+			This document should take into account the required funcitonality of the project. This document includes; a Test Plan, outlining the ways in which we intend to test our system, and a Test Specification, which represents the set of System Tests we intend to use to outline how our software meets the set requirements.
 		\end{subsection}
 		
-		\begin{subsection}{Objectives}
+		\begin{subsection}{Test Plan}
+			We intend to test our system in two main ways to ensure the production of reliable software. These are:
 			\begin{itemize}
-				\item{a}
-				\item{b}
-				\item{c}
+				\item{A set of Unit Tests to be written and run by the programmers of the project. These will ensure that, no gaps in functionality arise.}
+				\item{A set of Black Box System Tests to reliably compare our final product with the product that the customer has specified.}
 			\end{itemize}
+		\end{subsection}
+		
+		\begin{subsection}{Introduction to the Test Procedure}
+			The purpose of this test specification is to specify in detail each of the system tests that will be executed to validate our conformence to each of the functional requirments as layed out by the customer.
+The table below will list a reference to functional requirement to be tested, and should be reproducable with the exact inputs and outputs listed.
+Each test will have:
+			\begin{itemize}
+				\item{A unique test reference.}
+				\item{A listing of the functional requirement(s)being tested.}
+				\item{A description of the test.}
+				\item{The exact input for the test.}
+				\item{The expected outcome for the test.}
+				\item{The expected outcome for the test.}
+				\item{The criteria for whether that test has passed or failed.}
+			\end{itemize}
+		\end{subsection}
+		
+		\begin{subsection}{Deliberate Test Data Ambiguity}
+			Some of the test data described in the tables below is ambiguous. This is on purpose - we have not designed and implemented the system to a level that would justify designing specific test data sets; we will design more appropriate test data sets (along with unit tests) when the system is implemented more fully.
 		\end{subsection}
 	\end{section}
 	
 	\newpage
 	\begin{section}{TEST TABLE}
 		\begin{subsection}{Tests}
-			\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{2.5cm} | X | X |}
+			\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{2.5cm} | X | X |}
 				\hline
 				\bf{Test} & \bf{Req} & \bf{Context} & \bf{Input} & \bf{Output} & \bf{Pass Criteria} \\
 				\hline
@@ -250,7 +269,7 @@ Enter long description of walk/route up to 1000 characters.
 &
 Enter 1000 characters for long description.
 &
-Description will be added and entered into databased.
+Description will be added and entered into database.
 &
 No error messages displayed and description appears on database.
 \\
@@ -272,7 +291,7 @@ Correct error message is displayed and user is promoted to try again with fewer 
 \end{tabularx}
 
 \newpage
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
 				\hline
 10
 &
@@ -400,6 +419,11 @@ No information stored on database. User returned to main menu.
 \\
 \hline
 
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
+				\hline
+
 20
 &
 FR 5
@@ -414,10 +438,6 @@ All information stored on this route is removed from the database.
 \\
 \hline
 
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
-				\hline
 21
 &
 FR 6
@@ -502,6 +522,10 @@ Error message display and tour data cached, to be uploaded when connection estab
 \\
 \hline
 
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
+				\hline
 27
 &
 FR 7
@@ -516,6 +540,8 @@ When the app is re-opened it should have saved details about a full that is read
 \\
 \hline
 
+
+
 28
 &
 FR7
@@ -529,11 +555,6 @@ No output.
 When app is re-opened it will display the details entered about the tour.
 \\
 \hline
-
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
-				\hline
 
 29
 &
@@ -633,6 +654,10 @@ The information on the old location should have disappeared and the new location
 \\
 \hline
 
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
+				\hline
 36
 &
 FR8
@@ -688,11 +713,6 @@ A confirmation message.
 The tour should now appear as a saved tour in the database.
 \\
 \hline
-
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{2.75cm} | p{3.5cm} | X | X |}
-				\hline
 
 40
 &
