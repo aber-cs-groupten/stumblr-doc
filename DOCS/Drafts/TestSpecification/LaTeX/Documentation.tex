@@ -592,7 +592,7 @@ Test to check that when the app is closed a partial walk can be saved.
 &
 Add data about just one location then close the app.
 &
-x
+No output
 &
 When the app is re-opened the user should be able to continue the tour from where they quit.
 \\
@@ -708,7 +708,7 @@ Test to confirm that the data has been successfully saved on the server.
 &
 Details about a tour sent to the server.
 &
-A confirmation message. 
+A confirmation message is displayed. 
 &
 The tour should now appear as a saved tour in the database.
 \\
@@ -722,7 +722,7 @@ Test that an error is caught when data cannot be saved  on the server.
 &
 Details about a tour sent whilst the server isn't working.
 &
-An error message.
+An error message is displayed.
 &
 An error message should appear telling the user that the tour cannot be sent and the tour should be cached.
 \\
@@ -736,7 +736,7 @@ Testing that inputs are sanitised.
 &
 Sending strings containing special characters.
 &
-An error message.
+An error message is displayed.
 &
 An error message should tell the user that they have used illegal characters.
 \\
@@ -750,7 +750,7 @@ Testing a working MD5-hash.
 &
 Details of a tour sent to the server.
 &
-A confirmation message.
+A confirmation message is displayed.
 &
 The data shouldn't be corrupt so data should successfully save in the database. The details of the new tour will also be displayed in the database.
 \\
@@ -764,7 +764,7 @@ Testing a non working MD5-hash.
 &
 Send the same file twice to the database to be saved.
 &
-An error message.
+An error message is displayed.
 &
 An error message should tell the user that the data cannot be saved.
 \\
