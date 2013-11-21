@@ -1,0 +1,1 @@
+This class will provide the basic framework for each screen within the application, holding all common attributes (visual elements, methods, and other attributes), to make the other Android UI classes more maintainable. It will also contain methods to control the focus of the application (for foreground/background processing and control of serialisation, etc).

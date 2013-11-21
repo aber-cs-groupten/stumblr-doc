@@ -1,0 +1,1 @@
+This class holds all of the RouteData items inside a convenient package (for easy access), and contains all of the methods necessary to upload to the internet, bundle into a file format ready for the server, and manipulate each item of RouteData.

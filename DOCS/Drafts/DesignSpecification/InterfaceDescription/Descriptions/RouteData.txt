@@ -1,0 +1,1 @@
+This is simply an interface that dictates how each piece of route data must perform, and the methods that it must contain to ensure a consistent and simple API for the developers. The most interesting method is validate(); which must contain methods to sufficiently validate each item of RouteData.x

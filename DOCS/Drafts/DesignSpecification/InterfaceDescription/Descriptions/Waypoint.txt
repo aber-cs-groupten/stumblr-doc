@@ -1,0 +1,1 @@
+This class contains all of the data that's needed inside each waypoint. This includes an attribute for the photograph taken from the device's camera, and includes methods to sufficiently compress each photograph for upload. This class will also include strict input validation for each of the data items.

@@ -1,0 +1,1 @@
+This is a basic outline for the Create Route screen within the application. As well as containing the current Route (and all linked information), the class will inherit all common attributes and methods from Screen. The attributes containing the visual aspect of the application will be added later.

@@ -1,0 +1,1 @@
+A simple coordinate class that holds latitude and longitude as double precision integers.
