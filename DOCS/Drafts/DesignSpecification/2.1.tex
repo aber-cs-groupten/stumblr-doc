@@ -1,0 +1,22 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{mark Lewis mal60}
+\begin{document}
+\section{DECOMPOSITION DESCRIPTION}
+\subsection{Programs in System}
+The System that will be created will contain three systems; the Android app, a server and a web page. \\
+
+The Android side of the system will be used as the platform for the walking tour creator app. Within this app users can create a new tour, they will then be able to add locations to the tour. These locations will contain information such as the tours title, description, the way points of the location and possibly an image. Once the tour is saved and finished it can then be sent via Wi-Fi or internet connection on the device to the server. The data will be sent to the server as a Multimedia Internet Message Extension in a http POST.\\
+
+The server will be used to store all data about tours created on the Android app. On the server a database will be created and within the database a table for storing the tour's details. Once data is received a new record will be created and the data stored for easy re-use on the web page. To access this data the web page will use a php script with mySQL commands.\\
+
+The final program in the system is the web page, which will be used for displaying tours. On the website there will be a list of saved tours from which the user can click to view them. The tour will then be displayed on a map which will incorporate the use of the Google Maps API. By clicking on a way point the user will be able get more information depending on what was saved by the creator using the Android app.
+
+\end{subsection}
+
+\end{section}
+
+\end{document}
