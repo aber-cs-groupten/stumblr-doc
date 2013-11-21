@@ -17,9 +17,16 @@
 \usepackage{extramarks} % Required for headers and footers
 \usepackage{graphicx} % Images
 \usepackage{tabularx} % Tables
+\usepackage[table]{xcolor} % Table colours
 \usepackage[colorlinks]{hyperref} % For URLs
 \usepackage[T1]{fontenc} % Support symbols like < and >
 \usepackage{lmodern} % Format symbols properly
+
+% Colours
+\definecolor{negligible}{rgb}{0.55, 0.71, 0.0}
+\definecolor{acute}{rgb}{1.0, 0.75, 0.0}
+\definecolor{severe}{rgb}{1.0, 0.49, 0.0}
+\definecolor{critical}{rgb}{0.9, 0.17, 0.31}
 
 % Margins
 \topmargin=-0.45in
@@ -74,13 +81,30 @@
 \author{\authors}
 \date{}
 
-%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
-\newcommand{\version}{Version: 1.0}
-\newcommand{\status}{Status: Draft}
-\newcommand{\qanumber}{SE.10.D\_Insert\_Number\_Here}
-\newcommand{\doctitle}{Group 10 INSERT DOC NAME}
 
-\newcommand{\authors}{ % Include a table for authors
+%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
+\newcommand{\version}{Version: 1.0} %======================================================= DOC VERSION
+\newcommand{\status}{Status: Release} %===================================================== DOC STATUS
+\newcommand{\qanumber}{SE.10.TEMPLATE.1} %================================================== QA NUMBER
+\newcommand{\doctitle}{Group 10 Document Template} %======================================== DOC TITLE
+
+%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
+%=========================================================================================== VERSION HISTORY
+\newcommand{\versionhistory}{
+		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
+			\hline
+			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
+			\hline
+			CCN & 07/11/2013 & 1.1 & Updated order of authors on cover \\
+			\hline
+			DEC & 07/11/2013 & 1.2 & Added High Level Architecture diagram \\
+			\hline
+		\end{tabularx}
+}
+
+%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
+%=========================================================================================== AUTHOR LIST
+\newcommand{\authors}{
 	\begin{tabular}{| l | l |}
 		\hline
 		\bf{Contributor Name} & \bf{Role} \\
@@ -120,65 +144,30 @@
 	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
-			Purposey stuff.
+			The purpose of this document is to show that we have met the outlined objectives specified by the client.
 		\end{subsection}
-				
+	
 		\begin{subsection}{Scope}
-			Scopey stuff.
+			Scope
 		\end{subsection}
 		
 		\begin{subsection}{Objectives}
 			\begin{itemize}
-				\item{a}
-				\item{b}
-				\item{c}
+				\item{Objective 1}
+				\item{Objective 2}
 			\end{itemize}
 		\end{subsection}
 	\end{section}
+	
+	\newpage
+	\begin{section}{SAMPLE IMAGE}
+		\begin{center}
+		\includegraphics[height=1\columnwidth, angle=90]{images/test.jpg}
+		\end{center}
+	\end{section}
 
-	\newpage
-	\begin{section}{ANOTHER SECTION}
-		\begin{subsection}{Introduction}
-			Some text
-		\end{subsection}
-		
-		\begin{subsection}{A Diagram}
-			\begin{figure}[h!]
-				\begin{center}
-					\includegraphics[height=\columnwidth]{images/test.jpg}
-				\end{center}
-				\caption{A caption.}
-			\end{figure}
-		\end{subsection}
-	\end{section}
-	
-	\newpage
-	\begin{section}{A TABLE}
-		\begin{subsection}{Ongoing Tasks}
-			\begin{tabularx}{\linewidth}{| p{3.5cm} | p{0.5cm} | p{0.5cm} | p{0.8cm} | X |}
-				\hline
-				\bf{Risk Event} & \bf{L} & \bf{M} & \bf{Risk} & \bf{Mitigation} \\
-				\hline
-				Team member absence & 0.6 & 0.3 & 0.18 & All team members to regularly check emails and the agreed online resources for meeting times. Being unaware of meetings is not a valid excuse. If a team member is unable to attend a meeting, the project lead (Daniel) must be notified as soon as they know they can't attend. \\
-				\hline
-				Project Lead absence & 0.6 & 0.5 & 0.30 & Meeting to go ahead as planned with Charlie (Deputy Project Lead) taking the meeting. \\
-				\hline
-				QA Manager absence & 0.6 & 0.3 & 0.18 & Meeting to go ahead as planned with Steve (Deputy QA Manager). \\
-				\hline
-				Unable to contact team member & 0.3 & 0.8 & 0.24 & Ensure that all team members regularly check emails and other agreed online resources, as well as checking meeting minutes so they are aware of any outstanding tasks/actions. Persistently being unreliable with result in a warning, and further action if necessary; e.g. carding or role reallocation. \\
-				\hline
-				Git failure & 0.3 & 1.0 & 0.3 & All work to be backed up regularly in several places in case of human error or Git failure. \\
-				\hline
-				Major illness or unexpected circumstances & 0.5 & 0.9 & 0.45 & Team members to be notified as soon as possible, in case any urgent tasks need to be re-assigned or completed by another team member. \\
-				\hline
-				Git conflict & 0.3 & 0.9 & 0.27 & All team members are to have read the information on the project wiki on Git conflicts. If a conflict is encountered, then it must be resolved immediately. If a conflict cannot be resolved easily, then an appropriate team member (Git expert/project lead) must be notified and the conflict must be resolved. Try to ensure an even task allocation, to avoid multiple team members working on the same code simultaneously. \\
-				\hline
-			\end{tabularx}
-		\end{subsection}
-	\end{section}
-	
 	% Include references here (edit the References.bib file)
-	\nocite{LaTeXTemplate}
+	\nocite{LaTeXTemplate} % DO NOT EDIT
 
 	% Format bibliography/refs
 	\newpage
@@ -189,13 +178,7 @@
 	
 	\vspace{1cm}
 	\begin{section}{VERSION HISTORY}
-		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
-			\hline
-			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
-			\hline
-			CCN & 07/11/2013 & 1.0 & Created template \\
-			\hline
-		\end{tabularx}
+		\versionhistory
 	\end{section}
 \end{document}
 
