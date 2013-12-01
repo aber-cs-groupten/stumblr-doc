@@ -6,19 +6,6 @@ import android.location.Location;
 import java.util.Date;
 import java.util.LinkedList;
 
-/*
-     FAIL WHALE
-
-              '.
-  .-""-._     \ \.--|
- /       "-..__) .-'
-|     _         /
-\'-.__,   .__.,'
- `'----'._\--'
-
- Source: (http://strawp.net/files/fail_whale.txt)
- */
-
 /**
  * Created by charles on 29/11/13.
  */
