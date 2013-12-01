@@ -8,12 +8,13 @@ import java.util.LinkedList;
  */
 public class Route extends StumblrData {
     /**
-     *
+     * A slightly longer description of the contents of the route. Set by the user when
+     * they create a Route.
      */
     private String longDesc;
 
     /**
-     *
+     * A LinkedList of Waypoint objects that the Route comprises of.
      */
     private LinkedList<Waypoint> route;
 
@@ -22,10 +23,35 @@ public class Route extends StumblrData {
      * @return If the data is valid or not. (true = valid)
      */
     public boolean isValidData() {
-
         return false;
     }
 
+    /**
+     * Adds a Waypoint to the tail of the Route LinkedList
+     * @param w The waypoint to add
+     */
+    public void addWaypoint(Waypoint w) {
+        this.route.addLast(w);
+    }
+
+    /**
+     * Returns the last Waypoint to the LinkedList.
+     * @return The last Waypoint in the Route.
+     */
+    public Waypoint getWaypoint() {
+        return this.route.getLast();
+    }
+
+    public String getLongDesc() {
+        return this.longDesc;
+    }
+
+    /**
+     * Constructor for Route.
+     * @param title The title of the Route object.
+     * @param shortDesc A short description of the Route.
+     * @param longDesc A longer description of the Route.
+     */
     public Route(String title, String shortDesc, String longDesc) {
         super(title, shortDesc);
 
