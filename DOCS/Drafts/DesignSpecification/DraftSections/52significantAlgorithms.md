@@ -26,5 +26,8 @@ Validate Inputs
 Change Screen
 -----------
   1 Validate Inputs
-  2 Cache data
-  3 Display next screen
+  2 Display next screen
+
+Base 64 encode image
+-----------
+  1
