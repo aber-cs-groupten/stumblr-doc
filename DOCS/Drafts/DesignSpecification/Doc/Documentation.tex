@@ -49,6 +49,21 @@
 	showspaces=false,
 	breaklines=true,
 	showstringspaces=false}
+	
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
 
 % Margins
 \topmargin=-0.45in
@@ -107,8 +122,8 @@
 %----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
 \newcommand{\version}{Version: 1.0} %======================================================= DOC VERSION
 \newcommand{\status}{Status: Release} %===================================================== DOC STATUS
-\newcommand{\qanumber}{SE.10.TEMPLATE.1} %================================================== QA NUMBER
-\newcommand{\doctitle}{Group 10 Design Specification} %======================================== DOC TITLE
+\newcommand{\qanumber}{SE.10.D3} %========================================================== QA NUMBER
+\newcommand{\doctitle}{Group 10 Design Specification} %===================================== DOC TITLE
 
 %----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
 %=========================================================================================== VERSION HISTORY
@@ -122,7 +137,6 @@
 		\end{tabularx}
 }
 
-%---------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
 %=========================================================================================== AUTHOR LIST
 \newcommand{\authors}{
 	\begin{tabular}{| l | l |}
@@ -161,7 +175,7 @@
 	\newpage
 
 	% Begin the actual document
-	%======================================================================================= DOCUMENT STARTS HERE
+	%================================================================================ DOCUMENT STARTS HERE
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
 			The purpose of this document is to show that we have met the outlined objectives specified by the client.
@@ -191,12 +205,45 @@
 		\end{subsection}
 	\end{section}
 	
-	\begin{section}{Sec 2.3}
-	
+	\clearpage
+	\begin{section}{SIGNIFICANT ALGORITHMS}
+		\begin{subsection}{Upload Data}
+		    \begin{enumerate}
+		        \item{Bundle data}
+		        \item{Cache Bundle}
+		        \item{Send Bundle To Server}
+		        \item{Display Progress bar in android drop down menu}
+		        \item{Wait for confirmation...}
+		        \item{If confirmation timeout reached... resend bundle.}
+		    \end{enumerate}
+		\end{subsection}
+		
+    \begin{subsection}{Bundle Data}
+        \begin{enumerate}
+            \item{Base 64 encode all images}
+            \item{Collate data for each waypoint into JSON}
+            \item{Collate every waypoint route metadata into JSON}
+        \end{enumerate}
+    \end{subsection}
+
+    \begin{subsection}{Validate Inputs}
+        \begin{enumerate}
+            \item{Check if empty}
+            \item{Check if contains "unsanitised" characters}
+            \item{Check image sizes}
+        \end{enumerate}
+    \end{subsection}
+
+    \begin{subsection}{Change Screen}
+        \begin{enumerate}
+            \item{Validate Inputs}
+            \item{Display next screen}
+        \end{enumerate}
+    \end{subsection}
 	\end{section}
 	
 	\clearpage
-	\begin{section}{MAPPING REQUIREMENTS ONTO CLASSES}
+	\begin{section}{MAPPING REQUIREMENTS TO CLASSES}
 		\subsection{FR1; Startup of software on Android device}
 		Android class Home and Android class AbstractActivity.
 
@@ -229,7 +276,7 @@
 	\end{section}
 	
 	\clearpage
-	\begin{section}{SIGNIFICANT CLASSES}
+	\begin{section}{SIGNIFICANT CLASSES - ANDROID}
 		\begin{subsection}{StumblrData}
 		This will be an abstract class which will contain variables and validation methods that other classes will use, such as short description and title.
 		\end{subsection}
@@ -243,15 +290,26 @@
 		\end{subsection}
 	\end{section}
 	
-	\begin{section}{INTERFACE DESCRIPTIONS}
+	\begin{section}{SIGNIFICANT CLASSES - WEB}
+		\subsection{Page}
+		The page class is the class that will make use of the map and the database interaction classes. This class will be written in HTML and CSS, this class will display the map and web interface.
+
+		\subsection{Map}
+		The Map class will be the interface to the Google Maps API; which will be in JavaScript. This class will be used in conjunction with the database interaction to load information into the map in the web interface, along with other details which will be entered into the information box on each location. This class will be implemented using JavaScript and PHP.
+
+		\subsection{Database Interaction}
+		The database interaction class is where the database will be loaded; to be used to show locations on the map, as well as showing different tours in a table next to it and pointers to each Waypoint in a tour in another table. this class will implemented with PHP and SQL.
+	\end{section}
+	
+	\begin{section}{INTERFACE DESCRIPTIONS - ANDROID}
 		\begin{subsection}{Android Activities}
-			\begin{subsubsection}{AbstractActivity}
+			\begin{subsubsection}{AbstractActivity \{abstract\}}
 				\lstinputlisting[label=AbstractActivity,
 				caption=AbstractActivity \{Abstract\}]{interfaces/AbstractActivity.java}
 			\end{subsubsection}
 		
 			\clearpage
-			\begin{subsubsection}{DataEntryActivity}
+			\begin{subsubsection}{DataEntryActivity \{abstract\}}
 				\lstinputlisting[label=DataEntryActivity,
 				caption=DataEntryActivity \{Abstract\}]{interfaces/DataEntryActivity.java}
 			\end{subsubsection}
@@ -306,11 +364,114 @@
 			\end{subsubsection}
 		\end{subsection}
 	\end{section}
+	
+	\begin{section}{Website Interface Specification}
+
+The web interface will use all of these classes to create a page that will load in a database of routes that the user will be able to view a route map from. The user will also be able to choose from a range of tours provided right next to the map. 
+
+\subsection{Page}
+The page class is the web page that will hold the map and database interaction. This class will be the way the interface is shown by using css. This class will hold the map class and the database interaction class. The page class will be done in HTML and it will validate to XHTML 1.0 Strict. 
+
+\subsection{The Map}
+The map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the google maps API website that initialise the maps and the pointers on the map. There also other function such as myclick() which records when the user click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers.
+>Here are the functions and javacript I will using from the Google Maps API website that will be working with the database interaction.
+
+\clearpage
+\begin{lstlisting}[caption=Google Maps API Javascript Example]
+<script type="text/javascript"> 
+  var side_bar_html = ""; 
+  var gmarkers = []; 
+  var map = null;
+//initializes the Google Map.
+function initialize() {
+// create the map
+var myOptions = {
+zoom: 15,
+//sets the map to Aberytwyth
+center: new google.maps.LatLng(52.4140,-4.0810),
+mapTypeControl: true,
+mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+navigationControl: true,
+mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+map = new google.maps.Map(document.getElementById("map_canvas"),
+                            myOptions);
+
+google.maps.event.addListener(map, 'click', function() {
+    infowindow.close();
+    });
+
+create pointer
+//cretates pointers this will be used with the database interaction class to load 
+//in each place in the tour and its information
+var point = new google.maps.LatLng(,);
+var marker = createMarker(point,"NAME","DESCRIPTION")
+
+document.getElementById("side_bar").innerHTML = side_bar_html;
+}
+//creates the map and set the size of the map.
+var infowindow = new google.maps.InfoWindow(
+{ 
+  size: new google.maps.Size(200,75)
+});
+  
+
+function myclick(i) {
+google.maps.event.trigger(gmarkers[i], "click");
+}
+
+
+function createMarker(latlng, name, html) {
+  var contentString = html;
+  var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      zIndex: Math.round(latlng.lat()*-100000)<<5
+      });
+
+  google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(contentString); 
+      infowindow.open(map,marker);
+      });
+  
+  gmarkers.push(marker);
+  side_bar_html += '<a href="javascript:myclick(' + (gmarkers.length-1) + ')">' + name + '<\/a><br>';
+}
+</script>
+\end{lstlisting}
+
+\subsection{Database Interaction}
+The database interaction class is where the web page will connect to the databases then It will use jquery to get all the points on the tour that the user choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using Jquery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page.
+>PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the poiner.The PHP code used  will mostly be in the create pointer part of the map class where it will create pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
+
+\end{section}
+
+	
+	\begin{section}{CLASS DIAGRAMS}
+		\begin{subsection}{Android Activity Classes}
+			\includegraphics[angle=270,width=0.75\columnwidth]{../ClassDiagrams/InterfaceClassDiagram.png}
+		\end{subsection}
+		
+		\clearpage
+		\begin{subsection}{Android Data Classes}
+			\includegraphics[angle=270,width=0.8\columnwidth]{../ClassDiagrams/DataStructuresClassDiagram.png}
+		\end{subsection}
+	\end{section}
+	
+	\begin{section}{Android Design Justifications}
+		Use of JSON (spoke to customer... etc)
+	\end{section}
+	
+	\begin{section}{Android Design Justifications}
+		Use of JSON (spoke to customer... etc)
+		Google maps		
+	\end{section}
 
 	% Include references here (edit the References.bib file)
 	\nocite{LaTeXTemplate} % DO NOT EDIT
 	\nocite{LaTeXListings}
 	\nocite{LaTeXListings2}
+	\nocite{LaTeXListings3}
 
 	% Format bibliography/refs
 	\newpage

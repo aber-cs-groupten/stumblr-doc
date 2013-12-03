@@ -1,32 +1,37 @@
-5.2 Significant algorithms
-==========================
+\begin{section}{Significant algorithms}
+    \begin{subsection}{Upload Data}
+        \begin{enumerate}
+            \item{Bundle data}
+            \item{Cache Bundle}
+            \item{Send Bundle To Server}
+            \item{Display Progress bar in android drop down menu}
+            \item{Wait for confirmation}
+            \item{If confirmation timeout reached... resend bundle.}
+        \end{enumerate}
+    \end{subsection}
 
-Upload Data
------------
-  1 Bundle Data
-  2 Cache Bundle
-  3 Send Bundle To Server
-  4 Display Progress bar in android drop down menu
-  5 Wait for confirmation
-  6 If after 1 minute no confirmation if recieved
-    6a Resend Bundle
+    \begin{subsection}{Bundle Data}
+        \begin{enumerate}
+            \item{Base 64 encode all images}
+            \item{Collate data for each waypoint into JSON}
+            \item{Collate every waypoint route metadata into JSON}
+    \end{subsection}
 
-Bundle Data
------------
-  1 Base 64 encode all images
-  2 Colate data for each waypoint into JSON
-  3 Colate every waypoint + general route data into JSON
+    \begin{subsection}{Validate Inputs}
+        \begin{enumerate}
+            \item{Check if empty}
+            \item{Check if contains un-necessary/insecure characters (!<>#^)}
+            \item{Check image sizes}
+        \end{enumerate}
+    \end{subsection}
 
-Validate Inputs
------------
-  1 Check if empty
-  2 Check if contains un-necissary/insecure characters !<>#^
-  3 Check image sizes
-
-Change Screen
------------
-  1 Validate Inputs
-  2 Display next screen
+    \begin{subsection}{Change Screen}
+        \begin{enumerate}
+            \item{Validate Inputs}
+            \item{Display next screen}
+        \end{enumerate}
+    \end{subsection}
+\end{section}
 
 Base 64 encode image
 -----------
