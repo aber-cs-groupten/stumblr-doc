@@ -2,6 +2,5 @@
 *.log
 *.out
 *.toc
-*.pdf
 *.synctex.gz
 *.tex.swp
