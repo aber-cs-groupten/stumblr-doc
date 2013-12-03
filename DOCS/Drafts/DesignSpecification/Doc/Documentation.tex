@@ -47,6 +47,7 @@
 	numbersep=10pt,
 	tabsize=4,
 	showspaces=false,
+	breaklines=true,
 	showstringspaces=false}
 
 % Margins
@@ -190,6 +191,44 @@
 		\end{subsection}
 	\end{section}
 	
+	\begin{section}{Sec 2.3}
+	
+	\end{section}
+	
+	\clearpage
+	\begin{section}{MAPPING REQUIREMENTS ONTO CLASSES}
+		\subsection{FR1; Startup of software on Android device}
+		Android class Home and Android class AbstractActivity.
+
+		\subsection{FR2; Providing info about the whole walking tour}
+		Android class AbstractActivity, Android class DataEntryActivity
+		and Android class AbstractActivity.
+
+		\subsection{FR3; Adding locations to the walking tour}
+		Android class CreateWaypoint, Android class DataEntryActivity
+		and Android class AbstractActivity.
+
+		\subsection{FR4; Adding photos to the walks}
+		Android class CreateWaypoint, Android class DataEntryActivity 
+		and Android class AbstractActivity.
+
+		\subsection{FR5; Cancelling walks}
+		Android class CreateWaypoint and Android class AbstractActivity.
+
+		\subsection{FR6; Sending the walk to the server}
+		Android class FinishRoute and Android class AbstractActivity.
+
+		\subsection{FR7; Switching from the WTC}
+		Android class AbstractActivity.
+
+		\subsection{FR8; Trying out a created walking tour}
+		Web Page, Map and Database Interaction.
+
+		\subsection{FR9; Saving data on server}
+		Android class FinishRoute, Android class AbstractActivity, Web Page, Map and Database Interaction.
+	\end{section}
+	
+	\clearpage
 	\begin{section}{SIGNIFICANT CLASSES}
 		\begin{subsection}{StumblrData}
 		This will be an abstract class which will contain variables and validation methods that other classes will use, such as short description and title.
@@ -204,39 +243,67 @@
 		\end{subsection}
 	\end{section}
 	
-	\clearpage
 	\begin{section}{INTERFACE DESCRIPTIONS}
 		\begin{subsection}{Android Activities}
-			\lstinputlisting[label=AbstractActivity,
-			caption=AbstractActivity \{Abstract\}]{interfaces/AbstractActivity.java}
-		\clearpage
-			\lstinputlisting[label=DataEntryActivity,
-			caption=DataEntryActivity \{Abstract\}]{interfaces/DataEntryActivity.java}
-			\lstinputlisting[label=Home,
-			caption=Home]{interfaces/Home.java}
-		\clearpage
-			\lstinputlisting[label=CreateRoute,
-			caption=CreateRoute]{interfaces/CreateRoute.java}
-		\clearpage
-			\lstinputlisting[label=CreateWaypoint,
-			caption=CreateWaypoint]{interfaces/CreateWaypoint.java}
-		\clearpage
-			\lstinputlisting[label=WaypointList,
-			caption=WaypointList]{interfaces/WaypointList.java}
-		\clearpage
-			\lstinputlisting[label=FinishRoute,
-			caption=FinishRoute]{interfaces/FinishRoute.java}
-		\end{subsection}
+			\begin{subsubsection}{AbstractActivity}
+				\lstinputlisting[label=AbstractActivity,
+				caption=AbstractActivity \{Abstract\}]{interfaces/AbstractActivity.java}
+			\end{subsubsection}
+		
 			\clearpage
+			\begin{subsubsection}{DataEntryActivity}
+				\lstinputlisting[label=DataEntryActivity,
+				caption=DataEntryActivity \{Abstract\}]{interfaces/DataEntryActivity.java}
+			\end{subsubsection}
+		
+			\begin{subsubsection}{Home}
+				\lstinputlisting[label=Home,
+				caption=Home]{interfaces/Home.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{CreateRoute}
+				\lstinputlisting[label=CreateRoute,
+				caption=CreateRoute]{interfaces/CreateRoute.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{CreateWaypoint}
+				\lstinputlisting[label=CreateWaypoint,
+				caption=CreateWaypoint]{interfaces/CreateWaypoint.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{WaypointList}
+				\lstinputlisting[label=WaypointList,
+				caption=WaypointList]{interfaces/WaypointList.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{FinishRoute}
+				\lstinputlisting[label=FinishRoute,
+				caption=FinishRoute]{interfaces/FinishRoute.java}
+			\end{subsubsection}
+		\end{subsection}
+		
+		\clearpage
 		\begin{subsection}{Data Classes}
-			\lstinputlisting[label=StumblrData,
-			caption=StumblrData]{interfaces/data/StumblrData.java}
-		\clearpage
-			\lstinputlisting[label=Route,
-			caption=Route]{interfaces/data/Route.java}
-		\clearpage
-			\lstinputlisting[label=Waypoint,
-			caption=Waypoint]{interfaces/data/Waypoint.java}
+			\begin{subsubsection}{StumblrData \{abstract\}}
+				\lstinputlisting[label=StumblrData,
+				caption=StumblrData]{interfaces/data/StumblrData.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{Route}
+				\lstinputlisting[label=Route,
+				caption=Route]{interfaces/data/Route.java}
+			\end{subsubsection}
+		
+			\clearpage
+			\begin{subsubsection}{Waypoint}
+				\lstinputlisting[label=Waypoint,
+				caption=Waypoint]{interfaces/data/Waypoint.java}
+			\end{subsubsection}
 		\end{subsection}
 	\end{section}
 

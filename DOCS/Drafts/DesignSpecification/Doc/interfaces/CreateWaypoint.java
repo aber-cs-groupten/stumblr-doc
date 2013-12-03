@@ -1,12 +1,11 @@
 package uk.ac.aber.cs.group10.stumblr;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 
 import uk.ac.aber.cs.group10.stumblr.data.Route;
 import uk.ac.aber.cs.group10.stumblr.data.Waypoint;
 
-public abstract class CreateWaypoint extends ActionBarActivity {
+public abstract class CreateWaypoint extends DataEntry {
     /**
      * Loads the activity on creation (using a bundle if one is present)
      * @param savedInstanceState The bundle containing the saved instance state.
