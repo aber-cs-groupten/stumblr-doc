@@ -4,12 +4,12 @@ Website Interface Specification
 This website will use all of these classes to create a page that will load in a database of tours that you will be able to view locations by the map from Google maps. You will also be able to choose from a range of tours provided right next to the map. 
 
 ###The Page
->The page class is the web page that will hold the map and database interaction. This class will be the way the interface is shown by using css. This class will hold the map class and the database interaction class. The page class will be done in HTML and it will validate to XHTML 1.0 Strict. 
+>The page class is the web page that will hold the map and database interaction. This class will be the way the interface is shown by using CSS. This class will hold the map class and the database interaction class. The page class will be done in HTML and it will validate to XHTML 1.0 Strict.The code in this class will hold the banner for the website and center all the page to 70% of the screen. The code will also contain a table that will hold the selection of tours then the Google map created by the map class and another side bar to contain all the locations of a certain tour to link to an information box, that when clicked will pop up on the map.
 
 
 ###The Map
->The map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the google maps API website that initialise the maps and the pointers on the map. There also other function such as myclick() which records when you click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers.
->Here are the functions and javacript I will using from the Google Maps API website that will be working with the database interaction.
+>The map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the Google maps API website that initialize the maps and the pointers on the map. There also other function such as myclick() which records when you click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers.
+Here are the functions and JavaScript I will using from the Google Maps API website that will be working with the database interaction.
 
 <!-- language: lang-js -->
       <script type="text/javascript"> 
@@ -75,5 +75,6 @@ This website will use all of these classes to create a page that will load in a 
 
 ###Database Interaction
 >The database interaction class is where the web page will connect to the databases then It will use jquery to get all the points on the tour that you choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using Jquery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page.
->PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the poiner.The PHP code used  will mostly be in the create pointer part of the map class where it will create pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
+The code that will be used for this class will be in PHP. The code for this class would be the connection to the tours database which will then read in the first tour as a default tour.The code for this class will also allow you to choose the tour by selecting one on the sidebar which will set a variable then refresh the page to load in the tour. The code for this class will also add the information from the database to the information boxes on the map by creating an info box for each place in the tour by reading the coordinates in from the database. Then the information box will be populated with information by reading in from the database such as name, description and an image. 
+
 
