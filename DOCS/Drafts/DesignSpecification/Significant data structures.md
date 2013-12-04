@@ -19,3 +19,43 @@ It can also store an optional image, if the user so wishes to add one.
 Co-ordinates
 -----------------------------
 A co-ordinate is a storing method for a latitude and a longitude.
+
+JSON
+------------------------------
+
+//As this is a draft I have used arbitary data
+
+Walk
+
+"Walk": {
+    "walkID": 42,
+    "walkTitle": "Road Rummer",
+    "shortDescription": "meep meep!",
+	"longDescription": "meeeeeeeeeeeeeeep meeeeeeeeeeeeeeeeeep!",
+	"walkHours": "42",
+	"walkDistance: "42"
+}
+
+Location
+
+"Location": {
+    "latitude": 0000042,
+    "longitude": 0000042,
+    "timestamp": 16:20,
+}
+
+placeDescription
+
+"placeDescription": {
+    "placeDescriptionId": 0042,
+    "locationId": 004200,
+    "placeDescriptionText": "This is a bar, can you say bar?",
+}
+
+Photo
+
+"Photo": {
+    "photoId": 0042,
+    "placeID": 004200,
+    "photoName": "Photo of Rummers",
+}
