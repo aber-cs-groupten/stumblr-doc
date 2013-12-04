@@ -28,7 +28,6 @@ JSON
 Walk
 
 "Walk": {
-    "walkID": 42,
     "walkTitle": "Road Rummer",
     "shortDescription": "meep meep!",
 	"longDescription": "meeeeeeeeeeeeeeep meeeeeeeeeeeeeeeeeep!",
@@ -47,15 +46,11 @@ Location
 placeDescription
 
 "placeDescription": {
-    "placeDescriptionId": 0042,
-    "locationId": 004200,
     "placeDescriptionText": "This is a bar, can you say bar?",
 }
 
 Photo
 
 "Photo": {
-    "photoId": 0042,
-    "placeID": 004200,
     "photoName": "Photo of Rummers",
 }
