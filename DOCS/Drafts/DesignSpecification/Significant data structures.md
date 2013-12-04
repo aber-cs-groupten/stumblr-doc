@@ -27,6 +27,8 @@ JSON
 
 Walk
 
+{
+
 "Walk": {
 
     "walkTitle": "Road Rummer",
@@ -40,7 +42,10 @@ Walk
 	"walkDistance: "42"
 }
 
+}
+
 Location
+{
 
 "Location": {
 
@@ -59,7 +64,11 @@ placeDescription
 	
 }
 
+}
+
 Photo
+
+{
 
 "Photo": {
 
@@ -67,4 +76,6 @@ Photo
 	
 	"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756"
 	
+}
+
 }
