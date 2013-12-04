@@ -32,7 +32,3 @@
         \end{enumerate}
     \end{subsection}
 \end{section}
-
-Base 64 encode image
------------
-  1
