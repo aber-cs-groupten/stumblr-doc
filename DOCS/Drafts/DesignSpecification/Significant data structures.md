@@ -53,4 +53,5 @@ Photo
 
 "Photo": {
     "photoName": "Photo of Rummers",
+	"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756",
 }
