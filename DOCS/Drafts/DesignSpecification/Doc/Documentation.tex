@@ -134,6 +134,10 @@
 			\hline
 			CCN & 03/12/2013 & 1.0 & Initial build of document \\
 			\hline
+			DEC & 04/12/2013 & 1.1 & Updated Markdown conversion issues \\
+			\hline
+			CCN & 04/12/2013 & 1.2 & Corrected spelling and grammar mistakes \\
+			\hline
 		\end{tabularx}
 }
 
@@ -197,11 +201,11 @@
 		\begin{subsection}{Programs in System}
 		The System that will be created will contain three systems; the Android app, a server and a web page. \\
 
-		The Android side of the system will be used as the platform for the walking tour creator app. Within this app users can create a new tour, they will then be able to add locations to the tour. These locations will contain information such as the tours title, description, the way points of the location and possibly an image. Once the tour is saved and finished it can then be sent via Wi-Fi or internet connection on the device to the server. The data will be sent to the server as a Multimedia Internet Message Extension in a http POST.\\
+		The Android side of the system will be used as the platform for the walking tour creator app. Within this app users can create a new tour, they will then be able to add locations to the tour. These locations will contain information such as the tours title, description, the way points of the location and possibly an image. Once the tour is saved and finished it can then be sent via Wi-Fi or internet connection on the device to the server. The data will be sent to the server as a Multimedia Internet Message Extension (MIME) format in an HTTP POST request.\\
 
-		The server will be used to store all data about tours created on the Android app. On the server a database will be created and within the database a table for storing the tour's details. Once data is received a new record will be created and the data stored for easy re-use on the web page. To access this data the web page will use a php script with mySQL commands.\\
+		The server will be used to store all data about tours created on the Android app. On the server a database will be created and within the database a table for storing the tour's details. Once data is received a new record will be created and the data stored for easy re-use on the web page. To access this data the web page will use a PHP script with MySQL commands.\\
 
-		The final program in the system is the web page, which will be used for displaying tours. On the website there will be a list of saved tours from which the user can click to view them. The tour will then be displayed on a map which will incorporate the use of the Google Maps API. By clicking on a way point the user will be able get more information depending on what was saved by the creator using the Android app.
+		The final program in the system is the web page, which will be used for displaying tours. On the website there will be a list of saved tours from which the user can click to view them. The tour will then be displayed on a map which will incorporate the use of the Google Maps API. By clicking on a Waypoint the user will be able to view the information added by the creator.
 		\end{subsection}
 	\end{section}
 	
@@ -372,11 +376,13 @@ The web interface will use all of these classes to create a page that will load 
 \subsection{Page}
 The page class is the web page that will hold the map and database interaction. This class will be the way the interface is shown by using css. This class will hold the map class and the database interaction class. The page class will be done in HTML and it will validate to XHTML 1.0 Strict. 
 
-\subsection{The Map}
+\subsection{Map}
 The map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the google maps API website that initialise the maps and the pointers on the map. There also other function such as myclick() which records when the user click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers.
 >Here are the functions and javacript I will using from the Google Maps API website that will be working with the database interaction.
 
-\clearpage
+\subsection{Database Interaction}
+The database interaction class is where the web page will connect to the databases then It will use jquery to get all the points on the tour that the user choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using Jquery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page. PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the poiner. The PHP code used  will mostly be in the create pointer part of the map class where it will create pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
+
 \begin{lstlisting}[caption=Google Maps API Javascript Example]
 <script type="text/javascript"> 
   var side_bar_html = ""; 
@@ -439,11 +445,6 @@ function createMarker(latlng, name, html) {
 }
 </script>
 \end{lstlisting}
-
-\subsection{Database Interaction}
-The database interaction class is where the web page will connect to the databases then It will use jquery to get all the points on the tour that the user choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using Jquery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page.
->PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the poiner.The PHP code used  will mostly be in the create pointer part of the map class where it will create pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
-
 \end{section}
 
 	
@@ -462,7 +463,7 @@ The database interaction class is where the web page will connect to the databas
 		Use of JSON (spoke to customer... etc)
 	\end{section}
 	
-	\begin{section}{Android Design Justifications}
+	\begin{section}{Web Design Justifications}
 		Use of JSON (spoke to customer... etc)
 		Google maps		
 	\end{section}

@@ -4,3 +4,6 @@
 *.toc
 *.synctex.gz
 *.tex.swp
+*.pdf
+*.blg
+*.bbl
