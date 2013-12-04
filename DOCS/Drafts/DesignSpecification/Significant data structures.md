@@ -28,30 +28,43 @@ JSON
 Walk
 
 "Walk": {
+
     "walkTitle": "Road Rummer",
+	
     "shortDescription": "meep meep!",
+	
 	"longDescription": "meeeeeeeeeeeeeeep meeeeeeeeeeeeeeeeeep!",
+	
 	"walkHours": "42",
+	
 	"walkDistance: "42"
 }
 
 Location
 
 "Location": {
+
     "latitude": 0000042,
+	
     "longitude": 0000042,
-    "timestamp": 16:20,
+	
+    "timestamp": 16:20
 }
 
 placeDescription
 
 "placeDescription": {
-    "placeDescriptionText": "This is a bar, can you say bar?",
+
+    "placeDescriptionText": "This is a bar, can you say bar?"
+	
 }
 
 Photo
 
 "Photo": {
+
     "photoName": "Photo of Rummers",
-	"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756",
+	
+	"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756"
+	
 }
