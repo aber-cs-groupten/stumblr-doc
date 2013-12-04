@@ -1,0 +1,32 @@
+Tables for a Walking Tour
+===================
+
+1. List of walks
+Each walk is listed in the "walks" table. There is one record for each walk, and the record has 
+the following characteristics:
+id - integer, primary field: used to order the list of available walks
+title - text, name of the walk in the list of walks
+shortDesc - text, subtitle of walk in list of walks
+longDesc - the text that shows at the top of the screen when a walk is chosen
+hours - float, the number of hours a walk will take
+distance - float, the distance covered doing the walk, in kilometres
+2. Location
+This is the basic set of details about a walk route. 
+id - integer, primary field, referenced from place descriptions
+walkID - integer, reference to the walk this location is part of
+latitude - float, the latitude map reference for the location
+longitude - float, the longitude map reference for the location
+timestamp - float, relative time from start point
+3. Place description
+This is a location within a specific walk. The basic location information will be needed, but 
+this embellishes it with extra information for the walk that it is part of.
+id - integer, primary field: used to order items within a walk
+locationId - integer ,reference to the location information for this place
+description - text, description of this place, to be shown on this specific walk
+4. Photo Usage
+These are attached to a place (a location within a walk). They are keyed on the placeId, so the 
+software can ask for all of the photos for a place within a specific walk.
+They are displayed for a place in order of their id.
+id - integer, primary field: used to order photos within a place
+placeId - integer, id of the place that this photo should be shown for
+photoName - text, the name of the jpg file with the photo (without “.jpg” at the end)
