@@ -8,7 +8,9 @@ This document is supposed to be read and understood by our client.
 Scope
 
 This design specification will separate the project into components which are implemented separate from each other, describing the interactions to and between components.
-Conventions used in more technical based documents, will not be necessary, as this is a document for the client’s understanding. 
+Conventions used in more technical based documents, will not be necessary, as this is a document for the client’s understanding.
+This document contains  a decomposition description, a dependancy description, which explains the dependency classes have with each other, an interface description, which describes the interface of classes.
+This document also contains a detailed design, which explains the design decisions we have made for stumblr.
 
 Objectives
 
