@@ -1,0 +1,24 @@
+Introduction
+----------------------
+
+The purpose of the document is to give the client an understanding on how the project is going to be structured and developed.
+Following are the key aspects such as descriptions of classes and how the interface is going to be presented to the user and to specify the procedures taken to ensure their completion.
+This document is supposed to be read and understood by our client.
+
+Scope
+
+This design specification will separate the project into components which are implemented separate from each other, describing the interactions to and between components.
+Conventions used in more technical based documents, will not be necessary, as this is a document for the client’s understanding. 
+
+Objectives
+
+The objectives of this document are:
+
+•	To provide a description of the main components of stumblr.
+•	To provide an explanation of the dependencies between certain components, describing for both compilation and execution.
+•	To provide details about the interface for all main classes of stumblr.
+
+
+
+
+
