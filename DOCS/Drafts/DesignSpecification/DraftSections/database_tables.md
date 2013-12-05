@@ -1,6 +1,6 @@
 Tables for a Walking Tour
 ===================
-To store data about tours a database will be used, this table shall contain the four tables below with the relevent columns.
+To store data about tours a database will be used, this database shall contain the four tables below with the relevent columns.
 
 List of Walks
 ----------------
