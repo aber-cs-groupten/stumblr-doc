@@ -223,12 +223,31 @@
 		    \end{subsubsection}
 
 		    \begin{subsubsection}{Waypoint}
-		    This class will handle all information and methods regarding locations on the route. A method will be used to create a Waypoint containing "title", "short description" and an image. Coordinates will be stored in a linked list of coordinates.
+		    This class will handle all information and methods regarding each individual Waypoint on the route, including acquisition and processing of image and GPS data from the Android system. A constructor method will be used to create a Waypoint containing "title", "short description" and an image. Coordinates will be stored in a LinkedList of (android.location.Location) objects. The LinkedList will contain the list of coordinates between the current and previous Waypoints.
 		    \end{subsubsection}
 
 		    \begin{subsubsection}{Route}
 		    This class will contain all the methods to handle all parts of creating a route, such as adding Waypoints to a linked list of Waypoints.
 		    \end{subsubsection}
+	    \end{subsection}
+	    
+	    \begin{subsection}{Significant Activities - Android}
+	    	\begin{subsubsection}{AbstractActivity}
+		    AbstractActivity will hold all of the common methods (common bundle loading/saving techniques). Each other activity will inherit from it.
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{DataEntryActivity}
+		    Inherits from AbstractActivity. Contains common code for data entry (text validation, etc).
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{CreateWaypoint}
+		    Inherits from DataEntryActivity. Contains methods to set images, timestamps, GPS coordinates, and other information in the constructor.
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{CreateRoute}
+		    Inherits from DataEntryActivity. Contains methods to create a new Route Lin
+		    \end{subsubsection}
+		    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	    \end{subsection}
 	
 	    \begin{subsection}{Significant Classes - Web}
@@ -441,38 +460,6 @@
 		\begin{subsubsection}{Photo Usage}
 			This table is very similar to the place description table, but stores a file path to an image of the location. The table needs to have a primary key (id) for each image as well as a foreign key linked to the location which it is about (placeID). The final column in the table is a varchar which stores the Base64 representation of an image - "photoData".
 		\end{subsubsection}
-
-		\clearpage
-		\begin{subsubsection}{JSON}
-			\begin{lstlisting}
-{
-	"Walk": {
-		"walkTitle": "Road Rummer",
-		"shortDescription": "meep meep!",
-		"longDescription": "meep meep meep meep!",
-		"walkHours": 42,
-		"walkDistance": 42,
-		"Locations": [
-			{
-				"LocationTitle",
-				"GPSTraces" : [
-					{
-						"latitude": 42.00000,
-						"longitude": 42.00000
-					}
-				],
-				"timestamp": 16:20,
-				"locationDescription": "This is a bar, can you say bar?",
-				"Photo": {
-					"photoName": "Photo of Rummers",	
-					"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756"
-				}
-			}
-		]
-	}
-}
-			\end{lstlisting}
-		\end{subsubsection}
 	\end{subsection}
 	
 	\begin{subsection}{Website Interface Specification}
@@ -500,7 +487,7 @@ function initialize() {
 // create the map
 	var myOptions = {
 		zoom: 15,
-		//sets the map to Aberytwyth
+		//sets the map to Aberystwyth
 		center: new google.maps.LatLng(52.4140,-4.0810),
 		mapTypeControl: true,
 		mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
@@ -551,8 +538,41 @@ function createMarker(latlng, name, html) {
 </script>
 		\end{lstlisting}
 	\end{subsection}
-\end{section}
 	
+		\clearpage
+		\begin{subsection}{JSON Example}
+			\begin{lstlisting}
+{
+	"Walk": {
+		"walkTitle": "Road Rummer",
+		"shortDescription": "meep meep!",
+		"longDescription": "meep meep meep meep!",
+		"walkHours": 42,
+		"walkDistance": 42,
+		"Locations": [
+			{
+				"LocationTitle",
+				"GPSTraces" : [
+					{
+						"latitude": 42.00000,
+						"longitude": 42.00000
+					}
+				],
+				"timestamp": 16:20,
+				"locationDescription": "This is a bar, can you say bar?",
+				"Photo": {
+					"photoName": "Photo of Rummers",	
+					"64bitPhoto": "gfkfhjfhkhfctyb7r67tny8b6n756"
+				}
+			}
+		]
+	}
+}
+			\end{lstlisting}
+		\end{subsection}
+\end{section}
+
+\clearpage
 \begin{section}{Android Design Justifications}
 	\begin{itemize}
 		\item{We decided to implement Base64 encoding on our images within our application - this allows the developers to directly embed the Base64-encoded image data within the webpage - and it's a simple API call to convert to Base64 within Android.}
