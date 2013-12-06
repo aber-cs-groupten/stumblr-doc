@@ -245,9 +245,20 @@
 		    \end{subsubsection}
 		    
 		    \begin{subsubsection}{CreateRoute}
-		    Inherits from DataEntryActivity. Contains methods to create a new Route Lin
+		    Inherits from DataEntryActivity. Contains methods to create a new Route LinkedList and access items within the LinkedList. Also contains methods to access data held within text fields - from the corresponding data entry field.
 		    \end{subsubsection}
-		    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		    
+		    \begin{subsubsection}{WaypointList}
+		    Inherits from DataEntryActivity. This activity contains methods and UI elements to show the Waypoint objects in a list-type structure within the app.
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{FinishRoute}
+		    Inherits from DataEntryActivity. This contains methods to package the Route object into something that can be uploaded (via JSON) to the server application, as well as giving the user a persistent notification icon showing the status of their upload.
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{Home}
+		    Inherits from DataEntryActivity. This is the main screen of the application, that shows all of the menu options necessary (and also the Settings menu). This will contain methods to progress to the CreateRoute activity.
+		    \end{subsubsection}
 	    \end{subsection}
 	
 	    \begin{subsection}{Significant Classes - Web}
