@@ -138,6 +138,10 @@
 			\hline
 			CCN & 04/12/2013 & 1.2 & Corrected spelling and grammar mistakes \\
 			\hline
+			CCN & 05/12/2013 & 1.3 & Inserted missing sections \\
+			\hline
+			CCN & 05/12/2013 & 1.4 & Rearranged to reflect order in QA doc \\
+			\hline
 		\end{tabularx}
 }
 
@@ -182,17 +186,18 @@
 	%================================================================================ DOCUMENT STARTS HERE
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
-			The purpose of this document is to show that we have met the outlined objectives specified by the client.
+			The purpose of the document is to give the client an understanding of how the project is going to be structured and developed. Following are the key aspects such as descriptions of classes and how the interface is going to be presented to the user and to specify the procedures taken to ensure their completion. This document is intended to be read and understood by the client.
 		\end{subsection}
 	
 		\begin{subsection}{Scope}
-			Scope
+			This design specification will separate the project into components which are implemented separately from each other - describing the interactions between components. Conventions used in more technical based documents will not be necessary, as this is a document for the client's understanding. 
 		\end{subsection}
 		
 		\begin{subsection}{Objectives}
 			\begin{itemize}
-				\item{Objective 1}
-				\item{Objective 2}
+				\item{To provide a description of the main components of Stumblr.}
+				\item{To provide an explanation of the dependencies between certain components, describing for both compilation and execution.}
+				\item{To provide details about the interface for all main classes of Stumblr.}
 			\end{itemize}
 		\end{subsection}
 	\end{section}
@@ -290,49 +295,10 @@
 			\includegraphics[angle=270,width=0.8\columnwidth]{../ClassDiagrams/DataStructuresClassDiagram.png}
 		\end{subsubsection}
 	\end{subsection}
-\end{section}	
-	
-\begin{section}{DETAILED DESIGN}
-	\clearpage
-	\begin{subsection}{Significant Algorithms}
-		\begin{subsubsection}{Upload Data}
-		    \begin{enumerate}
-		        \item{Bundle data}
-		        \item{Cache Bundle}
-		        \item{Send Bundle To Server}
-		        \item{Display Progress bar in android drop down menu}
-		        \item{Wait for confirmation...}
-		        \item{If confirmation timeout reached... resend bundle.}
-		    \end{enumerate}
-		\end{subsubsection}
-		
-        \begin{subsubsection}{Bundle Data}
-            \begin{enumerate}
-                \item{Base 64 encode all images}
-                \item{Collate data for each waypoint into JSON}
-                \item{Collate every waypoint route metadata into JSON}
-            \end{enumerate}
-        \end{subsubsection}
-
-        \begin{subsubsection}{Validate Inputs}
-            \begin{enumerate}
-                \item{Check if empty}
-                \item{Check if contains "unsanitised" characters}
-                \item{Check image sizes}
-            \end{enumerate}
-        \end{subsubsection}
-
-        \begin{subsubsection}{Change Screen}
-            \begin{enumerate}
-                \item{Validate Inputs}
-                \item{Display next screen}
-            \end{enumerate}
-        \end{subsubsection}
-	\end{subsection}
 \end{section}
 
+\clearpage
 \begin{section}{INTERFACE DESCRIPTION}
-	\clearpage
 	\begin{subsection}{Android Activities}
 		\begin{subsubsection}{AbstractActivity \{abstract\}}
 			\lstinputlisting[label=AbstractActivity,
@@ -510,17 +476,16 @@
 	\end{subsection}
 	
 	\begin{subsection}{Website Interface Specification}
-		The web interface will use all of these classes to create a page that will load in a database of routes that the user will be able to view a route map from. The user will also be able to choose from a range of tours provided right next to the map. 
+		The web interface will use all of the following classes to dynamically create a page that will acquire information from a database of routes. The user will also be able to choose from a range of tours provided right next to the map. 
 
 		\subsubsection{Page}
 			The page class is the web page that will hold the map and database interaction. This class will be the way the interface is shown by using css. This class will hold the map class and the database interaction class. The page class will be done in HTML and it will validate to XHTML 1.0 Strict. 
 
 		\subsubsection{Map}
-			The map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the google maps API website that initialise the maps and the pointers on the map. There also other function such as myclick() which records when the user click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers.
-		>Here are the functions and javacript I will using from the Google Maps API website that will be working with the database interaction.
+			The Map class is the class which holds the Google maps API which will be in JavaScript. This class holds functions that are provided from the Google maps API website that initialise the maps and create the pointers on the map. There also other function such as myclick() which records when the user click on the map. Also there is a createMarker() function which will create an info box for each point provided this is were we will provide the information for each place by using the database interaction here to create all the pointers. Below are some functions in JavaScript that the web interface will use with the Google Maps API.
 
 		\subsubsection{Database Interaction}
-			The database interaction class is where the web page will connect to the databases then It will use jquery to get all the points on the tour that the user choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using Jquery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page. PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the poiner. The PHP code used  will mostly be in the create pointer part of the map class where it will create pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
+			The database interaction class is where the web page will connect to the databases then It will use JQuery to get all the points on the tour that the user choose. It will present the tours as links to the left of the map which when clicked will connect to that database and load in all the points to the map and load pointer to the right of the map. The map will have information boxes for each point on the map which have had information put in them by using JQuery as the information for each point is save alongside the coordinates. A thumbnail of an image of the location will also be in these information boxes and when clicked on a bigger image will show at the centre of the page. PHP code will be used to read in the databases of tours which will contain each tours the code will create links on the left of the map to bring up a new tour and load in the pointer. The PHP code used will mostly be in the "create pointer" part of the map class where it will create a pointer for each entry in the database which will then create a link on the right of the map to link to each pointer on the map.
 
 		\subsubsection{Google Maps API JavaScript Example}
 		\begin{lstlisting}[caption=Google Maps API Javascript Example]
