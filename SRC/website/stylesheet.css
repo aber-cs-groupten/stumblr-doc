@@ -1,6 +1,7 @@
 
 body{
-	background: #002199;
+	background-image:url('images/bg.jpg');
+	background-color:#cccccc;
 	background-repeat :repeat;
 	text-align: center;
 	}
@@ -8,19 +9,23 @@ body{
 #divwrapper{
     background: #FFF;
 	margin: 0px auto;
-	width: 1000px;
-	
+	width: 1500px;
+	border: 2px solid #000;
 	-moz-box-shadow:0 0 2px 5px #FFF;
 	-webkit-box-shadow: 0 0 2px 2px #FFF;
 	
 }
 #header{
-	width: 1000px;
-	height: 200px;
-	border-bottom: 2px solid #000;
+	
+	
+	height: 210px;
+	
+	font-size:60px;
+	color: #FFF;
 	
 	
 	}
+
 
 #nav{
 	
@@ -73,20 +78,6 @@ body{
 	padding-left: 60px;
 	padding-right: 60px;
 }
-#bullets2{
-	padding-left: 60px;
-	padding-right: 60px;
-}
-#bullets3{
-	padding-left: 60px;
-	padding-right: 60px;
-}
-#bullets4{
-	padding-left: 60px;
-	padding-right: 60px;
-}
-#bullets5{
-	padding-left: 60px;
-	padding-right: 60px;
+adding-right: 60px;
 }
 
