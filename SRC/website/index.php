@@ -1,18 +1,14 @@
 <?php
-session_start();
-if(isset($_POST['setTour'])){
-		
-		$_SESSION['ref'] = $_POST['setTour'];
-$tour_id = 0;
-	}
-$lat = '52.4140';
-$lng = '-4.0810';
-$name = 'scholars';
-$descr = 'hello';
-//$conn = mysqli_connect("assemblyco.de","stephen","KgKhuKBR","stumblrdb");
-	//$tour = mysqli_query ($conn,"select * from Walks ");
-	
-	
+$walkID = 1;
+if(isset($_POST['tour'])){
+	$walkID = $_POST['tour'];
+}
+else{
+}
+$con=mysqli_connect("db.dcs.aber.ac.uk","admcsgp10","73GRlj5m","csgp10_13_14");
+$tour=mysqli_query ($con, "select * from walks where id is $walkID");
+
+$marker[] = 0;
  ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
@@ -28,25 +24,27 @@ $descr = 'hello';
 
 	
       function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(52.414265,-4.081807),
-          zoom: 16
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
 		
-	var marker = new google.maps.Marker({
-    	position: new google.maps.LatLng(52.416693,-4.081102),
-   	map: map,
-	title:'Scholars'
-	});
-	var contentString = '<div id="content">'+'<p><b>Scholars</b></p>'+'<p>A great place to hav a drink. "Does the best pint of fosters in aberystwyth" - Stephen Mcfarlane</p>';		
-	var infowindow = new google.maps.InfoWindow({
-		content: contentString
-	});
-	google.maps.event.addListener(marker, 'click',function(){
-		infowindow.open(map,marker);
-	});
+			var mapOptions = {
+			  center: new google.maps.LatLng(52.414265,-4.081807),
+			  zoom: 16
+			};
+			var map = new google.maps.Map(document.getElementById("map-canvas"),
+			    mapOptions);
+		
+			var marker = new google.maps.Marker({
+		    	position: new google.maps.LatLng(52.416693,-4.081102),
+		   	map: map,
+			title:'Scholars'
+			});
+			var contentString = '<div id="content">'+'<p><b>Scholars</b></p>'+'<p>A great place to hav a drink. "Does the best pint of fosters in aberystwyth" - Stephen Mcfarlane</p>';		
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString
+			});
+			google.maps.event.addListener(marker, 'click',function(){
+				infowindow.open(map,marker);
+			});
+		//}
 	
 	
 	var pathco = [
@@ -81,15 +79,20 @@ $descr = 'hello';
 <div id="divwrapper">
 	<div id="divbody">
 		<h2>Walking Tour Viewer</h2>
-	<p><?php echo "<b>Tour: </b>".$_SESSION["ref"];?></p>
-//	<?php 
-//
-//		while ($a = mysql_fetch_array($tour)){
-//			echo "<p>Tour name: ".$a["title"]."</p>";			
-			
-//		}
+	
+	<?php 
 
-//	?>
+		while ($a = mysqli_fetch_array($tour)){
+			echo "<fieldset>";
+			echo "<p>Tour name: ".$a["title"]."</p>";
+			echo "<p>".$a["shortDesc"]."</p>";			
+			echo "<p>".$a["longDesc"]."</p>";
+			echo "<p>Hours: ".$a["hours"]."</p>";
+			echo "<p>Distance: ".$a["distance"]."</p>";
+			echo "</fieldset>";		
+		}
+
+	?>
 	<table border="1"> 
       <tr> 
 	<td valign="top" style="width:250px; text-decoration: underline; color: #4444ff;"> 
@@ -105,7 +108,7 @@ $descr = 'hello';
 	
 	</td>
         <td> 
-           <div id="map-canvas" style=" width: 1000px; height: 800px"></div> 
+           <div id="map-canvas"></div> 
         </td> 
         
       </tr> 
