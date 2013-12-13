@@ -18,10 +18,12 @@ else{
       src="https://maps.googleapis.com/maps/api/js?sensor=true">
     </script>
 	<script type="text/javascript">
-
+	var side_bar_html = "";
+	var styleIcon = new StyledIcon(StyledIconTypes.BUBBLE,{color:"#ff0000",text:"Stop"});
 	
+ 
       function initialize() {
-		var walkID = <?php echo($walkID);?>
+		var walkID = <?php echo $walkID;?>
 		
 		var mapOptions = {
 		  center: new google.maps.LatLng(52.414265,-4.081807),
@@ -30,9 +32,16 @@ else{
 		var map = new google.maps.Map(document.getElementById("map-canvas"),
 		    mapOptions);
 	if(walkID == 1){
+		var mapOptions = {
+		  center: new google.maps.LatLng(52.414265,-4.081807),
+		  zoom: 16
+		};
+		var map = new google.maps.Map(document.getElementById("map-canvas"),
+		    mapOptions);
 		var marker = new google.maps.Marker({
-	    	position: new google.maps.LatLng(52.416693,-4.081102),
+		position: new google.maps.LatLng(52.416693,-4.081102),
 	   	map: map,
+		icon: 'images/blue_MarkerA.png',
 		animation: google.maps.Animation.DROP,
 		title:'Scholars'
 		});
@@ -62,7 +71,7 @@ else{
 	   	map: map,
 		title:'inn on'
 		});
-		var contentString3 = '<div id="content">'+'<p><b>Inn on the pier</b></p>'+'<p>A great place for a drink, great atmosphere for sports such as six nations rugby and pemier league football.</p>';		
+		var contentString3 = '<div id="content">'+'<p><b>Inn on the pier</b></p>'+'<p>A great place for a drink, great atmosphere for sports.<p>'+'<img src="images/pier.jpg" alt="inn on">';		
 		var infowindow3 = new google.maps.InfoWindow({
 			content: contentString3
 		});
@@ -110,6 +119,7 @@ else{
 		var marker7 = new google.maps.Marker({
 	    	position: new google.maps.LatLng(52.41422,-4.082302),
 	   	map: map,
+		icon: 'images/blue_MarkerB.png',
 		title:'Cambrian'
 		});
 		var contentString7 = '<div id="content">'+'<p><b>Cambrian</b></p>'+'<p>Do Some great cocktails</p>'+'<p>You have to try the deathstar cocktail</p>';		
@@ -153,9 +163,17 @@ else{
 		new google.maps.LatLng(52.41422,-4.082302) ];
 	}
 	if(walkID == 2){
+		var mapOptions = {
+		  center: new google.maps.LatLng(52.414265,-4.081807),
+		  zoom: 14
+		};
+		var map = new google.maps.Map(document.getElementById("map-canvas"),
+		    mapOptions);
+
 		var marker = new google.maps.Marker({
 	    	position: new google.maps.LatLng(52.408275,-4.089496),
 	   	map: map,
+		icon: 'images/blue_MarkerA.png',
 		animation: google.maps.Animation.DROP,
 		title:'Harbour'
 		});
@@ -199,7 +217,7 @@ else{
 	   	map: map,
 		title:'Pier'
 		});
-		var contentString4 = '<div id="content">'+'<p><b>The Pier</b></p>'+'<p>Lovelly view from the end of the pier, also has amusement center and snooker hall and the inn on the pier bar.</p>';		
+		var contentString4 = '<div id="content">'+'<p><b>The Pier</b></p>'+'<p>Lovelly view from the end of the pier.</p>';		
 		var infowindow4 = new google.maps.InfoWindow({
 			content: contentString4
 		});
@@ -211,7 +229,7 @@ else{
 	   	map: map,
 		title:'Bandstand'
 		});
-		var contentString5 = '<div id="content">'+'<p><b>Bandstand</b></p>'+'<p>Its a bandstand.</p>';		
+		var contentString5 = '<div id="content">'+'<p><b>Bandstand</b></p>'+'<p>Its a bandstand.</p>'+'<img src="images/bandstand.jpg" alt="bandstand">';		
 		var infowindow5 = new google.maps.InfoWindow({
 			content: contentString5
 		});
@@ -221,6 +239,7 @@ else{
 		var marker6 = new google.maps.Marker({
 	    	position: new google.maps.LatLng(52.42204,-4.08488),
 	   	map: map,
+		icon: 'images/blue_MarkerB.png',
 		title:'Constitution hill'
 		});
 		var contentString6 = '<div id="content">'+'<p><b>Constitution Hill</b></p>'+'<p>End of the coastline in aberytwyth has a path up to the top of constitution hill</p>';		
@@ -251,7 +270,109 @@ else{
 		new google.maps.LatLng(52.42204,-4.08488) ];
 	}
 	if(walkID == 3){
+		var mapOptions = {
+		  center: new google.maps.LatLng(52.416625,-4.065206),
+		  zoom: 16
+		};
+		var map = new google.maps.Map(document.getElementById("map-canvas"),
+		    mapOptions);
+
+		var marker = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.41816,-4.065774),
+	   	map: map,
+		icon: 'images/blue_MarkerA.png',
+		animation: google.maps.Animation.DROP,
+		title:'Main entrance'
+		});
+		var contentString = '<div id="content">'+'<p><b>Main entrance</b></p>'+'<p>The main entrance of Aberystwyth Univerity.</p>'+'<img src="images/mainentrance.jpg" alt="entrance">';		
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		google.maps.event.addListener(marker, 'click',function(){
+			infowindow.open(map,marker);
+		});
+		google.maps.event.addListener(marker, 'click', toggleBounce);
+
+		var marker2 = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.415801,-4.063671),
+	   	map: map,
+		title:'Hugh owen library'
+		});
+		var contentString2 = '<div id="content">'+'<p><b>Hugh owen library</b></p>'+'<p>.</p>';		
+		var infowindow2 = new google.maps.InfoWindow({
+			content: contentString2
+		});
+		google.maps.event.addListener(marker2, 'click',function(){
+			infowindow2.open(map,marker2);
+		});
+		var marker3 = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.41529,-4.063296),
+	   	map: map,
+		title:'Students union'
+		});
+		var contentString3 = '<div id="content">'+'<p><b>Student Union</b></p>'+'<p>A great place to have somthing to eat and have a drink.</p>';		
+		var infowindow3 = new google.maps.InfoWindow({
+			content: contentString3
+		});
+		google.maps.event.addListener(marker3, 'click',function(){
+			infowindow3.open(map,marker3);
+		});
 	
+	
+		var marker4 = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.415925,-4.065667),
+	   	map: map,
+		title:'Physics building'
+		});
+		var contentString4 = '<div id="content">'+'<p><b>Physics building</b></p>'+'<p></p>';		
+		var infowindow4 = new google.maps.InfoWindow({
+			content: contentString4
+		});
+		google.maps.event.addListener(marker4, 'click',function(){
+			infowindow4.open(map,marker4);
+		});
+		var marker5 = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.416226,-4.065474),
+	   	map: map,
+		title:'Computer science department'
+		});
+		var contentString5 = '<div id="content">'+'<p><b>Computer science department</b></p>'+'<p>a great department.</p>';		
+		var infowindow5 = new google.maps.InfoWindow({
+			content: contentString5
+		});
+		google.maps.event.addListener(marker5, 'click',function(){
+			infowindow5.open(map,marker5);
+		});
+		var marker6 = new google.maps.Marker({
+	    	position: new google.maps.LatLng(52.416547,-4.066407),
+	   	map: map,
+		icon: 'images/blue_MarkerB.png',
+		title:'Institute Of Geography & Earth Sciences'
+		});
+		var contentString6 = '<div id="content">'+'<p><b>Institute Of Geography & Earth Sciences</b></p>'+'<p></p>';		
+		var infowindow6 = new google.maps.InfoWindow({
+			content: contentString6
+		});
+		google.maps.event.addListener(marker6, 'click',function(){
+			infowindow6.open(map,marker6);
+		});
+		
+		
+		var pathco = [
+		new google.maps.LatLng(52.41816,-4.065774),
+		new google.maps.LatLng(52.415591,-4.063843),
+		new google.maps.LatLng(52.415657,-4.063586),
+		new google.maps.LatLng(52.415801,-4.063671),
+		new google.maps.LatLng(52.41529,-4.063296),
+		new google.maps.LatLng(52.415657,-4.063586),
+		new google.maps.LatLng(52.415539,-4.064251),
+		new google.maps.LatLng(52.41563,-4.06468),
+		new google.maps.LatLng(52.415526,-4.065538),
+		new google.maps.LatLng(52.415925,-4.065667),
+		new google.maps.LatLng(52.416226,-4.065474),
+		new google.maps.LatLng(52.416507,-4.065688),
+		new google.maps.LatLng(52.416389,-4.066354),
+		new google.maps.LatLng(52.416547,-4.066407) ];
 	}
 	function toggleBounce() {
 
@@ -270,6 +391,11 @@ else{
 		strokeWeight:2});
 		path.setMap(map);
 	}
+	function myclick(i) {
+  google.maps.event.trigger(gmarkers[i], "click");
+}
+	document.getElementById("side_bar").innerHTML = side_bar_html;
+
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
@@ -284,22 +410,27 @@ else{
 	<div id="divbody">
 		<h2>Walking Tour Viewer</h2>
 		<p>This is a walking tour viewer for tours that have been created by our android app stumblr.</p>
-		<p>To load a tour select one from the left of the map and click load it will load information on that tour and markers and the route on the map.</p>		
-<p>Below is our tour viewer where you can see the route we took to create the root, if you click a marker it will show you information on that place including an image.</p>
+		<p>To load a tour select one from the left of the map and click load it will load information on that tour and markers and the route on the map. The blue markers on 
+		the map are the start and the end of the tour the one that bounces when clicked is the start.</p>		
+		<p>Below is our tour viewer where you can see the route we took to create the root, if you click 
+		a marker it will show you information on that place including an image if there is one only some have images.</p>
 	
 	<?php
 	if($walkID == 1){	
-	echo"<fieldset><p><b>Bars of Aberystwyth</b></p></br>";
+	echo"<fieldset><p><b>Bars of Aberystwyth</b></p>";
+	echo"<p>Description :</p>";
 	echo"<p>This is a tour of some the bars in Aberystwyth.</p>";
 	echo"<p>This tour will take you through aberystwyth and will show you some of the best bars in aberystwyth.</p></fieldset>";
 	}
 	if($walkID == 2){	
-	echo"<fieldset><p><b>Seafront of Aberystwyth</b></p></br>";
+	echo"<fieldset><p><b>Seafront of Aberystwyth</b></p>";
+	echo"<p>Description :</p>";
 	echo"<p>This is a tour of the seafront in Aberystwyth.</p>";
 	echo"<p>This tour will take you along the aberystwyth seafront and will show you some great spots.</p></fieldset>";
 	}
 	if($walkID == 3){	
-	echo"<fieldset><p><b>Univerity of Aberystwyth</b></p></br>";
+	echo"<fieldset><p><b>Univerity of Aberystwyth</b></p>";
+	echo"<p>Description :</p>";
 	echo"<p>This is a tour of the university of Aberystwyth.</p>";
 	echo"<p>This tour will take you around aberystwyth university.</p></fieldset>";
 	}
@@ -318,7 +449,7 @@ else{
 	<input type="radio" name="tour" value="1">Pubs</br>
 	<input type="radio" name="tour" value="2">Seafront</br>
 	<input type="radio" name="tour" value="3">University</br>
-	<input type='submit' name='setTour'/> 
+	<input type='submit' name='setTour' value="Load Tour"/> 
 	</form>
 
 	
@@ -326,7 +457,9 @@ else{
         <td> 
            <div id="map-canvas"></div> 
         </td> 
-        
+        <td valign="top" style="width:200px; text-decoration: underline; color: #4444ff;"> 
+           <div id="side_bar"></div> 
+        </td>
       </tr> 
     </table> 
 </div>
