@@ -212,9 +212,9 @@ GPS connectivity lost after recording has started.
 &
 Turn off GPS and location services during route recording.
 &
-Recording should pause.
+Error message displayed stating connection is lost, will maintain session untill connection is reastablished.
 &
-Recording will pause at last known location and error an message should be displayed.
+Session with remain at last known location.
 \\
 \hline
 
@@ -456,11 +456,11 @@ A new tour should now be saved in the database containing all the entered detail
 &
 FR6
 &
-Test sending the tour with incomplete data. Rather than entering all the required data for a tour only submit a title.
+Test user has entered data into all fields before continuing to the next screen.
 &
-The title of a tour.
+Attempt to continue to next screen without entering data.
 &
-Error message to warn the user about incomplete data.
+Error message to instruct the user to enter data into all fields.
 &
 Error message should appear and nothing new should be saved in the database.
 \\
@@ -480,21 +480,8 @@ Error message should appear and no data sent. The current tour should be cached 
 \\
 \hline
 
-24
-&
-FR6
-&
-Test sending corrupt data.
-&
-Create a corrupt file and try sending it to the server. (Purposely send mismatching MD5)
-&
-Error message should be displayed.
-&
-Error message displayed, use of md5-hash to check for corruption.
-\\
-\hline
 
-25
+24
 &
 FR6 
 &
@@ -508,7 +495,7 @@ Notification bar should show the progress of the upload as well as a confirmatio
 \\
 \hline
 
-26
+25
 &
 FR6
 &
@@ -526,7 +513,7 @@ Error message display and tour data cached, to be uploaded when connection estab
 
 \begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
 				\hline
-27
+26
 &
 FR 7
 &
@@ -542,7 +529,7 @@ When the app is re-opened it should have saved details about a full that is read
 
 
 
-28
+27
 &
 FR7
 &
@@ -556,7 +543,7 @@ When app is re-opened it will display the details entered about the tour.
 \\
 \hline
 
-29
+28
 &
 FR7
 &
@@ -570,7 +557,7 @@ When the app is re-opened it will display the incomplete tour with the waypoints
 \\
 \hline
 
-30
+29
 &
 FR7
 &
@@ -584,7 +571,7 @@ When the app is re-opened it will display the details about the location.
 \\
 \hline
 
-31
+30
 &
 FR7
 &
@@ -598,7 +585,7 @@ When the app is re-opened the user should be able to continue the tour from wher
 \\
 \hline
 
-32
+31
 &
 FR 8
 &
@@ -612,7 +599,7 @@ The tour should display with the right co-ordinations and also with flags/marker
 \\
 \hline
 
-33
+32
 &
 FR8
 &
@@ -626,7 +613,7 @@ The locations details and image are correctly displayed in the WTD.
 \\
 \hline
 
-34
+33
 &
 FR8
 &
@@ -640,7 +627,7 @@ Waypoints and location change on the map.
 \\
 \hline
 
-35
+34
 &
 FR8
 &
@@ -658,7 +645,7 @@ The information on the old location should have disappeared and the new location
 
 \begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
 				\hline
-36
+35
 &
 FR8
 &
@@ -672,7 +659,7 @@ The location's information is displayed without an image.
 \\
 \hline
 
-37
+36
 &
 FR8
 &
@@ -686,21 +673,8 @@ The location's information is displayed and contains an image.
 \\
 \hline
 
-38
-&
-FR8
-&
-Test requesting to view a tour that doesn't exist.
-&
-Clicking on a tour that doesn't exist.
-&
-Webpage should display  an error message.
-&
-The webpage displays an appropriate error message.
-\\
-\hline
 
-39
+37
 &
 FR9
 &
@@ -714,7 +688,7 @@ The tour should now appear as a saved tour in the database.
 \\
 \hline
 
-40
+48
 &
 FR9
 &
@@ -728,7 +702,7 @@ An error message should appear telling the user that the tour cannot be sent and
 \\
 \hline
 
-41
+39
 &
 FR9
 &
@@ -742,7 +716,7 @@ An error message should tell the user that they have used illegal characters.
 \\
 \hline
 
-42
+40
 &
 FR9
 &
@@ -756,7 +730,7 @@ The data shouldn't be corrupt so data should successfully save in the database. 
 \\
 \hline
 
-43
+41
 &
 FR9
 &
