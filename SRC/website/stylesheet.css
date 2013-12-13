@@ -9,50 +9,16 @@ body{
 #divwrapper{
     background: #FFF;
 	margin: 0px auto;
-	width: 1500px;
+	width: 80%;
 	border: 2px solid #000;
 	-moz-box-shadow:0 0 2px 5px #FFF;
 	-webkit-box-shadow: 0 0 2px 2px #FFF;
-	
 }
 #header{
-	
-	
-	height: 210px;
-	
-	font-size:60px;
+	height: 150px;
+	font-size:50px;
 	color: #FFF;
-	
-	
 	}
-
-
-#nav{
-	
-	width: 550px;
-	padding: 0px;
-	padding-left: 270px;
-	padding-right: 300px;
-	font-size: 16px;
-	height: 60px;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
-}
-#nav li{
-	float: left;
-	list-style-type:none;
-}
-#nav li a{
-	display: block;
-	padding: 5px 15px;
-	text-decoration: none;
-	font-weight: bold;
-	color: #000;
-}
-#nav li a:hover{
-	color: #FFF;
-	background-color: #000;
-}
 #divbody{
 	padding-left: 60px;
 	padding-right: 60px;
@@ -78,6 +44,9 @@ body{
 	padding-left: 60px;
 	padding-right: 60px;
 }
-adding-right: 60px;
+#map-canvas{
+	width: 650px;
+	height:600px;
 }
+
 

@@ -6,7 +6,9 @@ if(isset($_POST['tour'])){
 else{
 }
 $con=mysqli_connect("db.dcs.aber.ac.uk","admcsgp10","73GRlj5m","csgp10_13_14");
-$tour=mysqli_query ($con, "select * from walks where id is $walkID");
+$db = mysql_select_db('csgp10_13_14', $con) or die(mysql_error());
+$tour=mysqli_query ($db, "select * from walks where id is $walkID");
+
 
 $marker[] = 0;
  ?>
