@@ -10,9 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class DataEntryActivity extends ActionBarActivity {
-    /**
-     * Load the activity on creation (using a bundle if one is present)
-     * @param savedInstanceState The bundle containing the saved instance state.
-     */
+    
     public abstract void stumblrOnCreate(Bundle savedInstanceState);
 }
