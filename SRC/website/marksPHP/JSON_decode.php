@@ -40,12 +40,13 @@ foreach ($waypoint as $key => $value) {
     $timestamp = $value->{'timestamp'};
     $waypointLat = $value->{'latitude'};
     $waypointLong = $value->{'longitude'};
+    $waypointImage = $value->{'image'};
     
     // file_put_contents('json.txt', $waypointTitle);
     //putting data in db
-    $sqlWaypoint = "INSERT INTO location (walkID,latitude,longitude,title,description,timestamp)
+    $sqlWaypoint = "INSERT INTO location (walkID,latitude,longitude,title,description,timestamp,image)
     VALUES
-    ('$walkID','$waypointLat','$waypointLong','$waypointTitle','$waypointDescription','$timestamp')";
+    ('$walkID','$waypointLat','$waypointLong','$waypointTitle','$waypointDescription','$timestamp','$waypointImage')";
 
     if (!mysql_query($sqlWaypoint)) {
         //die('Error: ' . mysql_error($con));
