@@ -63,34 +63,46 @@ if (mysqli_connect_errno())
 	    var walkID = parseInt(markers[i].getAttribute("walkID"));
 	    var title = markers[i].getAttribute("title");
             var description = markers[i].getAttribute("description");
+	    var image = markers[i].getAttribute("image");
 	    var point = new google.maps.LatLng(
 		parseFloat(markers[i].getAttribute("latitude")),
 		parseFloat(markers[i].getAttribute("longitude")));
-	    var html = "<b>"+title+"</b><p>"+description+"</p>";
-	    
+	   var html = "<b>" + title + "</b><p>" + description + "</p><img src=" + "\"data:image/gif;base64," +  image + "\"></img>";
+
+
+
 	      var marker = new google.maps.Marker({
 	      map: map,
 	      position: point,
 	    icon: "images/mapiconscollection-numbers-fa0505-classic/number_"+i+".png",
-		
+	
 	      });
 	    bindInfoWindow(marker, map, infoWindow,html);
-	/*var path = new Array();
-	for(var j = 0; j < markers.length; j++){
-	var point = new google.maps.LatLng(
-		parseFloat(markers[j].getAttribute("latitude")),
-		parseFloat(markers[j].getAttribute("longitude")));
-	path[j] = point;
-	}		
-	var pathco = [
-	for(var e = 0; e <markers.length; e++){
-	new google.maps.LatLng(path[e]),	
-	}];
-	*/
 	}
 	
 	});
-	
+
+/*
+	downloadUrl("xmlpath.php", function(data) {
+	var xml = xmlParse(data);
+	var paths = xml.documentElement.getElementsByTagName("path");
+	var pathco = [];
+	for(var j = 0; j < paths.length; j++){
+		var lat = parseFloat(paths[j].getAttribute("latitude"));
+		var lng = parseFloat(paths[j].getAttribute("longitude"));
+		var point = new google.maps.LatLng(lat,lng);
+		path.push(point);
+	}
+	var path = new google.maps.Polyline({
+		path: pathco,
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 0.7,
+		strokeWeight:2});
+		path.setMap(map);
+	});
+*/
+
     }
 
     function bindInfoWindow(marker, map, infoWindow,html) {

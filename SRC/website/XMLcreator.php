@@ -45,7 +45,8 @@ while ($row = @mysql_fetch_assoc($result)){
   $newnode->setAttribute("latitude", $row['latitude']);  
   $newnode->setAttribute("longitude", $row['longitude']); 
   $newnode->setAttribute("title", $row['title']); 
-  $newnode->setAttribute("description", $row['description']); 
+  $newnode->setAttribute("description", $row['description']);
+  $newnode->setAttribute("image",$row['image']); 
 
 } 
 
