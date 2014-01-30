@@ -96,6 +96,11 @@ function load() {
         }
     );
     
+    /* This loop goes through all the information from the XML creator file such 
+        * as title, description, latitude and longitude and sets it to markers and infoboxes 
+        * on the Google map. The image that is contained on the server is used in the info 
+        * boxes as it is a base64 image which the html decodes and provides an image in the infobox. */
+        
     downloadUrl("xmlpath.php", // function(data) below is an inner function of this method.
         function (data) {
             var xml = data.responseXML;
@@ -118,11 +123,7 @@ function load() {
              });
 
              path.setMap(map);
-        } ); } 
-        /* That loop goes through all the information from the XML creator file such 
-        * as title, description, latitude and longitude and sets it to markers and infoboxes 
-        * on the Google map. The image that is contained on the server is used in the info 
-        * boxes as it is a base64 image which the html decodes and provides an image in the infobox. */
+        } ); }
 
                         
 /* This was suppost to create a path between each of the markers on the map but could not get it to fully work as it stops the map from working. */
@@ -171,11 +172,14 @@ function load() {
                 <div id="tour">
                     <?php
                     while ($a = mysql_fetch_array($res)) {
-                        echo "<p><b>Title : </b>" . $a["title"] . "</p>";
-                        echo "<p><b>Short Decription : </b>" . $a["shortDescription"] . "</p>";
-                        echo "<p><b>Long Decription : </b>" . $a["longDescription"] . "</p>";
-                        echo "<p><b>Distance : </b>" . $a["distance"] . "</p>";
-                        echo "<p><b>Time Taken : </b>" . $a["timestamp"] . "</p>";
+                        echo "<p><b>Title: </b>" . $a["title"] . "</p>";
+                        echo "<p><b>Short Description: </b>" . $a["shortDescription"] . "</p>";
+                        echo "<p><b>Long Description: </b>" . $a["longDescription"] . "</p>";
+                        echo "<p><b>Distance: </b>" . round($a["distance"], 0) . " metres." . "</p>";
+                        
+                        $hours = $a["hours"];
+                        $minutes = $hours * 60;
+                        echo "<p><b>Time Taken : </b>" . round($minutes, 0) . " minutes" . "</p>";
                     }
                     ?>
                 </div>
@@ -193,7 +197,9 @@ function load() {
                         echo "<b class='gallery'>" . $a["title"] . "</b>";
                         echo "<p class='gallery'>" . $a["description"] . "</p>";
                         $data = $a["image"];
-                        echo '<img src="data:image/gif;base64,' . $data . '" />';
+                        if ($data != '') {
+                            echo '<img src="data:image/gif;base64,' . $data . '" />';
+                        }
                         echo "</div>";
                     }
                     ?>
