@@ -404,12 +404,6 @@ Route is stopped and deleted.
 No information stored on database. User returned to main menu.
 \\
 \hline
-
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
-				\hline
-
 18
 &
 FR 5
@@ -423,6 +417,11 @@ Route is stopped. Warning displayed that if the route is cancelled all saved loc
 All information stored on this route is removed from the database.
 \\
 \hline
+
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
+				\hline
 
 19
 &
@@ -480,11 +479,39 @@ Error message display and tour data cached.
 \\
 \hline
 
+23
+&
+FR6
+&
+Test that the app continues to upload the route when it has lost focus.
+&
+Creat a normal route and when "Upload Walk" is pressed imeadtly press the "Home" icon.
+&
+The app will hae lost focus.
+&
+When the app is resumed the upload conformation message will be shown.
+\\
+\hline
+
+24
+&
+FR6
+&
+Test for data integrity checking on the server.
+&
+Send a route that doesn't have a matching md5-hash code.
+&
+Server returns a code that is not a "200" code.
+&
+No new route is added to the database.
+\\
+\hline
+
 \end{tabularx}
 
 \begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
 				\hline
-23
+25
 &
 FR 7
 &
@@ -498,7 +525,7 @@ When the app is re-opened it should have saved details about a full that is read
 \\
 \hline
 
-24
+26
 &
 FR7
 &
@@ -512,7 +539,7 @@ When app is re-opened it will display the details entered about the tour.
 \\
 \hline
 
-25
+27
 &
 FR7
 &
@@ -526,7 +553,7 @@ When the app is re-opened it will display the incomplete tour with the waypoints
 \\
 \hline
 
-26
+28
 &
 FR7
 &
@@ -540,7 +567,7 @@ When the app is re-opened it will display the details about the waypoints.
 \\
 \hline
 
-27
+29
 &
 FR7
 &
@@ -554,7 +581,7 @@ When the app is re-opened the user should be able to continue the tour from wher
 \\
 \hline
 
-28
+30
 &
 FR 8
 &
@@ -568,7 +595,7 @@ The tour should display with the right co-ordinations and also with flags/marker
 \\
 \hline
 
-29
+31
 &
 FR8
 &
@@ -582,7 +609,7 @@ The locations details and image are correctly displayed in the WTD.
 \\
 \hline
 
-30
+32
 &
 FR8
 &
@@ -596,7 +623,7 @@ Waypoints and location change on the map.
 \\
 \hline
 
-31
+33
 &
 FR8
 &
@@ -614,7 +641,7 @@ The information on the old location should have disappeared and the new location
 
 \begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
 				\hline
-32
+34
 &
 FR8
 &
@@ -628,7 +655,7 @@ The location's information is displayed without an image.
 \\
 \hline
 
-33
+35
 &
 FR8
 &
@@ -642,8 +669,21 @@ The location's information is displayed and contains an image.
 \\
 \hline
 
+36
+&
+FR8
+&
+Try to view a route that is not in the database.
+&
+Check that only the routes that are contained in the database are displayed in the "Tour Selector" drop down box.
+&
+No output.
+&
+No "Phantom Routes" can be seen in the drop down box.
+\\
+\hline
 
-34
+37
 &
 FR9
 &
@@ -657,8 +697,7 @@ The tour should now appear as a saved tour in the database.
 \\
 \hline
 
-
-35
+38
 &
 FR9
 &
@@ -669,6 +708,20 @@ Details about a tour sent whilst the server isn't working.
 An error message is displayed.
 &
 An error message should appear telling the user that the tour cannot be sent and the tour should be cached.
+\\
+\hline
+
+39
+&
+FR9
+&
+Test for data sanatisation on the server.
+&
+Send a route the contains invalid characters in one of its data fields.
+&
+No output.
+&
+The bad data's corosponding entry in the database will not contain the invalid characters.
 \\
 \hline
 
