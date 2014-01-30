@@ -48,15 +48,15 @@ if (mysqli_connect_errno())
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(52.4141, -4.08262),
-        zoom: 15,
+        zoom: 14,
         mapTypeId: 'roadmap'
       });
       var infoWindow = new google.maps.InfoWindow;
 
-	downloadUrl("XMLcreator.php", function(data) {
+	downloadUrl("XMLcreator.php","xmlpath.php", function(data) {
 	  var xml = data.responseXML;
 	  var markers = xml.documentElement.getElementsByTagName("marker");
-	
+	  var paths = xml.documentElement.getElementsByTagName("path");	
 	  for (var i = 0; i < markers.length; i++) { 
 		
 	    var id = (markers[i].getAttribute("id"));
@@ -67,8 +67,13 @@ if (mysqli_connect_errno())
 	    var point = new google.maps.LatLng(
 		parseFloat(markers[i].getAttribute("latitude")),
 		parseFloat(markers[i].getAttribute("longitude")));
-	   var html = "<b>" + title + "</b><p>" + description + "</p><img src=" + "\"data:image/gif;base64," +  image + "\"></img>";
-
+	if(image == ""){
+	 var html = "<b>" + title + "</b><p>" + description + "</p>";
+	}   
+	else{
+	var html = "<b>" + title + "</b><p>" + description + "</p><img src=" + "\"data:image/gif;base64," +  image + "\"></img>";
+	}
+	
 
 
 	      var marker = new google.maps.Marker({
@@ -79,8 +84,28 @@ if (mysqli_connect_errno())
 	      });
 	    bindInfoWindow(marker, map, infoWindow,html);
 	}
-	
+	var pathco = [];
+	for(var j = 0;j < paths.length; j++){
+		var lat = parseFloat(paths[j].getAttribute("latitude"));
+		var lng = parseFloat(paths[j].getAttribute("longitude"));
+		var point = new google.maps.LatLng(lat,lng);
+		pathco.push(point);
+		
+		
+	}
+	var testpath = [];
+	testpath.push(new google.maps.LatLng(52.4141, -4.08262));
+	testpath.push(new google.maps.LatLng(52.4159, -4.08279));
+/*
+	var path = new google.maps.Polyline({
+		path: testpath,
+		geodesic: true,
+		strokeColor: '#FF0000',
+		strokeOpacity: 0.7,
+		strokeWeight:3});
+		path.setMap(map);*/
 	});
+});
 
 /*
 	downloadUrl("xmlpath.php", function(data) {
@@ -160,9 +185,23 @@ echo "<p>" . $a["longDescription"] . "</p>";
             <div id="map" style="width: 800px; height: 600px"></div>
         </td> 
       </tr> 
-    </table> 
+    </table>
 <br/>
 <br/>
+<div id="bar">
+                <?php
+                while ($a = mysql_fetch_array($query)) {
+                    echo "<div id=pic>";
+                    echo "<b class='gallery'>" . $a["title"] . "</b>";
+                    echo "<p class='gallery'>" . $a["description"] . "</p>";
+                    $data = $a["image"];
+                    echo '<img src="data:image/gif;base64,' . $data . '" />';
+                    echo "</div>";
+                }
+                ?>
+
+            </div> 
+
 <br/>	
 </div>
 <br/>

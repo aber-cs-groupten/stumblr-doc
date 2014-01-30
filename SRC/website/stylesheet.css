@@ -44,9 +44,61 @@ body{
 	padding-left: 60px;
 	padding-right: 60px;
 }
-#map-canvas{
+#map{
 	width: 650px;
 	height:600px;
+}
+#tour{
+	width: 1065px;
+	border: 2px solid #000;
+}
+#main{
+	text-align: center;
+	margin-top: 300px;
+	height: 150px;
+	font-size:50px;
+	color: #FFF;
+
+}
+#main2{
+	text-align: center;
+	font-size:50px;
+	height: 150px;
+}
+#main2 a{
+	text-decoration : none;
+	color: #000000;
+}
+#bar{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height:250px;
+    white-space:nowrap;
+   
+
+}
+#pic{
+    margin-left: 2%;
+    margin-right: 2%;
+    display: inline-block;
+    width:200px;
+    
+    
+
+
+}
+p.gallery {
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: small;
+    width:150px;
+    white-space: pre-wrap;
+    
+
+}
+b.gallery {
+    text-align:center;
+
 }
 
 
