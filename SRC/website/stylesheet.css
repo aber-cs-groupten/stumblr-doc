@@ -2,7 +2,7 @@
 body{
 	background-image:url('images/bg.jpg');
 	background-color:#cccccc;
-	background-repeat :repeat;
+	background-size: 100%;
 	text-align: center;
 	}
 
@@ -45,13 +45,23 @@ body{
 	padding-right: 60px;
 }
 #map{
-	width: 650px;
+	width: 100%;
+	border: 2px solid #000;
 	height:600px;
+	clear:both;
+ 	margin: 0px;
+  	padding: 0px;
 }
 #tour{
-	width: 1065px;
+	width:100%;
 	border: 2px solid #000;
+        clear:both;
+	margin: 0px;
+  	padding: 0px;
+	float : right;
+	
 }
+#tour p{margin: 10px;}
 #main{
 	text-align: center;
 	margin-top: 300px;
@@ -100,5 +110,22 @@ b.gallery {
     text-align:center;
 
 }
-
+.clear { clear: both;}
+#select{
+	float:left ;
+	width:300px;
+	clear: both;
+	overflow: auto;
+	margin: 0 auto;
+     	padding: 0;
+	display: inline-block;
+}
+#select input{
+	float: right;
+	display: inline-block;
+}
+#select select{
+float :right;
+display: inline-block;
+}
 

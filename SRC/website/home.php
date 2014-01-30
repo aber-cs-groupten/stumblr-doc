@@ -48,7 +48,7 @@ if (mysqli_connect_errno())
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(52.4141, -4.08262),
-        zoom: 14,
+        zoom: 16,
         mapTypeId: 'roadmap'
       });
       var infoWindow = new google.maps.InfoWindow;
@@ -81,6 +81,7 @@ if (mysqli_connect_errno())
 	      });
 	    bindInfoWindow(marker, map, infoWindow,html);
 	}
+	map.setCenter(point);
 	 });
 	/*var pathco = [];
 	for(var j = 0;j < paths.length; j++){
@@ -131,24 +132,8 @@ if (mysqli_connect_errno())
 <div id="divwrapper">
 	<div id="divbody">
 		<h2>Walking Tour Viewer</h2>
-		<p>This is a walking tour viewer for tours that have been created by our android app stumblr.</p>
-		<p>To load a tour select one from the dop down box the left of the map and click load it will load information on that tour and markers and the route on the map.</p>		
-		<p>Below is our tour viewer where you can see the route we took to create the root, if you click a marker it will show you information on that place including an image.</p>
-<div id="tour">
-<?php
-while ($a = mysql_fetch_array ($res))
-{
-echo "<p><b>" . $a["title"] . "</b></p>";
-echo "<p>" . $a["shortDescription"] . "</p>";
-echo "<p>" . $a["longDescription"] . "</p>";
-}
-?>
-</div>
-	<table border="1"> 
-      	<tr> 
-	<td valign="top" style="width:250px; text-decoration: underline; color: #4444ff;"> 
-	<div id="side_bar2"></div> 
-	<form class='tourform' method='post' action='home.php'>
+<div id="select" >
+<form class='tourform' method='post' action='home.php'>
 	<select name="tours">
 	<option value="">Select a tour :</option>
 	<?php
@@ -157,14 +142,22 @@ echo "<p>" . $a["longDescription"] . "</p>";
 	}?>
 	</select>	
 	<p></p>
-	<input type="submit"/> 
+	<input type="submit" value="Load Tour"/> 
 	</form>
-	</td>
-        <td> 
-            <div id="map" style="width: 800px; height: 600px"></div>
-        </td> 
-      </tr> 
-    </table>
+</div>
+<div id="tour">
+<?php
+while ($a = mysql_fetch_array ($res))
+{
+echo "<p><b>Title : </b>" . $a["title"] . "</p>";
+echo "<p><b>Short Decription : </b>" . $a["shortDescription"] . "</p>";
+echo "<p><b>long Decription : </b>" . $a["longDescription"] . "</p>";
+}
+?>
+</div>
+<div class"clear"></div>
+            <div id="map" style="width: 100%; height: 600px; border: 2px solid #000;"></div>
+
 <br/>
 <br/>
 <div id="bar">
