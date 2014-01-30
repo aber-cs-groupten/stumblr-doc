@@ -1,22 +1,28 @@
 <?php
 session_save_path('');
 session_start();
+/* This is where we save the session we are gunna use to get the tour ID to get a tours information from the server. The save path is empty because servers read this and store it in the tmp folder.*/
+
 $walkID = 0;
 $walkID= $_POST['tours'];
 $_SESSION['walkID'] = $_POST['tours'];
+/* These are the variables that will be used to get information from the server as when a tour is selected the tour ID of that tour is then set to a session which is then used in the XMLcreator file to get the correct tour information. */
 
 error_reporting(E_ALL ^ E_NOTICE ^ E_DEPRECATED );
 $con = mysql_connect ("db.dcs.aber.ac.uk", "admcsgp10", "73GRlj5m");
 $db = mysql_query("USE csgp10_13_14", $con);
 $tours = mysql_query("select * from walks");
-$res = mysql_query ("select * from walks where id='$walkID'");
+$res = mysql_query ("select * from walks where id='$walkID'"); 
 $query = mysql_query ("SELECT * FROM location WHERE walkID='$walkID'");
+/* These are used to connect to the database and then there are queries to get the database then there are queries to get certain information such as locations.*/
+
 
 if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+  }/* This prints out an error message if it fails to connect to MySQL. */
  ?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -43,19 +49,23 @@ if (mysqli_connect_errno())
 	 request.open('GET', url, true);
 	 request.send(null);
 	}
+	<!--This function is used to get information off the XMLcreator page to be used for the google map below.-->
+
     //<![CDATA[
   
     function load() {
-      var map = new google.maps.Map(document.getElementById("map"), {
+	var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(52.4141, -4.08262),
         zoom: 14,
         mapTypeId: 'roadmap'
-      });
+     	});
+	/* This is where the Google map is defined and where the center of the map should be using co-ordinates these point to the middle of aberystwyth */
+
       var infoWindow = new google.maps.InfoWindow;
 
 	downloadUrl("XMLcreator.php",/*"xmlpath.php",*/ function(data) {
 	  var xml = data.responseXML;
-	  var markers = xml.documentElement.getElementsByTagName("marker");
+	  var markers = xml.documentElement.getElementsByTagName("marker");   /*This is were all the information for the map comes from.*/
 	  //var paths = xml.documentElement.getElementsByTagName("path");	
 	  for (var i = 0; i < markers.length; i++) { 
 		
@@ -86,6 +96,8 @@ if (mysqli_connect_errno())
 	      });
 	    bindInfoWindow(marker, map, infoWindow,html);
 	}
+	/*That loop goes through all the information from the XML creator file such as title, description, latitude and longitude and sets it to markers and infoboxes on the Google map. The image that is contained on the server is used in the info boxes as it is a base64 image which the html decodes and provides an image in the infobox. */
+
 	//map.setCenter(point);
 	 });
 	/*var pathco = [];
@@ -112,6 +124,7 @@ if (mysqli_connect_errno())
 	
 	});
 	path.setMap(map);*/
+		/* This was suppost to create a path between each of the markers on the map but could not get it to fully work as it stops the map from working. */
 
     }
 
@@ -121,16 +134,16 @@ if (mysqli_connect_errno())
         infoWindow.open(map, marker);
       });
     }
- 
+ 	/*The information and image are set as the content of the info window here and add a action listner so when a marker clicked it will open the infobox. */
 
     function doNothing() {}
 
     //]]>
   </script>
 
-<link rel="shortcut icon" href="images/favicon.ico"/> 
+<link rel="shortcut icon" href="images/favicon.ico"/> <!-- This sets the tab of a browser with our logo-->
 </head>
-<body style="margin:0px; padding:0px;" onload="load()">
+<body style="margin:0px; padding:0px;" onload="load()"> <!--When this loads up it does the function load() from above. -->
 <div id="header">
 <h1>Stumblr</h1>	
     </div>	
@@ -145,10 +158,13 @@ if (mysqli_connect_errno())
 	while ($a = mysql_fetch_array ($tours)){
 	echo"<option value=" .$a["id"]. ">". $a["title"] ."</option>";
 	}?>
-	</select>	
+	</select>
+		
 	<p></p>
 	<input type="submit" value="Load Tour"/> 
 	</form>
+		<!--This form is used to get what tour you want to look at and then it sends it back to page where it changes the session variable at the top in the php. It gets the tour titles and ID's by looping and using the $tours query. -->
+
 </div>
 <div id="tour">
 <?php
@@ -156,12 +172,16 @@ while ($a = mysql_fetch_array ($res))
 {
 echo "<p><b>Title : </b>" . $a["title"] . "</p>";
 echo "<p><b>Short Decription : </b>" . $a["shortDescription"] . "</p>";
-echo "<p><b>long Decription : </b>" . $a["longDescription"] . "</p>";
+echo "<p><b>Long Decription : </b>" . $a["longDescription"] . "</p>";
+echo "<p><b>Distance : </b>" . $a["distance"] . "</p>";
+echo "<p><b>Time Taken : </b>" . $a["timestamp"] . "</p>";
 }
 ?>
 </div>
+<!--This part provides information on the tour you have loaded up above the map such as the title, short description, long description, distance and timestamp. -->
+
 <div class"clear"></div>
-            <div id="map" style="width: 100%; height: 600px; border: 2px solid #000;"></div>
+            <div id="map" style="width: 100%; height: 600px; border: 2px solid #000;"></div> <!--This is the div that the map is loaded into by using the id. -->
 
 <br/>
 <br/>
@@ -176,9 +196,8 @@ echo "<p><b>long Decription : </b>" . $a["longDescription"] . "</p>";
                     echo "</div>";
                 }
                 ?>
-
-            </div> 
-
+ </div> 
+<!--This is the gallary of all the images that are in the tour selected it loads the titles, decription and images of each marker in the tour loaded. This is done by getting the information using a query $query.-->
 <br/>	
 </div>
 <br/>
