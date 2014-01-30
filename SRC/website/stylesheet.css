@@ -113,7 +113,7 @@ b.gallery {
 .clear { clear: both;}
 #select{
 	float:left ;
-	width:300px;
+	width:200px;
 	clear: both;
 	overflow: auto;
 	margin: 0 auto;
@@ -125,7 +125,7 @@ b.gallery {
 	display: inline-block;
 }
 #select select{
-float :right;
+float :left;
 display: inline-block;
 }
 

@@ -48,7 +48,7 @@ if (mysqli_connect_errno())
     function load() {
       var map = new google.maps.Map(document.getElementById("map"), {
         center: new google.maps.LatLng(52.4141, -4.08262),
-        zoom: 16,
+        zoom: 14,
         mapTypeId: 'roadmap'
       });
       var infoWindow = new google.maps.InfoWindow;
@@ -73,6 +73,11 @@ if (mysqli_connect_errno())
 	else{
 	var html = "<b>" + title + "</b><p>" + description + "</p><img src=" + "\"data:image/gif;base64," +  image + "\"></img>";
 	}
+	if(i==3){
+	map.setCenter(point);
+	}
+	else{
+	}
 	      var marker = new google.maps.Marker({
 	      map: map,
 	      position: point,
@@ -81,7 +86,7 @@ if (mysqli_connect_errno())
 	      });
 	    bindInfoWindow(marker, map, infoWindow,html);
 	}
-	map.setCenter(point);
+	//map.setCenter(point);
 	 });
 	/*var pathco = [];
 	for(var j = 0;j < paths.length; j++){
