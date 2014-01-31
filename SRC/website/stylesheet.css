@@ -104,20 +104,10 @@ b.gallery {
 }
 .clear { clear: both;}
 #select{
-	float:left ;
-	width:200px;
-	clear: both;
-	overflow: auto;
-	margin: 0 auto;
-     	padding: 0;
-	display: inline-block;
+	width: 300px;
+
+    margin: 0;
 }
-#select input{
-	float: right;
-	display: inline-block;
-}
-#select select{
-	float :left;
-	display: inline-block;
-}
+
+
 

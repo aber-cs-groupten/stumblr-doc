@@ -152,22 +152,26 @@ function load() {
         <div id="divwrapper">
             <div id="divbody">
                 <h2>Walking Tour Viewer</h2>
+		<p>To view a tour please select one from the drop down box and click load tour to load the tour.</p>
                 <div id="select" >
                     <form class='tourform' method='post' action='home.php'>
-                        <select name="tours">
+                       
+			    <select name="tours">
                             <option value="">Select a tour :</option>
                             <?php
                             while ($a = mysql_fetch_array($tours)) {
                                 echo"<option value=" . $a["id"] . ">" . $a["title"] . "</option>";
                             }
                             ?>
-                        </select><br />
-                        <input type="submit" value="Load Tour" style="text-align: center; float: left" /> 
-                    </form>
+                        </select><br/>
+                       
+	<input type="submit" value="Load Tour" style="text-align: center; float: left" /> </div>
+                    </form><br/>
                     <!--This form is used to get what tour you want to look at and then it sends it back to page where it changes the session variable at the top in the php.
 			It gets the tour titles and ID's by looping and using the $tours query. -->
 
-                </div>
+              
+<br />
                 <div id="tour">
                     <?php
                     while ($a = mysql_fetch_array($res)) {
