@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_save_path('');
 session_start();
 /* This is where we save the session we are gunna use to get the tour ID to get a tours information from the server. The save path is empty because servers read this and store it in the tmp folder. */
@@ -161,10 +161,8 @@ function load() {
                                 echo"<option value=" . $a["id"] . ">" . $a["title"] . "</option>";
                             }
                             ?>
-                        </select>
-
-                        <p></p>
-                        <input type="submit" value="Load Tour"/> 
+                        </select><br />
+                        <input type="submit" value="Load Tour" style="text-align: center; float: left" /> 
                     </form>
                     <!--This form is used to get what tour you want to look at and then it sends it back to page where it changes the session variable at the top in the php. It gets the tour titles and ID's by looping and using the $tours query. -->
 
@@ -175,7 +173,7 @@ function load() {
                         echo "<p><b>Title: </b>" . $a["title"] . "</p>";
                         echo "<p><b>Short Description: </b>" . $a["shortDescription"] . "</p>";
                         echo "<p><b>Long Description: </b>" . $a["longDescription"] . "</p>";
-                        echo "<p><b>Distance: </b>" . round($a["distance"], 0) . " metres." . "</p>";
+                        echo "<p><b>Distance: </b>" . round($a["distance"], 0) . " metres" . "</p>";
                         
                         $hours = $a["hours"];
                         $minutes = $hours * 60;
@@ -185,7 +183,7 @@ function load() {
                 </div>
                 <!--This part provides information on the tour you have loaded up above the map such as the title, short description, long description, distance and timestamp. -->
 
-                <div class"clear"></div>
+                <div class="clear"></div>
                 <div id="map" style="width: 100%; height: 600px; border: 2px solid #000;"></div> <!--This is the div that the map is loaded into by using the id. -->
 
                 <br/>
