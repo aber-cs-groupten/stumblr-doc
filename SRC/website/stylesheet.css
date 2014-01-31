@@ -4,10 +4,9 @@ body{
 	background-color:#cccccc;
 	background-size: 100%;
 	text-align: center;
-	}
-
+}
 #divwrapper{
-    background: #FFF;
+    	background: #FFF;
 	margin: 0px auto;
 	width: 80%;
 	border: 2px solid #000;
@@ -18,7 +17,7 @@ body{
 	height: 150px;
 	font-size:50px;
 	color: #FFF;
-	}
+}
 #divbody{
 	padding-left: 60px;
 	padding-right: 60px;
@@ -28,7 +27,7 @@ body{
 }
 #divbody li{
 	padding-left: 20px;
-	}
+}
 #divfooter{
 	font-size:10px;
 	text-align:center;
@@ -54,12 +53,10 @@ body{
 }
 #tour{
 	width:100%;
-	border: 2px solid #000;
         clear:both;
 	margin: 0px;
   	padding: 0px;
-	float : right;
-	
+	float : right;	
 }
 #tour p{margin: 10px;}
 #main{
@@ -68,7 +65,6 @@ body{
 	height: 150px;
 	font-size:50px;
 	color: #FFF;
-
 }
 #main2{
 	text-align: center;
@@ -82,22 +78,18 @@ body{
 #bar{
     overflow-x: scroll;
     overflow-y: hidden;
-    height:250px;
+    height:auto;
     white-space:nowrap;
-   
-
 }
 #pic{
+    text-align:center;
     margin-left: 2%;
     margin-right: 2%;
     display: inline-block;
     width:200px;
-    
-    
-
-
 }
 p.gallery {
+    text-align:center;	
     margin-left: 10%;
     margin-right: 10%;
     font-size: small;
@@ -108,7 +100,7 @@ p.gallery {
 }
 b.gallery {
     text-align:center;
-
+	white-space:pre-wrap;
 }
 .clear { clear: both;}
 #select{
@@ -125,7 +117,7 @@ b.gallery {
 	display: inline-block;
 }
 #select select{
-float :left;
-display: inline-block;
+	float :left;
+	display: inline-block;
 }
 

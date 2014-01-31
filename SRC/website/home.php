@@ -1,7 +1,7 @@
  <?php
 session_save_path('');
 session_start();
-/* This is where we save the session we are gunna use to get the tour ID to get a tours information from the server. The save path is empty because servers read this and store it in the tmp folder. */
+/* This is where we save the session we are gunna use to get the tour ID to get a tours information from the server. The save path is empty because servers read this and store it in the tmp folder.*/
 
 $walkID = 0;
 $walkID = $_POST['tours'];
@@ -126,7 +126,7 @@ function load() {
         } ); }
 
                         
-/* This was suppost to create a path between each of the markers on the map but could not get it to fully work as it stops the map from working. */
+/* This creates a path between each of the markers to show where the person walked when recording the tour this is done by get a list of coordinates that are recored by the app when running. */
 
     function bindInfoWindow(marker, map, infoWindow, html) {
         google.maps.event.addListener(marker, 'click',
@@ -164,7 +164,8 @@ function load() {
                         </select><br />
                         <input type="submit" value="Load Tour" style="text-align: center; float: left" /> 
                     </form>
-                    <!--This form is used to get what tour you want to look at and then it sends it back to page where it changes the session variable at the top in the php. It gets the tour titles and ID's by looping and using the $tours query. -->
+                    <!--This form is used to get what tour you want to look at and then it sends it back to page where it changes the session variable at the top in the php.
+			It gets the tour titles and ID's by looping and using the $tours query. -->
 
                 </div>
                 <div id="tour">
@@ -202,7 +203,9 @@ function load() {
                     }
                     ?>
                 </div> 
-                <!--This is the gallary of all the images that are in the tour selected it loads the titles, decription and images of each marker in the tour loaded. This is done by getting the information using a query $query.-->
+                <!--This is the gallary of all the images that are in the tour selected it loads the titles, 
+		    decription and images of each marker in the tour loaded. This is done by getting the 
+		    information using a query $query.-->
                 <br/>	
             </div>
             <br/>
