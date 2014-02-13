@@ -1,6 +1,6 @@
 Martin Ferris - 22.11.2013
 ===============
-Role: Deputy Project Lead and Lead Developer
+Role: Android Developer
 Subject: Weekly blog
 ---------------
 

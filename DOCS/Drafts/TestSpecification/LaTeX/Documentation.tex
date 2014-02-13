@@ -255,7 +255,7 @@ Enter short description of walk/route with more than 100 characters
 &
 Enter 101 characters for short description.
 &
-Error message will be displayed and user will be asked to enter less characters.
+No new characters can be added to the text box when it is full.
 &
 Correct error message is displayed and user is promoted to try again with less characters.
 \\
@@ -311,20 +311,6 @@ Location should be added to the database with latitude and longitude.
 &
 FR 3
 &
-Add location to the tour with map coordinates (latitude and longitude).
-&
-Turn GPS off. While route is recording, select "add location".
-&
-Error message will be displayed and user will be told that they cannot get a GPS lock.
-&
-Error message will be displayed and user will be told that they cannot get a GPS lock.
-\\
-\hline
-
-12
-&
-FR 3
-&
 Add name for location.
 &
 When add location has been selected, add a name; e.g "Test location".
@@ -335,7 +321,7 @@ When add location has been selected, add a name; e.g "Test location".
 \\
 \hline
 
-14
+12
 &
 FR 3
 &
@@ -349,7 +335,7 @@ Location description added to location on database.
 \\
 \hline
 
-15
+13
 &
 FR 3 
 &
@@ -363,13 +349,13 @@ Timestamp should be added to location showing when it was added onto the databas
 \\
 \hline
 
-16
+14
 &
 FR 4
 &
 Adding photos to the walks
 &
-User should be able to add one or more photos, captured from camera or from the device's photo library to be shown when that location is reached during the walk. User selects add photo to location while route is recording.
+User should be able to add one or more photos, captured from camera or from the device's photo library. User selects add photo to location while route is recording.
 &
 Photo is added to location user is then requested to enter name and description for location.
 &
@@ -377,7 +363,7 @@ Photo added to database. Photo is set to location and timestamp added. Prompt to
 \\
 \hline
 
-17
+15
 &
 FR 4
 &
@@ -391,7 +377,7 @@ Photo location name in database set to name entered by user.
 \\
 \hline
 
-18
+16
 &
 FR 4
 &
@@ -405,26 +391,20 @@ Description added to photo location in database.
 \\
 \hline
 
-19
+17
 &
 FR 5
 &
 Cancelling walk - stop recording and don't save.
 &
-Without any added locations, select stop recording button, and then "Don't save".
+Without any added locations, select stop recording button.
 &
 Route is stopped and deleted. 
 &
 No information stored on database. User returned to main menu.
 \\
 \hline
-
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
-				\hline
-
-20
+18
 &
 FR 5
 &
@@ -438,7 +418,12 @@ All information stored on this route is removed from the database.
 \\
 \hline
 
-21
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{| p{0.7cm} | p{0.8cm} | p{3cm} | p{3.5cm} | X | X |}
+				\hline
+
+19
 &
 FR 6
 &
@@ -452,21 +437,21 @@ A new tour should now be saved in the database containing all the entered detail
 \\
 \hline
 
-22
+20
 &
 FR6
 &
-Test user has entered data into all fields before continuing to the next screen.
+Test user has entered data into the title and short description fields before continuing to the next screen.
 &
 Attempt to continue to next screen without entering data.
 &
-Error message to instruct the user to enter data into all fields.
+Error message to instruct the user to enter data into the title and short description fields.
 &
 Error message should appear and nothing new should be saved in the database.
 \\
 \hline
 
-23
+21
 &
 FR6
 &
@@ -480,22 +465,7 @@ Error message should appear and no data sent. The current tour should be cached 
 \\
 \hline
 
-
-24
-&
-FR6 
-&
-Sending to the server whilst app is closed.
-&
-Tour data sent and app immediately closed.
-&
-Notification bar showing the upload progress.
-&
-Notification bar should show the progress of the upload as well as a confirmation message.
-\\
-\hline
-
-25
+22
 &
 FR6
 &
@@ -505,7 +475,49 @@ Tour data sent and internet connection disabled.
 &
 Error message displayed.
 &
-Error message display and tour data cached, to be uploaded when connection established.
+Error message display and tour data cached.
+\\
+\hline
+
+23
+&
+FR6
+&
+Test that the app continues to upload the route when it has lost focus.
+&
+Creat a normal route and when "Upload Walk" is pressed imeadtly press the "Home" icon.
+&
+The app will hae lost focus.
+&
+When the app is resumed the upload conformation message will be shown.
+\\
+\hline
+
+24
+&
+FR6
+&
+Test for data integrity checking on the server.
+&
+Send a route that doesn't have a matching md5-hash code.
+&
+Server returns a code that is not a "200" code.
+&
+No new route is added to the database.
+\\
+\hline
+
+25
+&
+FR6
+&
+Test that the app can gain access to the camera app.
+&
+When adding an image to a waypoint click "Gallery" and choose a stored image to load.
+&
+The app returns to the add wypoint screen.
+&
+The chosen image is displayed in the waypoint screen.
 \\
 \hline
 
@@ -526,8 +538,6 @@ App should close without delay.
 When the app is re-opened it should have saved details about a full that is ready to be submitted to the server.
 \\
 \hline
-
-
 
 27
 &
@@ -561,13 +571,13 @@ When the app is re-opened it will display the incomplete tour with the waypoints
 &
 FR7
 &
-Test to check that the app saves data when closed at the Location Information screen.
+Test to check that the app saves data when closed at the Waypoint list screen.
 &
-Details about a Location added and app closed.
+Details about a Waypoint added and app closed.
 &
 No output.
 &
-When the app is re-opened it will display the details about the location.
+When the app is re-opened it will display the details about the waypoints.
 \\
 \hline
 
@@ -673,8 +683,21 @@ The location's information is displayed and contains an image.
 \\
 \hline
 
-
 37
+&
+FR8
+&
+Try to view a route that is not in the database.
+&
+Check that only the routes that are contained in the database are displayed in the "Tour Selector" drop down box.
+&
+No output.
+&
+No "Phantom Routes" can be seen in the drop down box.
+\\
+\hline
+
+38
 &
 FR9
 &
@@ -688,7 +711,7 @@ The tour should now appear as a saved tour in the database.
 \\
 \hline
 
-48
+39
 &
 FR9
 &
@@ -702,45 +725,17 @@ An error message should appear telling the user that the tour cannot be sent and
 \\
 \hline
 
-39
-&
-FR9
-&
-Testing that inputs are sanitised.
-&
-Sending strings containing special characters.
-&
-An error message is displayed.
-&
-An error message should tell the user that they have used illegal characters.
-\\
-\hline
-
 40
 &
 FR9
 &
-Testing a working MD5-hash.
+Test for data sanatisation on the server.
 &
-Details of a tour sent to the server.
+Send a route the contains invalid characters in one of its data fields.
 &
-A confirmation message is displayed.
+No output.
 &
-The data shouldn't be corrupt so data should successfully save in the database. The details of the new tour will also be displayed in the database.
-\\
-\hline
-
-41
-&
-FR9
-&
-Testing a non working MD5-hash.
-&
-Send the same file twice to the database to be saved.
-&
-An error message is displayed.
-&
-An error message should tell the user that the data cannot be saved.
+The bad data's corosponding entry in the database will not contain the invalid characters.
 \\
 \hline
 
