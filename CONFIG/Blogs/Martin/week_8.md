@@ -10,4 +10,4 @@ Added database and webpage storage details in the Overview of Proposed Systems t
 
 Time
 ----
-1 hours
+1 hour
