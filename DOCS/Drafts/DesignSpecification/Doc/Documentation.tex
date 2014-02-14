@@ -120,7 +120,7 @@
 
 
 %----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
-\newcommand{\version}{Version: 1.0} %======================================================= DOC VERSION
+\newcommand{\version}{Version: 1.4} %======================================================= DOC VERSION
 \newcommand{\status}{Status: Release} %===================================================== DOC STATUS
 \newcommand{\qanumber}{SE.10.D3} %========================================================== QA NUMBER
 \newcommand{\doctitle}{Group 10 Design Specification} %===================================== DOC TITLE
@@ -141,6 +141,8 @@
 			CCN & 05/12/2013 & 1.3 & Inserted missing sections \\
 			\hline
 			CCN & 05/12/2013 & 1.4 & Rearranged to reflect order in QA doc \\
+			\hline
+			CCN & 14/02/2014 & 1.5 & Removed broken document markup by Kieran \\
 			\hline
 		\end{tabularx}
 }
@@ -236,16 +238,16 @@
 		    AbstractActivity will hold all of the common methods (common bundle loading/saving techniques). Each other activity will inherit from it.
 		    \end{subsubsection}
 		    
-		    \begin{subsubsection}{DataEntryActivity}
-		    Inherits from AbstractActivity. Contains common code for data entry (text validation, etc).
-		    \end{subsubsection}
-		    
 		    \begin{subsubsection}{CreateWaypoint}
 		    Inherits from DataEntryActivity. Contains methods to set images, timestamps, GPS coordinates, and other information in the constructor.
 		    \end{subsubsection}
 		    
 		    \begin{subsubsection}{CreateRoute}
 		    Inherits from DataEntryActivity. Contains methods to create a new Route LinkedList and access items within the LinkedList. Also contains methods to access data held within text fields - from the corresponding data entry field.
+		    \end{subsubsection}
+		    
+		    \begin{subsubsection}{GPSService}
+		    A simple foreground service that serves as a way of obtaining GPS cooordinates without being killed by the Android system.
 		    \end{subsubsection}
 		    
 		    \begin{subsubsection}{WaypointList}
@@ -281,35 +283,32 @@
 	\clearpage
 	\begin{subsection}{Mapping Requirements to Classes}
         \begin{enumerate}
-		    \item{FR1; Startup of software on Android device}
-		    Android class Home and Android class AbstractActivity.
+		    \item{{\bf FR1; Startup of software on Android device} \\
+		    Android class Home and Android class AbstractActivity.}
 
-		    \item{FR2; Providing info about the whole walking tour}
-		    Android class AbstractActivity, Android class DataEntryActivity
-		    and Android class AbstractActivity.
+		    \item{{\bf FR2; Providing info about the whole walking tour} \\
+			Android class WaypointList and AbstractActivity.}
 
-		    \item{FR3; Adding locations to the walking tour}
-		    Android class CreateWaypoint, Android class DataEntryActivity
-		    and Android class AbstractActivity.
+		    \item{{\bf FR3; Adding locations to the walking tour} \\
+		    Android class CreateWaypoint, and Android class AbstractActivity.}
 
-		    \item{FR4; Adding photos to the walks}
-		    Android class CreateWaypoint, Android class DataEntryActivity 
-		    and Android class AbstractActivity.
+		    \item{{\bf FR4; Adding photos to the walks} \\
+		    Android class CreateWaypoint and Android class AbstractActivity.}
 
-		    \item{FR5; Cancelling walks}
-		    Android class CreateWaypoint and Android class AbstractActivity.
+		    \item{{\bf FR5; Cancelling walks} \\
+		    Android class CreateWaypoint and Android class AbstractActivity.}
 
-		    \item{FR6; Sending the walk to the server}
-		    Android class FinishRoute and Android class AbstractActivity.
+		    \item{{\bf FR6; Sending the walk to the server} \\
+		    Android class FinishRoute and Android class AbstractActivity.}
 
-		    \item{FR7; Switching from the WTC}
-		    Android class AbstractActivity.
+		    \item{{\bf FR7; Switching from the WTC} \\
+		    Android class AbstractActivity holds the basic code for switching between apps. Each individual Activity class contains its own code in {\tt \bf onSavedInstanceState()} methods.}
 
-		    \item{FR8; Trying out a created walking tour}
-		    Web Page, Map and Database Interaction.
+		    \item{{\bf FR8; Trying out a created walking tour} \\
+		    Web Page, Map and Database Interaction.}
 
-		    \item{FR9; Saving data on server}
-		    Android class FinishRoute, Android class AbstractActivity, Web Page, Map and Database Interaction.
+		    \item{{\bf FR9; Saving data on server} \\
+		    Android class FinishRoute, Android class AbstractActivity, Web Page, Map and Database Interaction.}
         \end{enumerate}
 	\end{subsection}
 \end{section}
@@ -330,17 +329,12 @@
 \clearpage
 \begin{section}{INTERFACE DESCRIPTION}
 	\begin{subsection}{Android Activities}
-		\begin{subsubsection}{AbstractActivity \{abstract\}}
+		\begisn{subsubsection}{AbstractActivity \{abstract\}}
 			\lstinputlisting[label=AbstractActivity,
 			caption=AbstractActivity \{Abstract\}]{interfaces/AbstractActivity.java}
 		\end{subsubsection}
-	
-		\clearpage
-		\begin{subsubsection}{DataEntryActivity \{abstract\}}
-			\lstinputlisting[label=DataEntryActivity,
-			caption=DataEntryActivity \{Abstract\}]{interfaces/DataEntryActivity.java}
-		\end{subsubsection}
 
+		\clearpage
 		\begin{subsubsection}{Home}
 			\lstinputlisting[label=Home,
 			caption=Home]{interfaces/Home.java}
@@ -356,6 +350,12 @@
 		\begin{subsubsection}{CreateWaypoint}
 			\lstinputlisting[label=CreateWaypoint,
 			caption=CreateWaypoint]{interfaces/CreateWaypoint.java}
+		\end{subsubsection}
+		
+		\clearpage
+		\begin{subsubsection}{GPSService}
+			\lstinputlisting[label=DataEntryActivity,
+			caption=DataEntryActivity \{Abstract\}]{interfaces/GPSService.java}
 		\end{subsubsection}
 
 		\clearpage
@@ -388,15 +388,6 @@
 		\begin{subsubsection}{Waypoint}
 			\lstinputlisting[label=Waypoint,
 			caption=Waypoint]{interfaces/data/Waypoint.java}
-		\end{subsubsection}
-	\end{subsection}
-	
-	\clearpage
-	\begin{subsection}{PHP}
-		\clearpage
-		\begin{subsubsection}{Waypoint}
-			\lstinputlisting[label=Waypoint,
-			caption=Website Generation]{interfaces/PHP/index.php}
 		\end{subsubsection}
 	\end{subsection}
 \end{section}
