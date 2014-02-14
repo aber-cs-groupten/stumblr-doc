@@ -133,7 +133,6 @@
 The main objective of the project is to create an application to compile and process data based on a walking tour. The data will be stored in a database which is sent data from a mobile application. The mobile application will guide people around the walk, showing them places of interest along the route. The application will be able to build a number of walks, showing the locaton and details of places of interest such as a short description, long description and photo about each point. All textual data will be stored in English.
 
 The main objective quoted as follows: "Walking Tour Creator (WTC) is a computer-based system to compile data about a walking tour, and structure it in a database that can be used by a mobile application which guides people around the walk, showing them places of interest along the way. WTC will be able to build a number of related walks, showing the location and details of places of interest along with photos, audio, video, about each place. All textual data will be stored in English." \\
-Reference: B. P. Tiddeman (2013), Software Engineering Group Projects – Project Plan Specification Standards 
 
 This document will show we have managed to simplify these into a set of manageable goals. Gantt charts and GitHub's contribution analysis functionality will be used in conjunction to show and monitor the progress of the project's major tasks and other milestones. We are also implementing a risk analysis system that should alert us to the various problems that we may face whilst completing our objectives, and also allow us to mitigate the risks involved.
 		\end{subsection}
@@ -220,6 +219,7 @@ This document will show we have managed to simplify these into a set of manageab
 
 			\begin{subsubsection}{Android Version}
 				The android SDK version we are using is 8. This will allow our application to run on any android devices running version 2.2 or higher.
+			\end{subsubsection}
 		\end{subsection}
 	\end{section}
 	
@@ -455,15 +455,6 @@ This document will show we have managed to simplify these into a set of manageab
 					\caption{The name and description can be entered into text boxes on this screen. Also images of the location can be added using the Add Image button. Images that have been added will be displayed below the Add Image button, and below the image place holder is the Save button that will return the user to the Route Content screen.}
 				\end{figure}
 			\end{subsubsection}
-			
-			\begin{subsubsection}{Unfinished Routes}
-				\begin{figure}[h!]
-					\begin{center}
-						\includegraphics[height=0.45\columnwidth]{./Diagrams/AndroidUserInterface/source/unfinishedRoutes.png}
-					\end{center}
-					\caption{This screen will list the routes that have been saved locally but not uploaded to the sever. When an item in the list is clicked on the user will be taken to the Route Info page for that item so that they can edit it's content.}
-				\end{figure}
-			\end{subsubsection}
 		\end{subsection}
 		
 		\clearpage
@@ -481,6 +472,7 @@ This document will show we have managed to simplify these into a set of manageab
 
 	% Include references here (edit the References.bib file)
 	\nocite{LaTeXTemplate}
+	\nocite{ProjDocs}
 
 	% Format bibliography/refs
 	\newpage
@@ -491,13 +483,13 @@ This document will show we have managed to simplify these into a set of manageab
 	
 	\vspace{1cm}
 	\begin{section}{VERSION HISTORY}
-		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
+		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | p{1cm} | }
 			\hline
-			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
+			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} & {\bf CCF} \\
 			\hline
-			CCN & 07/11/2013 & 1.1 & Updated order of authors on cover \\
-			\hline
-			DEC & 07/11/2013 & 1.2 & Added High Level Architecture diagram \\
+			CCN & 07/11/2013 & 1.1 & Updated order of authors on cover & n/a \\
+			\hline 
+			DEC & 07/11/2013 & 1.2 & Added High Level Architecture diagram & \#37 \\
 			\hline
 		\end{tabularx}
 	\end{section}
