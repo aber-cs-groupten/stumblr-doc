@@ -1,17 +1,36 @@
-package uk.ac.aber.cs.group10.stumblr.data;
+package uk.ac.aber.cs.groupten.stumblr.data;
 
-import java.net.URL;
+import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
+
 import java.util.LinkedList;
+import java.util.Stack;
 
-/**
- * Created by charles on 29/11/13.
- */
-public class Route extends StumblrData {
+public class Route extends StumblrData implements Parcelable {
+
     /**
+     * startTime used for timestamp of start of the walk.
+     */
+    private long startTime;
+
+    /**
+     * lengthTime used for timestamp for length of walk.
+     */
+    private long lengthTime;
+
+    /**
+     * longDesc
      * A slightly longer description of the contents of the route. Set by the user when
      * they create a Route.
      */
     private String longDesc;
+
+    /**
+     * The list of Location objects that reflect the coordinates of the walk.
+     */
+    private Stack<Location> coordinates;
 
     /**
      * A LinkedList of Waypoint objects that the Route comprises of.
@@ -19,50 +38,124 @@ public class Route extends StumblrData {
     private LinkedList<Waypoint> route;
 
     /**
-     * Checks if the data in the Route is valid or not, and returns a boolean.
-     * @return If the data is valid or not. (true = valid)
+     * Constructor. Calls initRoute() to initialise route.
      */
-    public boolean isValidData() {
-        return false;
-    }
+    public Route();
 
     /**
-     * Adds a Waypoint to the tail of the Route LinkedList
-     * @param w The waypoint to add
+     * Helper method for constructor. Calls initLists() to initialise the list and stack.
      */
-    public void addWaypoint(Waypoint w) {
-        this.route.addLast(w);
-    }
+    private void initRoute();
 
     /**
-     * Returns the last Waypoint to the LinkedList.
-     * @return The last Waypoint in the Route.
+     * List and stack initializer method.
      */
-    public Waypoint getWaypoint() {
-        return this.route.getLast();
-    }
-
-    public String getLongDesc() {
-        return this.longDesc;
-    }
+    private void initLists();
 
     /**
-     * Constructor for Route.
-     * @param title The title of the Route object.
-     * @param shortDesc A short description of the Route.
+     * Initialise Route object from a Parcel.
+     */
+    public Route(Parcel p);
+
+    /**
+     * @return The LinkedList of Waypoint objects.
+     */
+    public LinkedList<Waypoint> getWaypointList();
+
+    /**
+     * @return The list of coordinates.
+     */
+    public Stack<Location> getCoordinateList();
+
+    /**
+     * Adds an item to the list of coordinates.
+     * @param location The Location object to add.
+     */
+    public void addCoordinate(Location location);
+
+    /**
+     * Returns the long description of the Route.
+     * @return The long description of the Route.
+     */
+    public String getLongDesc();
+    /**
+     * Sets the long description.
+     *
      * @param longDesc A longer description of the Route.
      */
-    public Route(String title, String shortDesc, String longDesc) {
-        super(title, shortDesc);
-
+    public void setLongDesc(String longDesc) {
+        this.longDesc = longDesc;
     }
+
 
     /**
-     * To be implemented. Will return a URL containing filesystem location of bundled Route file
-     * (ready for upload to server)
-     * @return The URL of the bundle
+     * Method loops through coordinate list.
+     *
+     * If list is empty, return 0.0f. Sets current location by calling getLatitude()
+     * and getLongitude() methods. On each loop, increment i and set currentLoc to coordinates
+     * held in position i of coordinates list. Do same for nextLoc but add 1 so it retrieves the
+     * coordinates of the position in front of current location. Using distanceBetween() it
+     * calculates distance between the two locations and add results to distance variable.
+     *
+     * @return returns the route distance.
      */
-    public URL bundle() {
-        return null;
-    }
+    public float getDistance();
+
+    /**
+     * Describes contents of parcel.
+     * @return Description
+     */
+    @Override
+    public int describeContents();
+
+    /**
+     * Writes the Route into a Parcel for moving between screens.
+     *
+     * @param parcel The parcel to be written to.
+     * @param i      Flags.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i);
+
+    /**
+     * Reads Route data from a parcel.
+     *
+     * @param inParcel The parcel to read the Route from.
+     */
+    public void readFromParcel(Parcel inParcel);
+
+    /**
+     * Private class that helps create a Parcelable.
+     */
+    public static final Parcelable.Creator<Route> CREATOR = new Parcelable.Creator<Route>();
+
+    /**
+     * @return startTime of the walk
+     */
+    public long getStartTime();
+
+    /**
+     * startTime gets set to current time.
+     */
+    public void setStartTime();
+
+    /**
+     * @param start pass in start time
+     */
+    public void setStartTime(long start);
+
+    /**
+     * @return lengthTime variable
+     */
+    public long getLengthTime();
+
+    /**
+     * @param l pass in length time and set lengthTime to it.
+     */
+    public void setLengthTime(long l);
+
+    /**
+     * @return lengthTime as a casted float divided to be hours.
+     */
+    public float getLengthTimeHours();
 }

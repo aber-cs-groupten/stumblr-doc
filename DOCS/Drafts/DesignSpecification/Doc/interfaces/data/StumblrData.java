@@ -1,9 +1,15 @@
-package uk.ac.aber.cs.group10.stumblr.data;
+package uk.ac.aber.cs.groupten.stumblr.data;
+
+import android.os.Parcelable;
+
+import java.util.Calendar;
 
 /**
  * Abstract class containing basic common structure for all Stumblr data formats.
  */
-public abstract class StumblrData {
+public abstract class StumblrData implements Parcelable {
+    public static final String TAG = "STUMBLR";
+
     /**
      * The title of the given piece of data. This can be extended to Waypoints, Routes
      * and any other piece of relevant data inside the structure of Stumblr.
@@ -17,7 +23,14 @@ public abstract class StumblrData {
     private String shortDesc;
 
     /**
-     * @param title The title to set.
+     * Default constructor
+     */
+    public StumblrData() {
+        // do nothing
+    }
+
+    /**
+     * @param title     The title to set.
      * @param shortDesc The short description to set.
      */
     public StumblrData(String title, String shortDesc) {
@@ -27,14 +40,29 @@ public abstract class StumblrData {
 
     /**
      * Checks the StumblrData item for validity. Returns a boolean. (true = valid)
-     * @return Whether the data is valid or not. (true = valid)
      *
+     * @return Whether the data is valid or not. (true = valid)
+     * <p/>
      * MUST be implemented in any subclasses.
      */
-    public abstract boolean isValidData();
+    public static boolean isValidData(String s) {
+        // Check the length of text fields
+        return (s.length() > 3);
+    }
+
+    /**
+     * Returns current time.
+     *
+     * @return The current time.
+     */
+    public long getCurrentTime() {
+        Calendar c = Calendar.getInstance();
+        return c.getTimeInMillis();
+    }
 
     /**
      * Returns the title.
+     *
      * @return this.title
      */
     public String getTitle() {
@@ -43,6 +71,7 @@ public abstract class StumblrData {
 
     /**
      * Sets the current title.
+     *
      * @param title The title to set.
      */
     public void setTitle(String title) {
@@ -50,18 +79,32 @@ public abstract class StumblrData {
     }
 
     /**
-     * Returns the short description
-     * @return this.shortDesc
+     * Returns the short description.
+     *
+     * @return shortDesc
      */
     public String getShortDesc() {
-        return this.getShortDesc();
+        return this.shortDesc;
     }
 
     /**
-     * Sets the current short description.
-     * @param shortDesc The short description to set.
+     * Sets the short description.
+     *
+     * @param shortDesc
      */
-    public void getShortDesc(String shortDesc) {
+    public void setShortDesc(String shortDesc) {
         this.shortDesc = shortDesc;
+    }
+
+    /**
+     * Sanitises given text by removing prohibited characters.
+     *
+     * @param input The text to sanitise.
+     * @return The sanitised string.
+     */
+    public String sanitiseStringInput(String input) {
+        // Replaces ALL characters not defined in the regular expression below
+        String sanitised = input.replaceAll("[^a-zA-Z0-9 ,.!?:;-]*", "");
+        return sanitised;
     }
 }

@@ -1,16 +1,35 @@
-package uk.ac.aber.cs.group10.stumblr.data;
+package uk.ac.aber.cs.groupten.stumblr.data;
 
 import android.graphics.Bitmap;
 import android.location.Location;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.util.Log;
 
-import java.util.Date;
-import java.util.LinkedList;
+public class Waypoint extends StumblrData implements Parcelable {
+    // CONSTRUCTORS
 
-/**
- * Created by charles on 29/11/13.
- */
-public class Waypoint extends StumblrData {
+    /**
+     * Default constructor for Waypoint.
+     */
+    public Waypoint() {
+        initWaypoint();
+    }
+
+    /**
+     * Constructor for a Waypoint object from a Parcel.
+     */
+    public Waypoint(Parcel in) {
+        this.readFromParcel(in);
+    }
+
+    // INSTANCE VARIABLES
+
     /* title and shortDesc are declared in StumblrData and are accessed through get/set methods */
+    /**
+     * Arrival timestamp for Waypoint.
+     */
+    private long timestamp;
 
     /**
      * Image contained within Waypoint.
@@ -18,83 +37,132 @@ public class Waypoint extends StumblrData {
     private Bitmap image;
 
     /**
-     * Time at which Waypoint was created.
+     * Location for Waypoint
      */
-    private Date timestamp;
+    private Location location;
 
     /**
-     * List of coordinates (from the last location to the current location)
+     * Helper method for initialising Waypoint objects.
      */
-    private LinkedList<Location> coordList;
-
-    private int index;
-
-    /**
-     * Constructor for a Waypoint object.
-     * @param title Title of the waypoint.
-     * @param shortDesc A short description.
-     */
-    public Waypoint(String title, String shortDesc, int index) {
-        /* Calls superclass constructor */
-        super(title, shortDesc);
-
-        /* Sets index variable (used for locating position in array */
-        this.index = index;
-
-        /* Uses Android system to get time. */
-        this.timestamp = new Date();
-        /* Initialise LinkedList */
-        this.coordList = new LinkedList<Location>();
+    private void initWaypoint() {
+        timestamp = getCurrentTime();
     }
 
     /**
-     * To be implemented.
-     * @return Validity of data (true = valid)
+     * Sets timestamp.
+     *
+     * @param l The timestamp.
      */
-    public boolean isValidData() {
-        return false;
+    public void setTimestamp(long l) {
+        this.timestamp = l;
     }
 
     /**
-     * Add a coordinate to the list.
-     * @param c The location to be added to the tail of the LinkedList.
+     * Returns timestamp.
+     *
+     * @return The timestamp.
      */
-    public void addCoordinate(Location c) {
-        this.coordList.addLast(c);
+    public long getTimestamp() {
+        return this.timestamp;
     }
 
     /**
-     * Returns coordinate instance at specified index.
-     * @param index Specified index of coordinate.
-     * @return The specified coordinate.
+     * Sets the current location.
+     *
+     * @param l The current location to set.
      */
-    public Location getCoordinate(int index) {
-        return this.coordList.get(index);
+    public void setLocation(Location l) {
+        this.location = l;
+        Log.v(TAG, l.toString());
+    }
+
+
+    /**
+     * Sets the current location.
+     *
+     * @param l The current location to set.
+     */
+    public Location getLocation() {
+        return this.location;
     }
 
     /**
-     * Sets the current image.
-     * @param image The image to add to the Waypoint.
-     */
-    public void setImage(Bitmap image) {
-        this.image = image;
-    }
-
-    /**
-     * Returns current image.
-     * @return The current image that the Waypoint has,
+     * Returns current Bitmap.
+     *
+     * @return The current Bitmap that the Waypoint has,
      */
     public Bitmap getImage() {
         return this.image;
     }
 
     /**
-     * Returns current timestamp.
-     * @return The current timestamp.
+     * Sets the current Bitmap.
+     *
+     * @param b The current Bitmap.
      */
-    public Date getTimestamp() {
-        return this.timestamp;
+    public void setImage(Bitmap b) {
+        this.image = b;
     }
 
+    /**
+     * Returns a String with the title.
+     *
+     * @return The title string.
+     */
+    public String toString() {
+        return getTitle();
+    }
 
+    /**
+     * Writes the Waypoint into a Parcel for moving between Activities.
+     *
+     * @param parcel The parcel to be written to.
+     * @param i      Flags.
+     */
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeLong(this.timestamp);
+        parcel.writeString(this.getTitle());
+        parcel.writeString(this.getShortDesc());
+        parcel.writeValue(this.image);
+        parcel.writeValue(this.location);
+    }
+
+    /**
+     * Reads Route data from a parcel.
+     *
+     * @param inParcel
+     */
+    public void readFromParcel(Parcel inParcel) {
+        this.timestamp = inParcel.readLong();
+        this.setTitle(inParcel.readString());
+        this.setShortDesc(inParcel.readString());
+        this.image = (Bitmap) inParcel.readValue(null); // Gets Image
+        this.location = (Location) inParcel.readValue(null); // Gets location
+    }
+
+    /**
+     * From: http://stackoverflow.com/a/18167140
+     */
+    public static final Parcelable.Creator<Waypoint> CREATOR = new Parcelable.Creator<Waypoint>() {
+        public Waypoint createFromParcel(Parcel in) {
+            return new Waypoint(in);
+        }
+
+        /**
+         * @param size pass in size of new array.
+         * @return Waypoint type array with passed in size.
+         */
+        public Waypoint[] newArray(int size) {
+            return new Waypoint[size];
+        }
+    };
+
+   @Override // Unused
+   /**
+    * Unused method. Required for parcelable implementation.
+    */
+   public int describeContents() {
+        return 0;
+    }
 }
