@@ -33,10 +33,7 @@ public abstract class StumblrData implements Parcelable {
      * @param title     The title to set.
      * @param shortDesc The short description to set.
      */
-    public StumblrData(String title, String shortDesc) {
-        this.title = title;
-        this.shortDesc = shortDesc;
-    }
+    public StumblrData(String title, String shortDesc);
 
     /**
      * Checks the StumblrData item for validity. Returns a boolean. (true = valid)
@@ -45,56 +42,42 @@ public abstract class StumblrData implements Parcelable {
      * <p/>
      * MUST be implemented in any subclasses.
      */
-    public static boolean isValidData(String s) {
-        // Check the length of text fields
-        return (s.length() > 3);
-    }
+    public static boolean isValidData(String s);
 
     /**
      * Returns current time.
      *
      * @return The current time.
      */
-    public long getCurrentTime() {
-        Calendar c = Calendar.getInstance();
-        return c.getTimeInMillis();
-    }
+    public long getCurrentTime();
 
     /**
      * Returns the title.
      *
      * @return this.title
      */
-    public String getTitle() {
-        return this.title;
-    }
-
+    public String getTitle();
+    
     /**
      * Sets the current title.
      *
      * @param title The title to set.
      */
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    public void setTitle(String title);
 
     /**
      * Returns the short description.
      *
      * @return shortDesc
      */
-    public String getShortDesc() {
-        return this.shortDesc;
-    }
-
+    public String getShortDesc();
+    
     /**
      * Sets the short description.
      *
      * @param shortDesc
      */
-    public void setShortDesc(String shortDesc) {
-        this.shortDesc = shortDesc;
-    }
+    public void setShortDesc(String shortDesc);
 
     /**
      * Sanitises given text by removing prohibited characters.
@@ -102,9 +85,5 @@ public abstract class StumblrData implements Parcelable {
      * @param input The text to sanitise.
      * @return The sanitised string.
      */
-    public String sanitiseStringInput(String input) {
-        // Replaces ALL characters not defined in the regular expression below
-        String sanitised = input.replaceAll("[^a-zA-Z0-9 ,.!?:;-]*", "");
-        return sanitised;
-    }
+    public String sanitiseStringInput(String input);
 }

@@ -12,16 +12,12 @@ public class Waypoint extends StumblrData implements Parcelable {
     /**
      * Default constructor for Waypoint.
      */
-    public Waypoint() {
-        initWaypoint();
-    }
+    public Waypoint();
 
     /**
      * Constructor for a Waypoint object from a Parcel.
      */
-    public Waypoint(Parcel in) {
-        this.readFromParcel(in);
-    }
+    public Waypoint(Parcel in);
 
     // INSTANCE VARIABLES
 
@@ -44,37 +40,28 @@ public class Waypoint extends StumblrData implements Parcelable {
     /**
      * Helper method for initialising Waypoint objects.
      */
-    private void initWaypoint() {
-        timestamp = getCurrentTime();
-    }
+    private void initWaypoint();
 
     /**
      * Sets timestamp.
      *
      * @param l The timestamp.
      */
-    public void setTimestamp(long l) {
-        this.timestamp = l;
-    }
+    public void setTimestamp(long l);
 
     /**
      * Returns timestamp.
      *
      * @return The timestamp.
      */
-    public long getTimestamp() {
-        return this.timestamp;
-    }
+    public long getTimestamp();
 
     /**
      * Sets the current location.
      *
      * @param l The current location to set.
      */
-    public void setLocation(Location l) {
-        this.location = l;
-        Log.v(TAG, l.toString());
-    }
+    public void setLocation(Location l);
 
 
     /**
@@ -82,36 +69,28 @@ public class Waypoint extends StumblrData implements Parcelable {
      *
      * @param l The current location to set.
      */
-    public Location getLocation() {
-        return this.location;
-    }
+    public Location getLocation();
 
     /**
      * Returns current Bitmap.
      *
      * @return The current Bitmap that the Waypoint has,
      */
-    public Bitmap getImage() {
-        return this.image;
-    }
+    public Bitmap getImage();
 
     /**
      * Sets the current Bitmap.
      *
      * @param b The current Bitmap.
      */
-    public void setImage(Bitmap b) {
-        this.image = b;
-    }
-
+    public void setImage(Bitmap b);
+    
     /**
      * Returns a String with the title.
      *
      * @return The title string.
      */
-    public String toString() {
-        return getTitle();
-    }
+    public String toString();
 
     /**
      * Writes the Waypoint into a Parcel for moving between Activities.
@@ -120,49 +99,28 @@ public class Waypoint extends StumblrData implements Parcelable {
      * @param i      Flags.
      */
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.timestamp);
-        parcel.writeString(this.getTitle());
-        parcel.writeString(this.getShortDesc());
-        parcel.writeValue(this.image);
-        parcel.writeValue(this.location);
-    }
+    public void writeToParcel(Parcel parcel, int i);
 
     /**
      * Reads Route data from a parcel.
      *
      * @param inParcel
      */
-    public void readFromParcel(Parcel inParcel) {
-        this.timestamp = inParcel.readLong();
-        this.setTitle(inParcel.readString());
-        this.setShortDesc(inParcel.readString());
-        this.image = (Bitmap) inParcel.readValue(null); // Gets Image
-        this.location = (Location) inParcel.readValue(null); // Gets location
-    }
+    public void readFromParcel(Parcel inParcel);
 
-    /**
-     * From: http://stackoverflow.com/a/18167140
-     */
-    public static final Parcelable.Creator<Waypoint> CREATOR = new Parcelable.Creator<Waypoint>() {
-        public Waypoint createFromParcel(Parcel in) {
-            return new Waypoint(in);
-        }
+    public static final Parcelable.Creator<Waypoint> CREATOR = new Parcelable.Creator<Waypoint>();
+        public Waypoint createFromParcel(Parcel in);
 
         /**
          * @param size pass in size of new array.
          * @return Waypoint type array with passed in size.
          */
-        public Waypoint[] newArray(int size) {
-            return new Waypoint[size];
-        }
+        public Waypoint[] newArray(int size);
     };
 
    @Override // Unused
    /**
     * Unused method. Required for parcelable implementation.
     */
-   public int describeContents() {
-        return 0;
-    }
+   public int describeContents();
 }
