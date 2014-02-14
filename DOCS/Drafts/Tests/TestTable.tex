@@ -1,0 +1,562 @@
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Modified by:
+% Charles Newey (http://assemblyco.de)
+%----------------------------------------
+
+% Declare document
+\documentclass{article}
+
+% Packages
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Images
+\usepackage{tabularx} % Tables
+\usepackage[colorlinks]{hyperref} % For URLs
+\usepackage[T1]{fontenc} % Support symbols like < and >
+\usepackage{lmodern} % Format symbols properly
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1} % Line spacing
+
+% Other setup
+\pagestyle{fancy}
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\renewcommand{\refname}{} % Removes bibliography title
+
+% Set up constants
+\newcommand{\address}{
+\small{
+	\begin{tabular}{ l}
+		Department of Computer Science, \\
+		Llandinam Building, \\
+		Aberystwyth University, \\
+		Aberystwyth, \\
+		Ceredigion, \\
+		SY23 3DB \\
+	\end{tabular}
+	}
+}
+
+% Set up the header and footer
+\lhead{\doctitle}										% Top left header
+\chead{\version}											% Top center head
+\rhead{\firstxmark \status}								% Top right header
+\lfoot{\lastxmark \qanumber}								% Bottom left footer
+\cfoot{Aberystwyth University/Computer Science}			% Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}}	% Bottom right footer
+
+% Set up title page
+\title{
+	\vspace{1.2in}
+	\textmd{\textbf{\doctitle}} \\
+	\vspace{0.1in}\large{\textit{\today}} \\
+	\vspace{0.4in}
+	{\bf{\qanumber}} \\ \vspace{0.4in} % QA document number
+	\version \\
+	\status \\
+	\vspace{0.4in}
+}
+
+\author{\authors}
+\date{}
+
+%----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
+\newcommand{\version}{Version: 1.0}
+\newcommand{\status}{Status: Draft}
+\newcommand{\qanumber}{SE.10.D2}
+\newcommand{\doctitle}{Group 10 Test Log Form}
+
+\newcommand{\authors}{ % Include a table for authors
+	\begin{tabular}{| l | l |}
+		\hline
+		\bf{Contributor Name} & \bf{Role} \\
+		\hline
+		Daniel Clark & Project Lead \\
+		\hline
+		Mark Lewis & QA Manager \\
+		\hline
+		Charles Newey & Deputy Project Lead \& Android Developer \\
+		\hline
+		Martin Ferris & Android Developer \\
+		\hline
+		Ashley Iles & Android Developer \\
+		\hline
+		Kenny Packer & Android Developer \\
+		\hline
+		Stephen McFarlane & Deputy QA \& Web Developer \\
+		\hline
+		Kieran Palmer & Web Developer \\
+		\hline
+	\end{tabular}
+	% Don't edit this
+	\\ \\ \\ \\ \\ \\
+	\address \vline
+	\hspace{0.15in} \copyright Copyright Group 10, 2013
+	% Don't edit this
+}
+
+% Make title page, ToC and other introductory elements
+\begin{document}
+	\maketitle
+	\newpage
+	\tableofcontents
+	\newpage
+
+	% Begin the actual document
+	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
+	\begin{section}{TEST LOG FORM}
+		\begin{subsection}{Tests}
+			\begin{tabularx}{\linewidth}{| p{1.5cm} | p{2cm} | p{9cm} | X |}
+				\hline
+				\bf{Test ID} & \bf{Pass / Fail} & \bf{Fail description} & \bf{CCF / issue number} \\
+				\hline
+1
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+2
+&
+Pass
+&
+
+&
+
+\\
+\hline 
+
+3
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+4
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+5
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+6
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+7
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+8
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+9
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+10
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+11
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+12
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+13
+&
+Pass 
+&
+
+&
+
+\\
+\hline
+
+14
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+15
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+16
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+17
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+18
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+19
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+20
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+21
+&
+Pass as written
+&
+
+&
+
+\\
+\hline
+
+22
+&
+Pass as written
+&
+
+&
+
+\\
+\hline
+
+23
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+24
+&
+
+&
+
+&
+
+\\
+\hline
+
+25
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+26
+&
+???
+&
+
+&
+
+\\
+\hline
+
+27
+&
+???
+&
+
+&
+
+\\
+\hline
+
+28
+&
+???
+&
+
+&
+
+\\
+\hline
+
+29
+&
+???
+&
+
+&
+
+\\
+\hline
+
+30
+&
+???
+&
+
+&
+
+\\
+\hline
+
+31
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+32
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+33
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+34
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+35
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+36
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+37
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+38
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+39
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+40
+&
+Pass
+&
+
+&
+
+\\
+\hline
+
+			\end{tabularx}
+		\end{subsection}
+	\end{section}
+	
+	% Include references here (edit the References.bib file)
+	\nocite{LaTeXTemplate}
+
+	% Format bibliography/refs
+	\newpage
+	\begin{section}{REFERENCES}
+		\bibliographystyle{acm}
+		\bibliography{References}
+	\end{section}
+	
+	\vspace{1cm}
+	\begin{section}{VERSION HISTORY}
+		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
+			\hline
+			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
+			\hline
+			CCN & 07/11/2013 & 1.0 & Created template \\
+			\hline
+		\end{tabularx}
+	\end{section}
+\end{document}
+
+%									Useful bits and pieces
+%\begin{section}{section_name}								% Start section
+%\end{section}												% End section
+%\begin{center} \end{center}								% Center stuff
+%\includegraphics[width=0.75\columnwidth]{example_figure}	% Insert image
+%\pseudocode{filename}{caption}								% Insert highlighted code snippet
+%\clearpage													% Clear page after section
+%\url{http://www.google.com/} 								% Include URL
+%\nocite{citationName}										% Cite to bibliography (but not to text)
+%\cite{citationName}										% Include reference
