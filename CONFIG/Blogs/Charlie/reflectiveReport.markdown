@@ -28,3 +28,7 @@ a new user. This became less of a problem as the project progressed, and I was a
 to help others - but this was initially a problem as it would have been more useful 
 to be able to help some of the other team members with learning project tools - 
 instead of spending time learning them myself.
+
+Total time spent on project
+---------------------------
+Estimated at 125 hours.
