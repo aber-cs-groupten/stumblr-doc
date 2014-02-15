@@ -97,11 +97,11 @@ I, Martin, have read this report and approve of Daniel's comments.
 
 Ashely Iles - Android Developer
 The role set out for Ashley initially was to be one of the Android Developers and out of everyone he stuck to his role the most.
-His attendance through all of the official meetings was generally very good, however he missed some of the non-official meetings. This was never however due to him being unenthusiastic, it was because the meetings were always organised via Facebook and Ashley has never been a strong Facebook user. Ashleys attendance during Integration and Testing week was not fantastic, often turning up late and on one day, not at all, however he did partially make up for that by staying late one one night to make some final changes.
+His attendance through all of the official meetings was generally very good, however he missed some of the non-official meetings. This was never however due to him being unenthusiastic, it was because the meetings were always organised via Facebook and Ashley has never been a strong Facebook user. Ashleys attendance during Integration and Testing week was not fantastic, often turning up late and on one day he didn't turn up at all, but that was due to illness (although we were only told this the day after). Despite this however he did partially make up for that by staying late one one night to make some final changes.
 Pre-ITW Ashley did work on the designs for the User Interface of the Android app including the initial designs and the initial way the user would use the App in the Sequence Diagram.
 During Integration and Testing Week Ashley ended up mainly focussing on the User Interface design for the Android App, as he generally has a good eye for what looks good. This involved things like working with the UI tool in Android Studio as well as directly editing the XML when he needed to. It also involved a reasonable amount of editing images that Charlie had taken previously for use as the backgrounds for the App. He also did work with the timestamps in each waypoint and was generally considered the go-to guy whenever the XML was involved.
 Ashley's quality of work was generally good, however at times it required quite a lot of effort to get work out of him in the first place.
-WRITE APPROVAL LINE HERE
+I, Ashley Iles, do agree that the above is an accurate description of my involvement in this group project.
 
 
 Kenny Packer - Android Developer
@@ -128,6 +128,7 @@ Critical evaluation of the team and the project
 -----------------------------------------------
 
 1. How did the team perform as a whole, and how could that have been improved?
-As a whole, the team performed fantastically, which resulted with a finished product i think we're all extremely happy with. The contributions of some team members significantly outweighed the contribution of others however which led to a
+As a whole, the team performed fantastically, which resulted with a finished product i think we're all extremely happy with. The contributions of some team members significantly outweighed the contribution of others however which led to an unballanced seperation of the work. I think the project as a whole could have been improved by spending more time focussing on making sure the Git version control was nailed down and fully understood in everyones mind, because it allows for far greater collaberation even when the group aren't in the same room. Another improvment i'd make if i did this again would have a better adopted communications system due to the fact that neither Kieran or Ashley spend much time on facebook, meaning they missed out on a lot of the communications that were happening.
 2. How could the project have been improved?
+
 3. What were the most important lessons learned about software projects and about working in teams?
