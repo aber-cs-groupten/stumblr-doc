@@ -1,6 +1,28 @@
 End-of-Project Report
 =====================
 
+Purpose of this Document
+------------------------
+The purpose of this document is to give both an brief overview and an in-depth report into the quality of the finished project. It is also to give a maintanence manual for both sides of the project to ensure future devlopment of the project is as simple as possible.
+
+Scope
+-----
+This document will cover a Manament Summary which is a brief overview of the entire project, it's completion and how the team worked to get it to it's current state. It also includes a Historical Account of the Project which entails a step by step overview of the major milestones in the project in order from oldest to newest. A section for the Final State of the Project is also included which goes into more detail about exactly what parts of the software works and what doesn't. An individual assessment of of the Performance of each Team Member is also included to go into detail about the contribution and progress every member of the team has had over the course of the project. Lastly there is a brief Critical evaluation of the team and the project which explains what we have learnt from the project and what we would change for next time.
+It will also contain a Mainanence Manual for both the Android and the Web sides of the project to ensure that the future development of the projects source code is as simple as possible.
+This document will also supply the manament with a personal reflective report from every member of the group on how they think the experience went, plus the revised versions of the previously submitted documentation after the recommened changes have been made.
+
+
+Objectives
+----------
+The objectives of this document are to:
+* Give a suitable summary for submission to possibly higher managment to give an idea of how the project has gone.
+* Give an in-depth view of the projects progress for the Group Manager to use to judge the quality of the software and documents produced in the project.
+* Give future developers a set of guides and materials for easy continued devlopment of all software in the project.
+* Give a personal reflective report for each group member to give the Group Manager a good idea of how the project was run and how each group member felt the project went.
+* Give up to date versions of the previously submitted versions of documents are the Manager advised changes had been made.
+
+
+
 Management Summary
 ------------------
 
