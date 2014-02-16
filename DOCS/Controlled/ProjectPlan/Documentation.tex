@@ -128,9 +128,9 @@
 	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
-			The purpose of this document is to show that we have met the outlined objectives specified by the client. 
+			The purpose of this document is to show that we have met the outlined objectives specified by the client.
 
-The main objective is as follows: "Walking Tour Creator (WTC) is a computer-based system to compile data about a walking tour, and structure it in a database that can be used by a mobile application which guides people around the walk, showing them places of interest along the way. WTC will be able to build a number of related walks, showing the location and details of places of interest along with photos, audio, video, about each place. All textual data will be stored in English." \\
+The main objective is to create a system that enables users to collect and compile data about a walking tour - through the use of a smartphone application and a web interface. The smartphone application will be able to use the device's GPS functionality and internet connectivity to collect and upload the data, and the web interface will display the data in a sensible fashion. All information will be stored in a database, that will allow insertion of data by the phone application, and retrieval by the web interface. The data should include a photo, textual descriptions, and titles, as well as GPS location data and other metadata including timestamps, and so on.
 
 This document will show we have managed to simplify these into a set of manageable goals. Gantt charts and GitHub's contribution analysis functionality will be used in conjunction to show and monitor the progress of the project's major tasks and other milestones. We are also implementing a risk analysis system that should alert us to the various problems that we may face whilst completing our objectives, and also allow us to mitigate the risks involved.
 		\end{subsection}
@@ -171,17 +171,19 @@ This document will show we have managed to simplify these into a set of manageab
 		\clearpage
 		\begin{subsection}{Client and Server Languages}
 			The server will use a MySQL database as backend and a PHP, HTML, and JavaScript frontend. The Android application will use Java and the associated Google APIs as programming languages.
+			
+			The website will be hosted on \href{http://users.aber.ac.uk/}, due to a number of factors that will be detailed in the design document.
 		\end{subsection}
 	\end{section}
 	
 	\begin{section}{Platforms and High Level Architecture}
 		\begin{subsection}{Mobile Architecture}
 			\begin{subsubsection}{Operating System}
-				It is stated in the specification set by the client that the system is to be designed for Android mobile phones.
+				It is stated in the specification set by the client that the system is to be designed for Android mobile phones. We will be targeting Android SDK/API version 8 and upwards - this translates to Android 2.3 (Gingerbread) and higher.
 			\end{subsubsection}
 			
 			\begin{subsubsection}{Location Derivation}
-				The user's location will primarily be derived over GPS, but also may be derived from WiFi and Cell network, using Google's Location API, a functionality which is present within Android.
+				The user's location will be derived with GPS using the Android API and the smartphone's GPS connectivity.
 			\end{subsubsection}
 			
 			\begin{subsubsection}{Connectivity}
@@ -200,11 +202,11 @@ This document will show we have managed to simplify these into a set of manageab
 		\clearpage
 		\begin{subsection}{Web Architecture}
 			\begin{subsubsection}{Server-Side Scripting}
-				PHP is the chosen server-side scripting language. It is sufficiently fast and light enough to serve our needs, and has a reputation for stability. PHP is also excellent for HTML page generation, MySQL database integration, and page updating via asynchronous technologies like AJAX.
+				PHP is the chosen server-side scripting language. It is sufficiently fast and light enough to serve our needs, and has a reputation for stability. PHP is also excellent for HTML page generation, MySQL database integration, and dynamic content display.
 			\end{subsubsection}
 			
 			\begin{subsubsection}{Client-Side Scripting}
-				For more dynamic areas of the web interface, and client-side access to some of the APIs provided by Google, we will be using Javascript. As part of the extended functionality there may also be AJAX implemented in the web interface, which will help the user retrieve walks from a search function.
+				For more dynamic areas of the web interface, and client-side access to some of the APIs provided by Google, we will be using Javascript.
 			\end{subsubsection}
 			
 			\begin{subsubsection}{Database}
@@ -214,13 +216,17 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{APIs}
 				A large part of the web interface's codebase will revolve around generating a map with the Google Maps API. The API will allow us to dynamically generate a map containing the waypoints for each route.
 			\end{subsubsection}
+
+			\begin{subsubsection}{Android Version}
+				The android SDK version we are using is 8. This will allow our application to run on any android devices running version 2.2 or higher.
+			\end{subsubsection}
 		\end{subsection}
 	\end{section}
 	
 	\newpage
 	\begin{section}{GANTT CHART}
 		\begin{center}
-		\includegraphics[height=1\columnwidth, angle=90]{./Diagrams/GanttChart/GanttChart.jpg}
+		\includegraphics[height=1\columnwidth, angle=90]{./Diagrams/GanttChart/GanttChart_revised.jpg}
 		\end{center}
 	\end{section}
 	
@@ -416,7 +422,7 @@ This document will show we have managed to simplify these into a set of manageab
 					\begin{center}
 						\includegraphics[height=0.45\columnwidth]{./Diagrams/AndroidUserInterface/source/homeScreen.png}
 					\end{center}
-					\caption{The home screen is the first screen that the user will be able to see when the app is loaded. There are three buttons on this page the first two will, when clicked, take the user to the Route Info or Unfinished Route screen. The last button on this screen will close the application.}
+					\caption{The home screen is the first screen that the user will be able to see when the app is loaded. There are three buttons on this page the first two will, when clicked, take the user to the Route Info screen. The last button on this screen will close the application.}
 				\end{figure}
 			\end{subsubsection}
 			
@@ -449,15 +455,6 @@ This document will show we have managed to simplify these into a set of manageab
 					\caption{The name and description can be entered into text boxes on this screen. Also images of the location can be added using the Add Image button. Images that have been added will be displayed below the Add Image button, and below the image place holder is the Save button that will return the user to the Route Content screen.}
 				\end{figure}
 			\end{subsubsection}
-			
-			\begin{subsubsection}{Unfinished Routes}
-				\begin{figure}[h!]
-					\begin{center}
-						\includegraphics[height=0.45\columnwidth]{./Diagrams/AndroidUserInterface/source/unfinishedRoutes.png}
-					\end{center}
-					\caption{This screen will list the routes that have been saved locally but not uploaded to the sever. When an item in the list is clicked on the user will be taken to the Route Info page for that item so that they can edit it's content.}
-				\end{figure}
-			\end{subsubsection}
 		\end{subsection}
 		
 		\clearpage
@@ -475,6 +472,7 @@ This document will show we have managed to simplify these into a set of manageab
 
 	% Include references here (edit the References.bib file)
 	\nocite{LaTeXTemplate}
+	\nocite{ProjDocs}
 
 	% Format bibliography/refs
 	\newpage
@@ -485,13 +483,13 @@ This document will show we have managed to simplify these into a set of manageab
 	
 	\vspace{1cm}
 	\begin{section}{VERSION HISTORY}
-		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | }
+		\begin{tabularx}{\linewidth}{| p{2cm} | p{2cm} | p{2cm} | X | p{1cm} | }
 			\hline
-			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} \\
+			\bf{Author} & \bf{Date} & \bf{Version} & \bf{Change made} & {\bf CCF} \\
 			\hline
-			CCN & 07/11/2013 & 1.1 & Updated order of authors on cover \\
-			\hline
-			DEC & 07/11/2013 & 1.2 & Added High Level Architecture diagram \\
+			CCN & 07/11/2013 & 1.1 & Updated order of authors on cover & n/a \\
+			\hline 
+			DEC & 07/11/2013 & 1.2 & Added High Level Architecture diagram & \#37 \\
 			\hline
 		\end{tabularx}
 	\end{section}
