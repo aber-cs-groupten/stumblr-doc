@@ -350,6 +350,19 @@
 	\end{subsection}
 	
 	\newpage
+	\begin{subsection}{Improvements to Android Application}
+		There are several existing bugs and shortcomings within the application that were discovered after release; these would make a good starting point for any future maintenance. These were discovered through our extensive testing processes, and represent the sum total of the bugs we have found to date.
+		
+		\begin{itemize}
+			\item{Multiple images on each waypoint: \\
+			Due to a misinterpretation of the customer's requirements, the application does not support inclusion of multiple images per Waypoint for each Walk.}
+			\item{Editing of Route title: \\
+			Discovered during acceptance testing - another result of misreading requirements. The Route title cannot be created once the Route has been created.}
+			\item{Refreshing of ListView in onRestoreInstanceState method: \\
+			This was discovered during our final pre-release testing - when the user has a list of Waypoints on the WaypointList screen, minimises the Activity and the Android system kills the sleeping Activity, the data is restored to the application, but the Waypoints don't appear on the screen, due to the ListView not being updated. The application data is restored, it just doesn't appear until another Waypoint is added.}
+		\end{itemize}
+	\end{subsection}
+	
 	\begin{subsection}{Building and Testing}
 		This subsection details the tools and methods that were used to create and compile the application and documentation.
 		
@@ -374,6 +387,7 @@
 	\end{subsection}
 	\end{section}
 	
+	\clearpage
 	\begin{section}{Website Maintenance Manual}
 		\subsection{Website Description}
 		This website is a walking tour viewer, it pulls data from a database which is provided by the android application Stumblr. It then uses this data in conjunction with the Google maps API on the website to display the tour on the map, including information on the locations visited on the route. It also provides a gallery bar of all the images of the tour selected if there are any.
