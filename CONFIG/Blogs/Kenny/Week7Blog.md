@@ -2,7 +2,7 @@ Kenny Packer - 22.11.2013
 ===============
 Role: Android Dev Team
 
-Time Working On Project: 
+Time Working On Project: 2 hours
 Subject: Weekly Blog Entry 7
 ---------------
 
