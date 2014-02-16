@@ -4,8 +4,6 @@ Group 10 Project - "stumblr"
 Useful links
 ------------
 
-  * [Wiki](https://github.com/CS211Group10/stumblr/wiki/)
-  * [Git instructions](https://github.com/CS211Group10/stumblr/wiki/Git-Instructions)
-  * [GitHub instructions](https://github.com/CS211Group10/stumblr/wiki/GitHub-Instructions)
-
-Also the intro to Git presentation is in Info>Git
+  * 
+  
+Also the "Intro to Git" presentation is in Info>Git
