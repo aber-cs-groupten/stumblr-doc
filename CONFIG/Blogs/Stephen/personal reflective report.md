@@ -5,3 +5,7 @@ Well I think the group project went great the group worked well as part of a tea
 We had a few problems with the website like not having a database up and running for a while and the database interaction with the Google maps JavaScript, but this was all sorted out and was finally fixed.
 
 Personaly I found the project enjoyable I learnt alot and was fun at some times. 
+
+total amount of hours on project :  60-65 hours over pieces of work and 30 hours looking up information to create website such as researching Google maps and php techniques to get the website to work.
+
+Total hours : 90-95
