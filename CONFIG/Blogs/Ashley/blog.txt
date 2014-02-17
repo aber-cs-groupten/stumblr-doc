@@ -1,0 +1,10 @@
+2013-10-18
+  created first gui design
+2013-10-25
+  redesign gui
+2013-10-29
+  attend git / github session
+2013-11-19
+  work on the detailed design
+2013-12-10
+  implement gui into a prototype app
