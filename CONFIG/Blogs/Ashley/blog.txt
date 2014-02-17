@@ -8,3 +8,11 @@
   work on the detailed design
 2013-12-10
   implement gui into a prototype app
+IntegrationAndTestingWeek
+  work on adding the time stamp to waypoints
+  finalise gui for all viewable activities
+  remove unessary tags from xml files
+  create splash image for the first screen
+  test functionality of gui elements
+2014-01-14
+  carry out final testing on the android and web systems
