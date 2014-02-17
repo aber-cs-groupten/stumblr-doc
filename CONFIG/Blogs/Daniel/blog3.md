@@ -1,9 +1,9 @@
-Daniel Clark - 5/12/13
+Daniel Clark - 25/10/13
 ===============
 Role: Group Leader
 
-Time Working On Project: 8 hours 
-Subject: Design Spec Finalising
+Time Working On Project: 3 hours 
+Subject: Facebook, Git and GUIs
 ---------------
 
-This week we colated together all the work that had been done for the Design spec. People have also been finishing of the issues they had with the Project Plan. I setup the Github Issues for the Test Specification updates, and continued to chase people for missing pieces of the Design Doc. We've now got a backbone setup for the code, meaning that when we start coding on the 6th, it should be easy to fill in the blanks. Most things are going well at the moment, but will having problems with a few group members not turning up to meetings when they should, and not contributing as much as they could.
+This week I set up the group facebook page so that we can easily communicate meetings and ideas. I also started working on setting up the Github repository because I have lots of Git experience, although I have decided to wait until after the Git workshop to see what structure we will need to have in the Git repository. Also Ashley presented his GUI design which definitely looks like a good start and let other group memebers start work on the Use Case diagrams.

@@ -1,9 +1,9 @@
-Daniel Clark - 21/11/13 
+Daniel Clark - 11/10/13
 ===============
-Role: Group Leader
+Role: NONE (yet)
 
-Time Working On Project: 5 hours 
-Subject: Design Docs
+Time Working On Project: 3 hours 
+Subject: Introductions
 ---------------
 
-This week we started work on the design documentation. In our non-official group meeting we set out the roles that each person will have to to complete for their section of document. Using github issues as a way for each person to easily know what their actions are seems to be catching on a bit better, as people remember to check them regularly for new task. I've also decided that from now on all documentation (except stuff that has tables) will be done in either Markdown or LaTeX, as markup languages are far more 'git happy' than .odt. Of course doing tables in markdown is impracticle and if people aren't confident in latex, it's not really practicle either, so .odt is still just about acceptable for tables, for nwo.
+This week, in our first meeting of the year, we each introduced ourselves and started to get to know eachother. We also met bernie who was to be our Group Manager for the project (As well as the customer). Group roles wer mentioned but it was decided to leave that decision until next week. From what I've seen of the group so far I think this is going to be a great project, especially as i already know a few members of my group.
