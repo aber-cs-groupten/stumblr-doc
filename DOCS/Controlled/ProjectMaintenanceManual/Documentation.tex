@@ -84,7 +84,7 @@
 \newcommand{\version}{Version: 1.0} %======================================================= DOC VERSION
 \newcommand{\status}{Status: Release} %===================================================== DOC STATUS
 \newcommand{\qanumber}{SE.10.MAN.1} %=================================================== QA NUMBER
-\newcommand{\doctitle}{Group 10 Android Maintenance Manual} %=============================== DOC TITLE
+\newcommand{\doctitle}{Group 10 Maintenance Manual} %=============================== DOC TITLE
 
 %----------------------------- UPDATE THESE FOR EACH DOCUMENT ------------------------------
 %=========================================================================================== VERSION HISTORY
@@ -276,7 +276,7 @@
 		
 		\newpage
 		\begin{subsubsection}{FinishRoute}
-		This Activity is responsible for converting the (completed) Route object to JSON and uploading it to the web server, ready for displaying on the web interface. As the data structures dealt with in this class are generally 
+		This Activity is responsible for converting the (completed) Route object to JSON and uploading it to the web server, ready for displaying on the web interface. As the data structures dealt with in this class are generally simple (and have already been covered), they are not mentioned in this section.
 			\begin{paragraph}{Significant methods}
 				\begin{itemize}
 					\item{{\bf public void stumblrOnCreate} \\
@@ -317,7 +317,7 @@
 			\begin{paragraph}{Significant data structures}
 				\begin{itemize}
 					\item{{\bf private ListView listView} \\
-					This ListView object is used to display and manipulate the Route's Waypoints on-screen. The user can view a list of the current Waypoints, or edit the}
+					This ListView object is used to display and manipulate the Route's Waypoints on-screen. The user can view a list of the current Waypoints, or edit them by tapping each entry in the list.}
 				\end{itemize}
 			\end{paragraph}
 			
@@ -356,8 +356,10 @@
 		\begin{itemize}
 			\item{Multiple images on each waypoint: \\
 			Due to a misinterpretation of the customer's requirements, the application does not support inclusion of multiple images per Waypoint for each Walk.}
+			
 			\item{Editing of Route title: \\
 			Discovered during acceptance testing - another result of misreading requirements. The Route title cannot be created once the Route has been created.}
+			
 			\item{Refreshing of ListView in onRestoreInstanceState method: \\
 			This was discovered during our final pre-release testing - when the user has a list of Waypoints on the WaypointList screen, minimises the Activity and the Android system kills the sleeping Activity, the data is restored to the application, but the Waypoints don't appear on the screen, due to the ListView not being updated. The application data is restored, it just doesn't appear until another Waypoint is added.}
 		\end{itemize}
@@ -440,7 +442,7 @@ The final table used in the database stores a path for each walk. Therefore it h
 
 
 		\subsubsection{Algorithms}
-		The main algorithm used for this webpage is creating an XML file of information from the database. This is used in both XMLcreator.php and xmlpath.php . They do this by connecting to the database, and then pulling data from the table that the information is in. Next it iterates through the rows adding XML nodes for each part, which is then used in index.php when the function downloadUrl() is called to get this information which it loops through to get all of the information.
+		The main algorithm used for this webpage is creating an XML file of information from the database. This is used in both XMLcreator.php and xmlpath.php. They do this by connecting to the database, and then pulling data from the table that the information is in. Next it iterates through the rows adding XML nodes for each part, which is then used in index.php when the function downloadUrl() is called to get this information which it loops through to get all of the information.
 
 
 		\subsubsection{Files}
@@ -458,21 +460,20 @@ The final table used in the database stores a path for each walk. Therefore it h
 
 		\subsubsection{Things to Watch When Making Changes}
 		There are many things to watch for when making changes I will now go through some with the website and the database.
-		Website
-
+		
+		\paragraph{Website}
 		The thing you most want to watch out for when making changes to the website is the JavaScript as one small change and a whole bunch of problems can happen. I would recommend having a backup of the file working before making changes to see where you might have gone wrong. Another way you could prevent from getting errors with the Google maps JavaScript is to go through their website as they have many example of a working Google map. Also another thing to watch out for when making changes to the website is that you use the right queries for getting information out of the database. Also when testing the website if would use the browsers debugger like Firefox’s this can tell you were you are going wrong.
 
-		\subsubsection{Database}
+		\paragraph{Database}
 		Changing the overall structure of the database will have knock on effects on the rest of the system. Most of the PHP code used for accessing the database uses variables and statements which rely on the names of columns in the database. The areas that it would affect would include pulling data, decoding the JSON and inserting data into the database. Therefore it is important that if any changes are made to the database they are made to every PHP file. 
 
-		\subsubsection{Physical limitations of the program}
+		\paragraph{Physical limitations of the program}
 		A physical limitations of our website is that the database is held on a different database to the website which means if it goes down there is now way of using the information on the database with the website. This means if it went down the website would not be able to get any information for the tour leaving it mostly blank and useless.
 
 
-		\subsubsection{Rebuilding and testing}
-			There is no need for rebuilding of the website as PHP is an interpreted language so it does not need to be rebuilt.
-	
-			For testing there are not PHP unit tests in the website so you can only browser test it to make sure that it works on the most popular browsers.
+		\paragraph{Rebuilding and testing}
+			There is no need for rebuilding of the website as PHP is an interpreted language so it does not need to be rebuilt. For testing, there are no PHP unit tests in the website - so you can only browser-test it to ensure that it works in the most popular browsers.
+			
 	\end{section}
 	
 	\begin{section}{Database Maintenance Manual}
@@ -488,7 +489,7 @@ The final table used in the database stores a path for each walk. Therefore it h
 		The final table used in the database stores a path for each walk. Therefore it has a foreign key integer which references to the walk it represents, a value for the longitude and latitude which are both stored as floats. 
 
 		\subsection{Files}
-		In order to access the data in the database three files containing PHP scripts were used. Two of the files where used for converting the data into XML, one for the locations on a tour and another for the path. Then the XML could be used to display the tours in conjunction with Google Maps. The way these scripts work is to first connect to the database, then they use SQL queries to find which data in the database they need depending on which tour is selected. Finally they pull the data from the database and insert it into a new XML file. \\
+		In order to access the data in the database three files containing PHP scripts were used. Two of the files were used for converting the data into XML; one for the locations on a tour, and another for the path. Then the XML could be used to display the tours in conjunction with Google Maps. The way these scripts work is to first connect to the database, then they use SQL queries to find which data in the database they need depending on which tour is selected. Finally they pull the data from the database and insert it into a new XML file. \\
 		
 		The final file which is used is another PHP script and this decodes the incoming data in the form of a JSON file and inserts them into the database. Firstly the script establishes a connection to the database, then it takes in the JSON file and decodes it using a PHP function called json\_decode. Next it stores the decoded data as variables and these variables are using along with SQL commands to add the data to the database.
 

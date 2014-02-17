@@ -128,9 +128,9 @@
 	%-------------------------------------- DOCUMENT STARTS HERE ------------------------------------
 	\begin{section}{INTRODUCTION}
 		\begin{subsection}{Purpose of This Document}
-			The purpose of this document is to show that we have met the outlined objectives specified by the client.
+			The purpose of this document is to show that we have met the outlined objectives specified by the client. \\
 
-The main objective is to create a system that enables users to collect and compile data about a walking tour - through the use of a smartphone application and a web interface. The smartphone application will be able to use the device's GPS functionality and internet connectivity to collect and upload the data, and the web interface will display the data in a sensible fashion. All information will be stored in a database, that will allow insertion of data by the phone application, and retrieval by the web interface. The data should include a photo, textual descriptions, and titles, as well as GPS location data and other metadata including timestamps, and so on.
+The main objective is to create a system that enables users to collect and compile data about a walking tour - through the use of a smartphone application and a web interface. The smartphone application will be able to use the device's GPS functionality and internet connectivity to collect and upload the data, and the web interface will display the data in a sensible fashion. All information will be stored in a database, that will allow insertion of data by the phone application, and retrieval by the web interface. The data should include a photo, textual descriptions, and titles, as well as GPS location data and other metadata including timestamps, and so on. \\
 
 This document will show we have managed to simplify these into a set of manageable goals. Gantt charts and GitHub's contribution analysis functionality will be used in conjunction to show and monitor the progress of the project's major tasks and other milestones. We are also implementing a risk analysis system that should alert us to the various problems that we may face whilst completing our objectives, and also allow us to mitigate the risks involved.
 		\end{subsection}
@@ -172,11 +172,11 @@ This document will show we have managed to simplify these into a set of manageab
 		\begin{subsection}{Client and Server Languages}
 			The server will use a MySQL database as backend and a PHP, HTML, and JavaScript frontend. The Android application will use Java and the associated Google APIs as programming languages.
 			
-			The website will be hosted on \href{http://users.aber.ac.uk/}, due to a number of factors that will be detailed in the design document.
+			The website will be hosted on \url{http://users.aber.ac.uk/}, due to a number of factors that will be detailed in the design document.
 		\end{subsection}
 	\end{section}
 	
-	\begin{section}{Platforms and High Level Architecture}
+	\begin{section}{PLATFORMS AND HIGH LEVEL ARCHITECTURE}
 		\begin{subsection}{Mobile Architecture}
 			\begin{subsubsection}{Operating System}
 				It is stated in the specification set by the client that the system is to be designed for Android mobile phones. We will be targeting Android SDK/API version 8 and upwards - this translates to Android 2.3 (Gingerbread) and higher.
@@ -189,7 +189,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\begin{subsubsection}{Connectivity}
 				The application will need to use several aspects of a mobile phone's connectivity - for a start, when the user is creating a walk, each waypoint will need to be marked with GPS coordinates. Then a further functional requirement specifies that the application must be able to upload each route in an HTTP POST to a remote server. This obviously requires the utilisation of internet connectivity - the application will support uploading over both WiFi (or 802.11 Wireless LAN) and over the mobile network. \\
 				
-				Being able to upload over WiFi and the mobile network introduces problems with the upload of the "route package" - uploading over the mobile network will take considerably longer than over WiFi, not to mention increasing the impact on the user's battery life. Because of this the system will be designed to alter the size and quality of each image within the route package, based on connection type. If the mobile network is being used (rather than WiFi), then the images will be "shrunk" in size and the JPEG compression will be slightly increased to compensate for the connection difference. \\
+				Being able to upload over WiFi and the mobile network introduces problems with the upload of the "route package" - uploading over the mobile network will take considerably longer than over WiFi, not to mention increasing the impact on the user's battery life. Because of this the system will be designed to alter the size and quality of each image within the route package. The images will be "shrunk" in size and strong JPEG compression will be used to reduce file size where possible. \\
 				
 				The problem of connection instability must also be addressed. The application must be robust enough to reliably deliver a finished route over HTTP - a problem when using a mobile network or WiFi. The application will be able to handle connection outages and instability, and subsequently resume or retry transmission when a stable connection is restored.
 			\end{subsubsection}
@@ -210,7 +210,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\end{subsubsection}
 			
 			\begin{subsubsection}{Database}
-				MySQL is a popular and widely used database platform which will be used to store the data from each route. This will be used as a backend for both the Android application's upload function, and the web interface.
+				MySQL is a popular and widely used database platform which will be used to store the data from each route. This will be used as a backend for both the Android application's upload function and the web interface.
 			\end{subsubsection}			
 			
 			\begin{subsubsection}{APIs}
@@ -218,7 +218,7 @@ This document will show we have managed to simplify these into a set of manageab
 			\end{subsubsection}
 
 			\begin{subsubsection}{Android Version}
-				The android SDK version we are using is 8. This will allow our application to run on any android devices running version 2.2 or higher.
+				The Android SDK version we are using is 8. This will allow our application to run on any android devices running version 2.2 or higher.
 			\end{subsubsection}
 		\end{subsection}
 	\end{section}
