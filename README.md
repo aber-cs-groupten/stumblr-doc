@@ -22,7 +22,8 @@ SRC directory
 All source is in CONTROLLED due to being in release status. Source listing:
   * Database dump ("database")
   * Website source ("website")
-  * Android project (in a .tar.gz file)
+  * Android Studio project (in a .tar.gz file)
+  * Android Java code ("android_java")
   
   
 Final document location
