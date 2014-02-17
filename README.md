@@ -24,8 +24,7 @@ All source is in CONTROLLED due to being in release status. Source listing:
   * Website source ("website")
   * Android Studio project (in a .tar.gz file)
   * Android Java code ("android_java")
-  
-  
+
 Final document location
 -----------------------
 [DOCS/Controlled/FinalDoc/Final_Doc.pdf](DOCS/Controlled/FinalDoc/Final_Doc.pdf)
@@ -35,4 +34,7 @@ The "Intro to Git" presentation used for introducing team members to Git is in I
 Previous document versions
 --------------------------
 Please note that previous document versions are in the Git commit history of this
-repository. You should be able to 
+repository. You should be able to revert to commit hash "2047349ebec61ae57fa61f9f4693e8e121e78292"
+
+Issue "git checkout 2047349ebec61ae57fa61f9f4693e8e121e78292" to check out original commit.
+To revert back to latest commit, issue "git checkout HEAD".
