@@ -24,4 +24,9 @@ All source is in CONTROLLED due to being in release status. Source listing:
   * Website source ("website")
   * Android project (in a .tar.gz file)
   
+  
+Final document location
+-----------------------
+[DOCS/Controlled/FinalDoc/Final_Doc.pdf](DOCS/Controlled/FinalDoc/Final_Doc.pdf)
+  
 The "Intro to Git" presentation used for introducing team members to Git is in Info > Git.
